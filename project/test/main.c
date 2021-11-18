@@ -5,9 +5,9 @@
 #include <stdlib.h>
 #define BACKWHITE BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE
 #define WHITE FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY
-#define BLUE FOREGROUND_BLUE | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE
-#define RED FOREGROUND_RED | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE
-#define GREEN FOREGROUND_GREEN | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE
+#define BLUE FOREGROUND_BLUE | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE| BACKGROUND_INTENSITY
+#define RED FOREGROUND_RED | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE| BACKGROUND_INTENSITY
+#define GREEN FOREGROUND_GREEN | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE| BACKGROUND_INTENSITY
 #define ENTER 13
 #define ESC 27
 #define ARROW 224
@@ -200,7 +200,7 @@ void printCalendar()
                 system("cls");
                 days = numberOfDays(i, year);
                 // Print the current month name
-                printf(" ------------%d年%s-------------\n", year, getMonthName(i));
+                printf("           %d年%s            \n", year, getMonthName(i));
                 // Print the columns
                 printf(" Sun   Mon  Tue  Wed  Thu  Fri  Sat\n");
                 // Print appropriate spaces
@@ -212,7 +212,8 @@ void printCalendar()
                 {
                     if (i == mon && j == today && year == thisyear)
                         printday(x, y, RED, j), x += 5;
-                    else if(i == mm-1 && j == dd && year == yy) printday(x, y,GREEN, j), x += 5;
+                    else if(i == mm-1 && j == dd && year == yy) 
+                    printday(x, y,GREEN, j), x += 5;
                         else printday(x, y, BLUE, j), x += 5;
 
                     if (++k > 6)
@@ -244,7 +245,7 @@ void printCalendar()
 }
 int main()
 {
-    system("color 79");
+    system("color F9");
     system("chcp 65001");
     system("cls");
     CONSOLE_CURSOR_INFO cursor_info = {1, 0};

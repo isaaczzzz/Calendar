@@ -36,40 +36,40 @@ char *getMonthName(int monthNumber)
     switch (monthNumber)
     {
     case 0:
-        month = "一月";
+        month = "???";
         break;
     case 1:
-        month = "二月";
+        month = "????";
         break;
     case 2:
-        month = "三月";
+        month = "????";
         break;
     case 3:
-        month = "四月";
+        month = "????";
         break;
     case 4:
-        month = "五月";
+        month = "????";
         break;
     case 5:
-        month = "六月";
+        month = "????";
         break;
     case 6:
-        month = "七月";
+        month = "????";
         break;
     case 7:
-        month = "八月";
+        month = "????";
         break;
     case 8:
-        month = "九月";
+        month = "????";
         break;
     case 9:
-        month = "十月";
+        month = "???";
         break;
     case 10:
-        month = "十一月";
+        month = "????";
         break;
     case 11:
-        month = "十二月";
+        month = "?????";
         break;
     }
     return month;
@@ -86,7 +86,7 @@ int numberOfDays(int monthNumber, int year)
     // February
     if (monthNumber == 1)
     {
-        // 闰年判断
+        // ?????ж?
         if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))
             return (29);
         else
@@ -211,7 +211,7 @@ void printCalendar()
                 go(0,0);
                 days = numberOfDays(i, year);
                 // Print the current month name
-                printf("           %d年%s            \n", year, getMonthName(i));
+                printf("           %d??%s            \n", year, getMonthName(i));
                 // Print the columns
                 printf(" Sun   Mon  Tue  Wed  Thu  Fri  Sat\n");
                 // Print appropriate spaces
@@ -249,8 +249,8 @@ void printCalendar()
         p2 = gmtime(&timep2);
         go(0, y);
         color(BLUE);
-        printf("现在是：%04d/%02d/%02d %02d:%02d:%02d", p2->tm_year + 1900, p2->tm_mon + 1, p2->tm_mday,
-               (p2->tm_hour + 8 == 24 ? 0 : p2->tm_hour), p2->tm_min, p2->tm_sec);
+        printf("???????%04d/%02d/%02d %02d:%02d:%02d", p2->tm_year + 1900, p2->tm_mon + 1, p2->tm_mday,
+               (p2->tm_hour + 8 == 24 ? 0 : p2->tm_hour + 8), p2->tm_min, p2->tm_sec);
     }
 
     return;
@@ -261,7 +261,7 @@ int main()
     system("chcp 936");
     system("cls");
     CONSOLE_CURSOR_INFO cursor_info = {1, 0};
-    SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor_info); //隐藏光标
+    SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor_info); //??????
     printCalendar();
     return 0;
 }
@@ -269,13 +269,13 @@ void color(int a)
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), a);
 }
-void go(int x, int y) //光标移动函数，X表示横坐标，Y表示纵坐标
+void go(int x, int y) //????????????X?????????Y?????????
 {
-    COORD coord; //坐标
+    COORD coord; //????
     coord.X = x;
     coord.Y = y;
-    HANDLE a = GetStdHandle(STD_OUTPUT_HANDLE); //获得标准输出句柄
-    SetConsoleCursorPosition(a, coord);         //以标准输出的句柄为参数设置控制台光标坐标
+    HANDLE a = GetStdHandle(STD_OUTPUT_HANDLE); //???????????
+    SetConsoleCursorPosition(a, coord);         //???????????????????????????????
 }
 void printday(int x, int y, int colour, int num)
 {

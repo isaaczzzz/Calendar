@@ -2,7 +2,7 @@
 
 int main(void)
 {
-    char ch[100][100] = "李金羽";
+    char ch[100] = "李金羽";
     //scanf("%s", ch);
     printf("%s", ch);
     getchar();

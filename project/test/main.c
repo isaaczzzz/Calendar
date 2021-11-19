@@ -3,11 +3,11 @@
 #include <windows.h>
 #include <time.h>
 #include <stdlib.h>
-#define BACKWHITE BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE
+#define BACKBLUE BACKGROUND_BLUE | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY
 #define WHITE FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY
-#define BLUE FOREGROUND_BLUE | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE| BACKGROUND_INTENSITY
-#define RED FOREGROUND_RED | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE| BACKGROUND_INTENSITY
-#define GREEN FOREGROUND_GREEN | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE| BACKGROUND_INTENSITY
+#define BLUE FOREGROUND_BLUE | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY
+#define RED FOREGROUND_RED | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY
+#define GREEN FOREGROUND_GREEN | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY
 #define ENTER 13
 #define ESC 27
 #define ARROW 224
@@ -36,40 +36,40 @@ char *getMonthName(int monthNumber)
     switch (monthNumber)
     {
     case 0:
-        month = "ä¸€æœˆ";
+        month = "Ò»ÔÂ";
         break;
     case 1:
-        month = "äºŒæœˆ";
+        month = "¶şÔÂ";
         break;
     case 2:
-        month = "ä¸‰æœˆ";
+        month = "ÈıÔÂ";
         break;
     case 3:
-        month = "å››æœˆ";
+        month = "ËÄÔÂ";
         break;
     case 4:
-        month = "äº”æœˆ";
+        month = "ÎåÔÂ";
         break;
     case 5:
-        month = "å…­æœˆ";
+        month = "ÁùÔÂ";
         break;
     case 6:
-        month = "ä¸ƒæœˆ";
+        month = "ÆßÔÂ";
         break;
     case 7:
-        month = "å…«æœˆ";
+        month = "°ËÔÂ";
         break;
     case 8:
-        month = "ä¹æœˆ";
+        month = "¾ÅÔÂ";
         break;
     case 9:
-        month = "åæœˆ";
+        month = "Ê®ÔÂ";
         break;
     case 10:
-        month = "åä¸€æœˆ";
+        month = "Ê®Ò»ÔÂ";
         break;
     case 11:
-        month = "åäºŒæœˆ";
+        month = "Ê®¶şÔÂ";
         break;
     }
     return month;
@@ -86,8 +86,7 @@ int numberOfDays(int monthNumber, int year)
     // February
     if (monthNumber == 1)
     {
-        // If the year is leap then Feb
-        // has 29 days
+        // ÈòÄêÅĞ¶Ï
         if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))
             return (29);
         else
@@ -139,7 +138,7 @@ int numberOfDays(int monthNumber, int year)
 // the given year
 void printCalendar()
 {
-    int yy=0, mm=0, dd=0;
+    int yy = 0, mm = 0, dd = 0;
     int x = 0, y = 2;
     time_t timep;
     struct tm *p;
@@ -158,7 +157,7 @@ void printCalendar()
     // of the month - i
     int key = 0;
     int i = mon;
-
+    int optionpick = 1;
     int start = 0;
     while (1)
     {
@@ -168,7 +167,7 @@ void printCalendar()
         if (key == S)
         {
             system("cls");
-            
+
             printf("Enter the date(yy mm dd) you want to refer to:");
             scanf("%d %d %d", &yy, &mm, &dd);
             key = 0;
@@ -181,6 +180,7 @@ void printCalendar()
             if (key == ARROW || (i == mon && start == 0))
             {
             start1:
+                system("cls");
                 if (kbhit())
                     key = getch();
                 start = 1;
@@ -194,13 +194,24 @@ void printCalendar()
                         i++;
                     else
                         i = 0, year++;
+                
+                if (key == UP2)
+                    go(50, 0), printf("111"), go(50, 3), printf("222");
+                else if (key == DOWN2)
+                    go(50, 0), printf("111"), go(50, 3), printf("222");
+                else
+                {
+                    go(50, 0),color(BACKBLUE), printf("111");
+                    go(50, 3),color(BLUE), printf("222");
+                    optionpick=1;
+                }
                 x = 0;
                 y = 2;
                 //system("ping -n 2 127.0.0.1>nul");
-                system("cls");
+                go(0,0);
                 days = numberOfDays(i, year);
                 // Print the current month name
-                printf("           %då¹´%s            \n", year, getMonthName(i));
+                printf("           %dÄê%s            \n", year, getMonthName(i));
                 // Print the columns
                 printf(" Sun   Mon  Tue  Wed  Thu  Fri  Sat\n");
                 // Print appropriate spaces
@@ -212,9 +223,10 @@ void printCalendar()
                 {
                     if (i == mon && j == today && year == thisyear)
                         printday(x, y, RED, j), x += 5;
-                    else if(i == mm-1 && j == dd && year == yy) 
-                    printday(x, y,GREEN, j), x += 5;
-                        else printday(x, y, BLUE, j), x += 5;
+                    else if (i == mm - 1 && j == dd && year == yy)
+                        printday(x, y, GREEN, j), x += 5;
+                    else
+                        printday(x, y, BLUE, j), x += 5;
 
                     if (++k > 6)
                     {
@@ -237,7 +249,7 @@ void printCalendar()
         p2 = gmtime(&timep2);
         go(0, y);
         color(BLUE);
-        printf("ç°åœ¨æ˜¯ï¼š%04d/%02d/%02d %02d:%02d:%02d", p2->tm_year + 1900, p2->tm_mon + 1, p2->tm_mday,
+        printf("ÏÖÔÚÊÇ£º%04d/%02d/%02d %02d:%02d:%02d", p2->tm_year + 1900, p2->tm_mon + 1, p2->tm_mday,
                (p2->tm_hour + 8 == 24 ? 0 : p2->tm_hour), p2->tm_min, p2->tm_sec);
     }
 
@@ -246,10 +258,10 @@ void printCalendar()
 int main()
 {
     system("color F9");
-    system("chcp 65001");
+    system("chcp 936");
     system("cls");
     CONSOLE_CURSOR_INFO cursor_info = {1, 0};
-    SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor_info); //éšè—å…‰æ ‡
+    SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor_info); //Òş²Ø¹â±ê
     printCalendar();
     return 0;
 }
@@ -257,13 +269,13 @@ void color(int a)
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), a);
 }
-void go(int x, int y) //å…‰æ ‡ç§»åŠ¨å‡½æ•°ï¼ŒXè¡¨ç¤ºæ¨ªåæ ‡ï¼ŒYè¡¨ç¤ºçºµåæ ‡
+void go(int x, int y) //¹â±êÒÆ¶¯º¯Êı£¬X±íÊ¾ºá×ø±ê£¬Y±íÊ¾×İ×ø±ê
 {
-    COORD coord; //åæ ‡
+    COORD coord; //×ø±ê
     coord.X = x;
     coord.Y = y;
-    HANDLE a = GetStdHandle(STD_OUTPUT_HANDLE); //è·å¾—æ ‡å‡†è¾“å‡ºå¥æŸ„
-    SetConsoleCursorPosition(a, coord);         //ä»¥æ ‡å‡†è¾“å‡ºçš„å¥æŸ„ä¸ºå‚æ•°è®¾ç½®æ§åˆ¶å°å…‰æ ‡åæ ‡
+    HANDLE a = GetStdHandle(STD_OUTPUT_HANDLE); //»ñµÃ±ê×¼Êä³ö¾ä±ú
+    SetConsoleCursorPosition(a, coord);         //ÒÔ±ê×¼Êä³öµÄ¾ä±úÎª²ÎÊıÉèÖÃ¿ØÖÆÌ¨¹â±ê×ø±ê
 }
 void printday(int x, int y, int colour, int num)
 {

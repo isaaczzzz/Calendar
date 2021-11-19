@@ -3,11 +3,11 @@
 #include <windows.h>
 #include <time.h>
 #include <stdlib.h>
-#define BACKWHITE BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE
+#define BACKBLUE BACKGROUND_BLUE | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY
 #define WHITE FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY
-#define BLUE FOREGROUND_BLUE | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE| BACKGROUND_INTENSITY
-#define RED FOREGROUND_RED | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE| BACKGROUND_INTENSITY
-#define GREEN FOREGROUND_GREEN | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE| BACKGROUND_INTENSITY
+#define BLUE FOREGROUND_BLUE | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY
+#define RED FOREGROUND_RED | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY
+#define GREEN FOREGROUND_GREEN | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY
 #define ENTER 13
 #define ESC 27
 #define ARROW 224
@@ -86,8 +86,7 @@ int numberOfDays(int monthNumber, int year)
     // February
     if (monthNumber == 1)
     {
-        // If the year is leap then Feb
-        // has 29 days
+        // ÈòÄêÅÐ¶Ï
         if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))
             return (29);
         else
@@ -139,7 +138,7 @@ int numberOfDays(int monthNumber, int year)
 // the given year
 void printCalendar()
 {
-    int yy=0, mm=0, dd=0;
+    int yy = 0, mm = 0, dd = 0;
     int x = 0, y = 2;
     time_t timep;
     struct tm *p;
@@ -158,7 +157,7 @@ void printCalendar()
     // of the month - i
     int key = 0;
     int i = mon;
-
+    int optionpick = 1;
     int start = 0;
     while (1)
     {
@@ -168,7 +167,7 @@ void printCalendar()
         if (key == S)
         {
             system("cls");
-            
+
             printf("Enter the date(yy mm dd) you want to refer to:");
             scanf("%d %d %d", &yy, &mm, &dd);
             key = 0;
@@ -181,6 +180,7 @@ void printCalendar()
             if (key == ARROW || (i == mon && start == 0))
             {
             start1:
+                system("cls");
                 if (kbhit())
                     key = getch();
                 start = 1;
@@ -194,10 +194,21 @@ void printCalendar()
                         i++;
                     else
                         i = 0, year++;
+                
+                if (key == UP2)
+                    go(50, 0), printf("111"), go(50, 3), printf("222");
+                else if (key == DOWN2)
+                    go(50, 0), printf("111"), go(50, 3), printf("222");
+                else
+                {
+                    go(50, 0),color(BACKBLUE), printf("111");
+                    go(50, 3),color(BLUE), printf("222");
+                    optionpick=1;
+                }
                 x = 0;
                 y = 2;
                 //system("ping -n 2 127.0.0.1>nul");
-                system("cls");
+                go(0,0);
                 days = numberOfDays(i, year);
                 // Print the current month name
                 printf("           %dÄê%s            \n", year, getMonthName(i));
@@ -212,9 +223,10 @@ void printCalendar()
                 {
                     if (i == mon && j == today && year == thisyear)
                         printday(x, y, RED, j), x += 5;
-                    else if(i == mm-1 && j == dd && year == yy) 
-                    printday(x, y,GREEN, j), x += 5;
-                        else printday(x, y, BLUE, j), x += 5;
+                    else if (i == mm - 1 && j == dd && year == yy)
+                        printday(x, y, GREEN, j), x += 5;
+                    else
+                        printday(x, y, BLUE, j), x += 5;
 
                     if (++k > 6)
                     {

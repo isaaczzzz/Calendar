@@ -206,7 +206,7 @@ void printCalendar()
                         printf("正计时");
                         go(50, 8);
                         color(DEFAULTCOLOR);
-                        printf("设置闹钟");   
+                        printf("设置闹钟");
                         go(50, 10);
                         color(HIGHLIGHT);
                         printf("设置");
@@ -338,7 +338,7 @@ void printCalendar()
                         printf("正计时");
                         go(50, 8);
                         color(DEFAULTCOLOR);
-                        printf("设置闹钟");   
+                        printf("设置闹钟");
                         go(50, 10);
                         color(HIGHLIGHT);
                         printf("设置");
@@ -459,7 +459,8 @@ void printCalendar()
                     case 1:
                         //tomato();
                         break;
-                    case 2: //实现跳转到指定日期功能
+                    case 2: 
+                    //实现跳转到指定日期功能
                         system("cls");
                         printf("Enter the date(yy mm dd) you want to refer to:");
                         scanf("%d %d %d", &yy, &mm, &dd);
@@ -528,6 +529,7 @@ void printCalendar()
                 {
                     if (i == mon && j == today && year == thisyear)
                     {
+                        //输出今天为设定颜色
                         go(x, y);
                         color(TODAY);
                         printf("%5d", j);
@@ -535,6 +537,7 @@ void printCalendar()
                     }
                     else if (i == mm - 1 && j == dd && year == yy)
                     {
+                        //输出搜索结果为设定颜色
                         go(x, y);
                         color(RESULT);
                         printf("%5d", j);
@@ -542,6 +545,7 @@ void printCalendar()
                     }
                     else
                     {
+                        //其他普通日期输出为设定颜色
                         go(x, y);
                         color(DEFAULTCOLOR);
                         printf("%5d", j);
@@ -589,13 +593,17 @@ void color(int a)
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), a);
 }
-void go(int x, int y) //光标移动函数，X表示横坐标，Y表示纵坐标
+void go(int x, int y) 
+//光标移动函数，X表示横坐标，Y表示纵坐标
 {
-    COORD coord; //坐标
+    COORD coord; 
+    //坐标
     coord.X = x;
     coord.Y = y;
-    HANDLE a = GetStdHandle(STD_OUTPUT_HANDLE); //获得标准输出句柄
-    SetConsoleCursorPosition(a, coord);         //以标准输出的句柄为参数设置控制台光标坐标
+    HANDLE a = GetStdHandle(STD_OUTPUT_HANDLE); 
+    //获得标准输出句柄
+    SetConsoleCursorPosition(a, coord);         
+    //以标准输出的句柄为参数设置控制台光标坐标
 }
 void printday(int x, int y, int colour, int num)
 {

@@ -514,7 +514,7 @@ void printCalendar()
                 color(DEFAULTCOLOR);
                 days = numberOfDays(i, year);
                 // Print the current month name
-                printf("           %dÄê%s            \n", year, getMonthName(i));
+                printf("           ¡û%dÄê%s¡ú            \n", year, getMonthName(i));
                 // Print the columns
                 printf(" Sun   Mon  Tue  Wed  Thu  Fri  Sat\n");
                 // Print appropriate spaces

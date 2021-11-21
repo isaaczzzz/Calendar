@@ -140,16 +140,15 @@ int numberOfDays(int monthNumber, int year)
 
 // Function to print the calendar of
 // the given year
-void printCalendar()
+void printUI(int yy,int mm,int dd)
 {
-    int yy = 0, mm = 0, dd = 0;
     int x = 0, y = 2;
     time_t timep;
     struct tm *p;
     time(&timep);
     p = gmtime(&timep);
-    int year = p->tm_year + 1900;
-    int mon = p->tm_mon;
+    int year = yy;
+    int mon = p->tm_mon + 1;
     int thisyear = p->tm_year + 1900;
     int today = p->tm_mday;
     system("cls");
@@ -160,7 +159,7 @@ void printCalendar()
     // j for Iterate through days
     // of the month - i
     int key = 0;
-    int i = mon;
+    int i = mm -  1;
     int optionpick = 1;
     int start = 0;
     while (1)
@@ -170,9 +169,8 @@ void printCalendar()
             key = getch();
         if (key != ESC)
         {
-            if (key == ARROW || (i == mon && start == 0) || key == ENTER)
+            if (key == ARROW || (i == mm - 1  && start == 0) || key == ENTER)
             {
-            start1:
                 system("cls");
                 if (kbhit())
                     key = getch();
@@ -463,11 +461,9 @@ void printCalendar()
                     //实现跳转到指定日期功能
                         system("cls");
                         printf("输入要跳转的日期(如2021 11 08):");
-                        scanf("%d %d %d", &yy, &mm, &dd);
-                        key = 0;
-                        year = yy;
-                        i = mm - 1;
-                        goto start1;
+                        int yy1,mm1,dd1;
+                        scanf("%d %d %d", &yy1, &mm1, &dd1);
+                        printUI(yy1,mm1,dd1);
                         break;
                     case 3:
                         //note();
@@ -519,7 +515,7 @@ void printCalendar()
                 printf(" Sun   Mon  Tue  Wed  Thu  Fri  Sat\n");
                 // Print appropriate spaces
                 int k;
-                int current = dayNumber(1, i + 1, year);
+                int current = dayNumber(1, i + 1 , year);
                 for (k = 0; k < current; k++)
                 {
                     printf("     ");
@@ -527,7 +523,7 @@ void printCalendar()
                 }
                 for (int j = 1; j <= days; j++)
                 {
-                    if (i == mon && j == today && year == thisyear)
+                    if (i == mon - 1 && j == today && year == thisyear)
                     {
                         //输出今天为设定颜色
                         go(x, y);
@@ -535,7 +531,7 @@ void printCalendar()
                         printf("%5d", j);
                         x += 5;
                     }
-                    else if (i == mm - 1 && j == dd && year == yy)
+                    else if (i == mm - 1  && j == dd && year == yy)
                     {
                         //输出搜索结果为设定颜色
                         go(x, y);
@@ -586,7 +582,14 @@ int main()
     system("cls");
     CONSOLE_CURSOR_INFO cursor_info = {1, 0};
     SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor_info); //隐藏光标
-    printCalendar();
+    time_t timep;
+    struct tm *p;
+    time(&timep);
+    p = gmtime(&timep);
+    int year = p->tm_year + 1900;
+    int mon = p->tm_mon + 1;
+    int day = p->tm_mday;
+    printUI(year,mon,day);
     return 0;
 }
 void color(int a)

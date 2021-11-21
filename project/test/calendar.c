@@ -205,9 +205,12 @@ void printCalendar()
                         color(DEFAULTCOLOR);
                         printf("正计时");
                         go(50, 8);
+                        color(DEFAULTCOLOR);
+                        printf("设置闹钟");   
+                        go(50, 10);
                         color(HIGHLIGHT);
                         printf("设置");
-                        optionpick = 5;
+                        optionpick = 6;
                         break;
                     case 2:
                         go(50, 0);
@@ -223,6 +226,9 @@ void printCalendar()
                         color(DEFAULTCOLOR);
                         printf("正计时");
                         go(50, 8);
+                        color(DEFAULTCOLOR);
+                        printf("设置闹钟");
+                        go(50, 10);
                         color(DEFAULTCOLOR);
                         printf("设置");
                         optionpick = 1;
@@ -242,6 +248,9 @@ void printCalendar()
                         printf("正计时");
                         go(50, 8);
                         color(DEFAULTCOLOR);
+                        printf("设置闹钟");
+                        go(50, 10);
+                        color(DEFAULTCOLOR);
                         printf("设置");
                         optionpick = 2;
                         break;
@@ -259,6 +268,9 @@ void printCalendar()
                         color(DEFAULTCOLOR);
                         printf("正计时");
                         go(50, 8);
+                        color(DEFAULTCOLOR);
+                        printf("设置闹钟");
+                        go(50, 10);
                         color(DEFAULTCOLOR);
                         printf("设置");
                         optionpick = 3;
@@ -278,8 +290,32 @@ void printCalendar()
                         printf("正计时");
                         go(50, 8);
                         color(DEFAULTCOLOR);
+                        printf("设置闹钟");
+                        go(50, 10);
+                        color(DEFAULTCOLOR);
                         printf("设置");
                         optionpick = 4;
+                        break;
+                    case 6:
+                        go(50, 0);
+                        color(DEFAULTCOLOR);
+                        printf("番茄钟");
+                        go(50, 2);
+                        color(DEFAULTCOLOR);
+                        printf("日期查询");
+                        go(50, 4);
+                        color(DEFAULTCOLOR);
+                        printf("添加日程");
+                        go(50, 6);
+                        color(DEFAULTCOLOR);
+                        printf("正计时");
+                        go(50, 8);
+                        color(HIGHLIGHT);
+                        printf("设置闹钟");
+                        go(50, 10);
+                        color(DEFAULTCOLOR);
+                        printf("设置");
+                        optionpick = 5;
                         break;
                     default:
                         break;
@@ -287,26 +323,29 @@ void printCalendar()
                 else if (key == DOWN2)
                     switch (optionpick)
                     {
-                    case 4:
-                        go(50, 0);
-                        color(DEFAULTCOLOR);
-                        printf("番茄钟");
-                        go(50, 2);
-                        color(DEFAULTCOLOR);
-                        printf("日期查询");
-                        go(50, 4);
-                        color(DEFAULTCOLOR);
-                        printf("添加日程");
-                        go(50, 6);
-                        color(DEFAULTCOLOR);
-                        printf("正计时");
-                        go(50, 8);
-                        color(HIGHLIGHT);
-                        printf("设置");
-                        optionpick = 5;
-                        break;
                     case 5:
                         go(50, 0);
+                        color(DEFAULTCOLOR);
+                        printf("番茄钟");
+                        go(50, 2);
+                        color(DEFAULTCOLOR);
+                        printf("日期查询");
+                        go(50, 4);
+                        color(DEFAULTCOLOR);
+                        printf("添加日程");
+                        go(50, 6);
+                        color(DEFAULTCOLOR);
+                        printf("正计时");
+                        go(50, 8);
+                        color(DEFAULTCOLOR);
+                        printf("设置闹钟");   
+                        go(50, 10);
+                        color(HIGHLIGHT);
+                        printf("设置");
+                        optionpick = 6;
+                        break;
+                    case 6:
+                        go(50, 0);
                         color(HIGHLIGHT);
                         printf("番茄钟");
                         go(50, 2);
@@ -319,6 +358,9 @@ void printCalendar()
                         color(DEFAULTCOLOR);
                         printf("正计时");
                         go(50, 8);
+                        color(DEFAULTCOLOR);
+                        printf("设置闹钟");
+                        go(50, 10);
                         color(DEFAULTCOLOR);
                         printf("设置");
                         optionpick = 1;
@@ -338,6 +380,9 @@ void printCalendar()
                         printf("正计时");
                         go(50, 8);
                         color(DEFAULTCOLOR);
+                        printf("设置闹钟");
+                        go(50, 10);
+                        color(DEFAULTCOLOR);
                         printf("设置");
                         optionpick = 2;
                         break;
@@ -355,6 +400,9 @@ void printCalendar()
                         color(DEFAULTCOLOR);
                         printf("正计时");
                         go(50, 8);
+                        color(DEFAULTCOLOR);
+                        printf("设置闹钟");
+                        go(50, 10);
                         color(DEFAULTCOLOR);
                         printf("设置");
                         optionpick = 3;
@@ -374,8 +422,32 @@ void printCalendar()
                         printf("正计时");
                         go(50, 8);
                         color(DEFAULTCOLOR);
+                        printf("设置闹钟");
+                        go(50, 10);
+                        color(DEFAULTCOLOR);
                         printf("设置");
                         optionpick = 4;
+                        break;
+                    case 4:
+                        go(50, 0);
+                        color(DEFAULTCOLOR);
+                        printf("番茄钟");
+                        go(50, 2);
+                        color(DEFAULTCOLOR);
+                        printf("日期查询");
+                        go(50, 4);
+                        color(DEFAULTCOLOR);
+                        printf("添加日程");
+                        go(50, 6);
+                        color(DEFAULTCOLOR);
+                        printf("正计时");
+                        go(50, 8);
+                        color(HIGHLIGHT);
+                        printf("设置闹钟");
+                        go(50, 10);
+                        color(DEFAULTCOLOR);
+                        printf("设置");
+                        optionpick = 5;
                         break;
                     default:
                         break;
@@ -403,8 +475,10 @@ void printCalendar()
                         //timing();
                         break;
                     case 5:
-                        //settings();
+                        //setalarm();
                         break;
+                    case 6:
+                        //settings();
                     default:
                         break;
                     }
@@ -425,6 +499,9 @@ void printCalendar()
                     color(DEFAULTCOLOR);
                     printf("正计时");
                     go(50, 8);
+                    color(DEFAULTCOLOR);
+                    printf("设置闹钟");
+                    go(50, 10);
                     color(DEFAULTCOLOR);
                     printf("设置");
                     optionpick = 1;

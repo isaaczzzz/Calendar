@@ -462,7 +462,7 @@ void printCalendar()
                     case 2: 
                     //实现跳转到指定日期功能
                         system("cls");
-                        printf("Enter the date(yy mm dd) you want to refer to:");
+                        printf("输入要跳转的日期(如2021 11 08):");
                         scanf("%d %d %d", &yy, &mm, &dd);
                         key = 0;
                         year = yy;

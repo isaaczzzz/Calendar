@@ -2,9 +2,9 @@
 
 int main(void)
 {
-    char ch[100] = "李金羽";
-    //scanf("%s", ch);
-    printf("%s", ch);
+    int a, b, c;
+    scanf("%d %d%d", &a, &b, &c);
+    printf("%d %d %d", a, b, c);
     getchar();
     getchar();
     return 0;

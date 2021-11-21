@@ -147,21 +147,18 @@ void printUI(int yy,int mm,int dd)
     struct tm *p;
     time(&timep);
     p = gmtime(&timep);
+
     int year = yy;
     int mon = p->tm_mon + 1;
     int thisyear = p->tm_year + 1900;
     int today = p->tm_mday;
-    system("cls");
     int days;
-    // Index of the day from 0 to 6
-
-    // i for Iterate through months
-    // j for Iterate through days
-    // of the month - i
     int key = 0;
     int i = mm -  1;
     int optionpick = 1;
     int start = 0;
+
+    system("cls");
     while (1)
     {
         key = 0;

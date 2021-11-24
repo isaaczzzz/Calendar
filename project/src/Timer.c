@@ -31,7 +31,8 @@ int main(void)
         StopWatch();
     else
         CountDown(); //倒计时
-    system("pause");
+    getchar();
+    getchar();
     return 0;
 }
 
@@ -190,8 +191,48 @@ void CountDown(void)
         float fenmu = osec + omin * 60 + ohour * 3600;
         percent = fenzi / fenmu;
     }
+
     system("cls");
-    printf("时间到\n");
+    //边框
+    go(40, 8);
+    color_print("##########################", 4);
+    go(40, 9);
+    color_print("#", 4);
+    go(40, 10);
+    color_print("#", 4);
+    go(40, 11);
+    color_print("#", 4);
+    go(40, 12);
+    color_print("#", 4);
+    go(40, 13);
+    color_print("#", 4);
+    go(40, 14);
+    color_print("#", 4);
+    go(40, 15);
+    color_print("#", 4);
+    go(40, 16);
+    color_print("#", 4);
+    go(40, 17);
+    color_print("##########################", 4);
+    go(65, 9);
+    color_print("#", 4);
+    go(65, 10);
+    color_print("#", 4);
+    go(65, 11);
+    color_print("#", 4);
+    go(65, 12);
+    color_print("#", 4);
+    go(65, 13);
+    color_print("#", 4);
+    go(65, 14);
+    color_print("#", 4);
+    go(65, 15);
+    color_print("#", 4);
+    go(65, 16);
+    color_print("#", 4);
+    
+    go(50, 12);
+    color_print("时间到", 2);
 }
 
 

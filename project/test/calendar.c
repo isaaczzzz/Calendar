@@ -141,12 +141,14 @@ int numberOfDays(int monthNumber, int year)
 // Function to print the calendar of
 // the given year
 void printUI(int yy,int mm,int dd)
+//输出指定日期所在日历并绘制UI
 {
     int x = 0, y = 2;
     time_t timep;
     struct tm *p;
     time(&timep);
     p = gmtime(&timep);
+    //获取当前时间
 
     int year = yy;
     int mon = p->tm_mon + 1;
@@ -164,26 +166,32 @@ void printUI(int yy,int mm,int dd)
         key = 0;
         if (kbhit())
             key = getch();
+        //如果键盘被点击则获取键位对应数值
         if (key != ESC)
         {
             if (key == ARROW || (i == mm - 1  && start == 0) || key == ENTER)
+            //按下的是方向键，回车键或第一次启动函数则输出日历并判断键位
             {
                 system("cls");
                 if (kbhit())
                     key = getch();
                 start = 1;
+                //标记函数为已经启动过
                 if (key == LEFT2)
+                //键盘左键按下
                     if (i != 0)
                         i--;
                     else
                         i = 11, year--;
                 if (key == RIGHT2)
+                //键盘右键按下
                     if (i != 11)
                         i++;
                     else
                         i = 0, year++;
 
                 if (key == UP2)
+                //键盘上键按下，选择选项
                     switch (optionpick)
                     {
                     case 1:
@@ -316,6 +324,7 @@ void printUI(int yy,int mm,int dd)
                         break;
                     }
                 else if (key == DOWN2)
+                //键盘下键按下，选择选项
                     switch (optionpick)
                     {
                     case 5:
@@ -448,6 +457,7 @@ void printUI(int yy,int mm,int dd)
                         break;
                     }
                 else if (key == ENTER)
+                //回车键按下，读取选项并进入对应功能
                 {
                     switch (optionpick)
                     {
@@ -506,11 +516,13 @@ void printUI(int yy,int mm,int dd)
                 go(0, 0);
                 color(DEFAULTCOLOR);
                 days = numberOfDays(i, year);
-                // Print the current month name
+                
                 printf("           ←%d年%s→            \n", year, getMonthName(i));
-                // Print the columns
+                // 输出年份月份
+                
                 printf(" Sun   Mon  Tue  Wed  Thu  Fri  Sat\n");
-                // Print appropriate spaces
+                // 输出行
+                
                 int k;
                 int current = dayNumber(1, i + 1 , year);
                 for (k = 0; k < current; k++)
@@ -518,11 +530,13 @@ void printUI(int yy,int mm,int dd)
                     printf("     ");
                     x += 5;
                 }
+                // 输出空日期
+
                 for (int j = 1; j <= days; j++)
                 {
                     if (i == mon - 1 && j == today && year == thisyear)
                     {
-                        //输出今天为设定颜色
+                        //输出今天日期为设定颜色
                         go(x, y);
                         color(TODAY);
                         printf("%5d", j);
@@ -530,7 +544,7 @@ void printUI(int yy,int mm,int dd)
                     }
                     else if (i == mm - 1  && j == dd && year == yy)
                     {
-                        //输出搜索结果为设定颜色
+                        //输出搜索结果的日期为设定颜色
                         go(x, y);
                         color(RESULT);
                         printf("%5d", j);
@@ -556,10 +570,12 @@ void printUI(int yy,int mm,int dd)
 
                 if (k)
                     printf("\n"), y++;
+                    //换行
             }
         }
         else
-            return;
+            exit(0);
+            //检测到ESC则退出程序
         time_t timep2;
         struct tm *p2;
         time(&timep2);

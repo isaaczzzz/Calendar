@@ -143,7 +143,7 @@ void printCalendar(int year, int mon, int day)
     for (int i = 0; i < 12; i++) {
         days = numberOfDays(i, year);
   
-        // Print the current month name
+        // Print the current month nameF
         printf("\n ------------%s-------------\n",
                getMonthName(i));
   

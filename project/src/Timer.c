@@ -1,3 +1,6 @@
+/*********************
+ * 番茄钟，正计时      *
+ * *******************/
 #include <stdio.h>
 #include <stdlib.h>
 #include <Windows.h>
@@ -6,6 +9,7 @@
 void StopWatch(void);
 void CountDown(void);
 void color_print(const char *s, int color);
+void go(int x, int y);
 
 int main(void)
 {
@@ -29,7 +33,9 @@ void StopWatch(void)
     int hour = 0, min = 0, sec = 0;
     bool end = 0;
 
-    printf("按下任意键以开始计时...");
+    system("cls");
+    go(45, 12);
+    color_print("按下任意键以开始计时...", 2);
     getchar();
     getchar();
     
@@ -45,6 +51,7 @@ void StopWatch(void)
             hour++;
             min = 0;
         }
+        go(50, 12);
         printf("%02d:%02d:%02d", hour, min, sec);
     }
 }
@@ -74,7 +81,38 @@ void CountDown(void)
 
     while(!end) {
         system("cls");
+        
+        go(40, 8);
+        color_print("##########################", 4);
+        go(40, 9);
+        color_print("#", 4);
+        go(40, 10);
+        color_print("#", 4);
+        go(40, 11);
+        color_print("#", 4);
+        go(40, 12);
+        color_print("#", 4);
+        go(40, 13);
+        color_print("#", 4);
+        go(40, 14);
+        color_print("#########################", 4);
+        go(65, 9);
+        color_print("#", 4);
+        go(65, 10);
+        color_print("#", 4);
+        go(65, 11);
+        color_print("#", 4);
+        go(65, 12);
+        color_print("#", 4);
+        go(65, 13);
+        color_print("#", 4);
+        go(65, 14);
+        color_print("#", 4);
+
+        go(50, 10);
         color_print("番茄钟\n", 4);
+        putchar('\n');
+        go(49, 12);
         printf("%02d:%02d:%02d", hour, min, sec);
         Sleep(1000);
         sec--;
@@ -93,10 +131,34 @@ void CountDown(void)
     printf("时间到\n");
 }
 
+
+/*********************
+ * 0 = 黑色 8 = 灰色
+ * 1 = 蓝色 9 = 淡蓝色
+ * 2 = 绿色 A = 淡绿色
+ * 3 = 浅绿色 B = 淡浅绿色
+ * 4 = 红色 C = 淡红色
+ * 5 = 紫色 D = 淡紫色
+ * 6 = 黄色 E = 淡黄色
+ * 7 = 白色 F = 亮白色   
+ * *******************/
 void color_print(const char *s, int color)
 {
     HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | color);
     printf(s);
     SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | 7); //改回默认白色
+}
+
+void go(int x, int y) 
+//光标移动函数，X表示横坐标，Y表示纵坐标
+{
+    COORD coord; 
+    //坐标
+    coord.X = x;
+    coord.Y = y;
+    HANDLE a = GetStdHandle(STD_OUTPUT_HANDLE); 
+    //获得标准输出句柄
+    SetConsoleCursorPosition(a, coord);         
+    //以标准输出的句柄为参数设置控制台光标坐标
 }

@@ -5,6 +5,14 @@
 #include <stdlib.h>
 #include <Windows.h>
 #include <stdbool.h>
+#define ENTER 13
+#define ESC 27
+#define ARROW 224
+#define UP2 72
+#define DOWN2 80
+#define LEFT2 75
+#define RIGHT2 77
+#define S 115
 
 void StopWatch(void);
 void CountDown(void);
@@ -59,29 +67,64 @@ void StopWatch(void)
 //倒计时
 void CountDown(void)
 {
-    int hour, min, sec, opt;
+    int hour, min, sec, i, num;
+    int ohour, omin, osec;
+    float percent = 1.0f;
     bool end = 0;
+    int key; 
 
-    puts("选择时长: (1: 25分钟; 2: 50分钟)");
-    scanf("%d", &opt);
+    system("cls");
+    //边框
+    go(40, 8);
+    color_print("##########################", 4);
+    go(40, 9);
+    color_print("#", 4);
+    go(40, 10);
+    color_print("#", 4);
+    go(40, 11);
+    color_print("#", 4);
+    go(40, 12);
+    color_print("#", 4);
+    go(40, 13);
+    color_print("#", 4);
+    go(40, 14);
+    color_print("#", 4);
+    go(40, 15);
+    color_print("#", 4);
+    go(40, 16);
+    color_print("#", 4);
+    go(40, 17);
+    color_print("##########################", 4);
+    go(65, 9);
+    color_print("#", 4);
+    go(65, 10);
+    color_print("#", 4);
+    go(65, 11);
+    color_print("#", 4);
+    go(65, 12);
+    color_print("#", 4);
+    go(65, 13);
+    color_print("#", 4);
+    go(65, 14);
+    color_print("#", 4);
+    go(65, 15);
+    color_print("#", 4);
+    go(65, 16);
+    color_print("#", 4);
     
-    switch (opt)
-    {
-    case 1:
-        hour = 0;
-        min = 25;
-        sec = 0;
-        break;
-    case 2:
-        hour = 0;
-        min = 50;
-        sec = 0;
-        break;
-    }
+    go(50, 10);
+    color_print("番茄钟\n", 4);
+    go(43, 12);
+    printf("请输入时长:__:__:__\b\b\b\b\b\b\b\b");
+    scanf("%d%d%d", &ohour, &omin, &osec);
+    hour = ohour;
+    min = omin;
+    sec = osec;
 
     while(!end) {
         system("cls");
         
+        //边框
         go(40, 8);
         color_print("##########################", 4);
         go(40, 9);
@@ -95,7 +138,13 @@ void CountDown(void)
         go(40, 13);
         color_print("#", 4);
         go(40, 14);
-        color_print("#########################", 4);
+        color_print("#", 4);
+        go(40, 15);
+        color_print("#", 4);
+        go(40, 16);
+        color_print("#", 4);
+        go(40, 17);
+        color_print("##########################", 4);
         go(65, 9);
         color_print("#", 4);
         go(65, 10);
@@ -108,6 +157,17 @@ void CountDown(void)
         color_print("#", 4);
         go(65, 14);
         color_print("#", 4);
+        go(65, 15);
+        color_print("#", 4);
+        go(65, 16);
+        color_print("#", 4);
+        
+        //倒计时条
+        go(42, 14);
+        num = (int)(percent * 20);
+        color_print("|", 4);
+        for(i = 0; i < num; i++)
+            color_print("▇", 4);
 
         go(50, 10);
         color_print("番茄钟\n", 4);
@@ -126,6 +186,9 @@ void CountDown(void)
         }
         if(hour < 0) // 00:00:00状态也需维持1秒
             end = 1;
+        float fenzi = sec + min * 60 + hour * 3600;
+        float fenmu = osec + omin * 60 + ohour * 3600;
+        percent = fenzi / fenmu;
     }
     system("cls");
     printf("时间到\n");

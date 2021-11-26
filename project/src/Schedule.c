@@ -18,6 +18,7 @@ struct Schedule
 
 void AddSchedule();
 void ShowSchedule();
+void go(int x, int y);
 
 int main(void)
 {
@@ -36,7 +37,10 @@ void AddSchedule()
     int i;
 
     system("cls");
-    printf("请输入要添加的日期(年/月/日): ");
+    go(45, 10);
+    printf("请输入要添加的日期(年/月/日)");
+    go(53, 12);
+    printf("____ __ __\b\b\b\b\b\b\b\b\b\b");
     scanf("%d%d%d", &S.yy, &S.mm, &S.dd);
     printf("输入日程内容(不超过100字): ");
     fflush(stdin);
@@ -102,4 +106,17 @@ void ShowSchedule()
     printf("按下任意键继续............");
     getchar();
     getchar();
+}
+
+void go(int x, int y) 
+//光标移动函数，X表示横坐标，Y表示纵坐标
+{
+    COORD coord; 
+    //坐标
+    coord.X = x;
+    coord.Y = y;
+    HANDLE a = GetStdHandle(STD_OUTPUT_HANDLE); 
+    //获得标准输出句柄
+    SetConsoleCursorPosition(a, coord);         
+    //以标准输出的句柄为参数设置控制台光标坐标
 }

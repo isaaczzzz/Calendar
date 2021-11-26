@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/myhead.h
+
+C:/Users/ZXH/ClionProjects/Calendar/main.c
+stdio.h
+-
+conio.h
+-
+windows.h
+-
+time.h
+-
+stdlib.h
+-
+myhead.h
+C:/Users/ZXH/ClionProjects/Calendar/myhead.h
+

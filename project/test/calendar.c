@@ -29,6 +29,27 @@ void printUI(int,int,int);
 void color(int);
 void go(int,int);
 
+int main()
+{
+    system("color F9");
+    //设置控制台默认颜色
+    system("chcp 936");
+    system("cls");
+    //设置编码为GBK并清屏
+    CONSOLE_CURSOR_INFO cursor_info = {1, 0};
+    SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor_info); 
+    //隐藏光标
+    time_t timep;
+    struct tm *p;
+    time(&timep);
+    p = gmtime(&timep);
+    int year = p->tm_year + 1900;
+    int mon = p->tm_mon + 1;
+    int day = p->tm_mday;
+    printUI(year,mon,day);
+    //获取时间并调用printUI函数
+    return 0;
+}
 
 int dayNumber(int day, int month, int year)
 //返回月份的起始星期
@@ -39,9 +60,6 @@ int dayNumber(int day, int month, int year)
     return (year + year / 4 - year / 100 + year / 400 + t[month - 1] + day) % 7;
 }
 
-// Function that returns the name of the
-// month for the given month Number
-// January - 0, February - 1 and so on
 char *getMonthName(int monthNumber)
 {
     char *month;
@@ -88,8 +106,6 @@ char *getMonthName(int monthNumber)
     return month;
 }
 
-// Function to return the number of days
-// in a month
 int numberOfDays(int monthNumber, int year)
 {
     // January
@@ -147,8 +163,7 @@ int numberOfDays(int monthNumber, int year)
         return (31);
 }
 
-// Function to print the calendar of
-// the given year
+
 void printUI(int yy,int mm,int dd)
 //输出指定日期所在日历并绘制UI
 {
@@ -599,31 +614,12 @@ void printUI(int yy,int mm,int dd)
 
     return;
 }
-int main()
-{
-    system("color F9");
-    //设置控制台默认颜色
-    system("chcp 936");
-    system("cls");
-    //设置编码为GBK并清屏
-    CONSOLE_CURSOR_INFO cursor_info = {1, 0};
-    SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor_info); 
-    //隐藏光标
-    time_t timep;
-    struct tm *p;
-    time(&timep);
-    p = gmtime(&timep);
-    int year = p->tm_year + 1900;
-    int mon = p->tm_mon + 1;
-    int day = p->tm_mday;
-    printUI(year,mon,day);
-    //获取时间并调用printUI函数
-    return 0;
-}
+
 void color(int a)
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), a);
 }
+
 void go(int x, int y) 
 //光标移动函数，X表示横坐标，Y表示纵坐标
 {

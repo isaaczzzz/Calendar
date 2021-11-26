@@ -20,9 +20,18 @@
 #define DEFAULTCOLOR BLUE
 #define TODAY RED
 #define RESULT GREEN
-// Function that returns the index of the
-// day for date DD/MM/YYYY
+
+
+int dayNumber(int,int,int);
+char *getMonthName(int);
+int numberOfDays(int,int);
+void printUI(int,int,int);
+void color(int);
+void go(int,int);
+
+
 int dayNumber(int day, int month, int year)
+//返回月份的起始星期
 {
     static int t[] = {0, 3, 2, 5, 0, 3,
                       5, 1, 4, 6, 2, 4};
@@ -627,9 +636,4 @@ void go(int x, int y)
     SetConsoleCursorPosition(a, coord);         
     //以标准输出的句柄为参数设置控制台光标坐标
 }
-void printday(int x, int y, int colour, int num)
-{
-    go(x, y);
-    color(colour);
-    printf("%5d", num);
-}
+

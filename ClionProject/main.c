@@ -37,6 +37,7 @@ int main(void)
     CONSOLE_CURSOR_INFO cursor_info = {1, 0};
     SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor_info);
     //隐藏光标
+
     time_t timep;
     struct tm *p;
     time(&timep);
@@ -44,6 +45,7 @@ int main(void)
     int year = p->tm_year + 1900;
     int mon = p->tm_mon + 1;
     int day = p->tm_mday;
+
     printUI(year, mon, day);
     //获取时间并调用printUI函数
     return 0;

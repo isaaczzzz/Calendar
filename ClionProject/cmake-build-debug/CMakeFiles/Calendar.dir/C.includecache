@@ -8,17 +8,15 @@
 
 ../include/myhead.h
 
-C:/Users/ZXH/GitHub/Calendar/ClionProject/main.c
+C:/Users/ZXH/GitHub/Calendar/ClionProject/src/Timer.c
 stdio.h
--
-conio.h
--
-windows.h
--
-time.h
 -
 stdlib.h
 -
+Windows.h
+-
+stdbool.h
+-
 myhead.h
-C:/Users/ZXH/GitHub/Calendar/ClionProject/myhead.h
+C:/Users/ZXH/GitHub/Calendar/ClionProject/src/myhead.h
 

@@ -244,6 +244,9 @@ void CountDown(void)
 
     go(50, 12);
     color_print("ʱ�䵽", 2);
+    getchar();
+    getchar();
+    system("cls");
 }
 
 

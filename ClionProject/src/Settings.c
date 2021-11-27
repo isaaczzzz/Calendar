@@ -1,1 +1,4 @@
-//金雨，界面什么时候写啊？
+#include "connection.h"
+void Settings() {
+
+}

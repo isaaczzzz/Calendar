@@ -25,7 +25,7 @@ int main(void)
     return 0;
 }*/
 
-void AddSchedule()
+void AddSchedule(void)
 {
     FILE *fp;
     fp = fopen("schedule.dat", "ab+");
@@ -53,6 +53,7 @@ void AddSchedule()
     getchar();
     getchar();
     fclose(fp);
+    main();
 }
 
 void ShowSchedule(int yy, int mm, int dd)

@@ -207,6 +207,7 @@ void CountDown(void)
     getchar();
     getchar();
     system("cls");
+    main();
 }
 
 
@@ -227,16 +228,3 @@ void color_print(const char *s, int color)
     printf(s);
     SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | 0 | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY); //改回默认白色
 }
-
-/*void go(int x, int y)
-//光标移动函数，X表示横坐标，Y表示纵坐标
-{
-    COORD coord;
-    //坐标
-    coord.X = x;
-    coord.Y = y;
-    HANDLE a = GetStdHandle(STD_OUTPUT_HANDLE);
-    //获得标准输出句柄
-    SetConsoleCursorPosition(a, coord);
-    //以标准输出的句柄为参数设置控制台光标坐标
-}*/

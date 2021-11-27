@@ -1,6 +1,6 @@
 #include "connection.h"
 
-void SetAlarm()
+void SetAlarm(void)
 {
     time_t timep;
     struct tm *p;
@@ -32,4 +32,5 @@ void SetAlarm()
     getchar();
     getchar();
     system("cls");
+    main();
 }

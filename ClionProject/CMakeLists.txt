@@ -6,4 +6,7 @@ set(CMAKE_C_STANDARD 99)
 include_directories(include)
 add_executable(Calendar
         main.c
-        src/Timer.c)
+        src/Timer.c
+        src/Schedule.c
+        src/Settings.c
+        src/SetAlarm.c)

@@ -21,13 +21,12 @@
 #define TODAY RED
 #define RESULT GREEN
 
-
-int dayNumber(int,int,int);
+int dayNumber(int, int, int);
 char *getMonthName(int);
-int numberOfDays(int,int);
-void printUI(int,int,int);
+int numberOfDays(int, int);
+void printUI(int, int, int);
 void color(int);
-void go(int,int);
+void go(int, int);
 
 int main()
 {
@@ -37,7 +36,7 @@ int main()
     system("cls");
     //设置编码为GBK并清屏
     CONSOLE_CURSOR_INFO cursor_info = {1, 0};
-    SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor_info); 
+    SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor_info);
     //隐藏光标
     time_t timep;
     struct tm *p;
@@ -46,7 +45,7 @@ int main()
     int year = p->tm_year + 1900;
     int mon = p->tm_mon + 1;
     int day = p->tm_mday;
-    printUI(year,mon,day);
+    printUI(year, mon, day);
     //获取时间并调用printUI函数
     return 0;
 }
@@ -163,8 +162,7 @@ int numberOfDays(int monthNumber, int year)
         return (31);
 }
 
-
-void printUI(int yy,int mm,int dd)
+void printUI(int yy, int mm, int dd)
 //输出指定日期所在日历并绘制UI
 {
     int x = 0, y = 2;
@@ -180,7 +178,7 @@ void printUI(int yy,int mm,int dd)
     int today = p->tm_mday;
     int days;
     int key = 0;
-    int i = mm -  1;
+    int i = mm - 1;
     int optionpick = 1;
     int start = 0;
 
@@ -193,7 +191,7 @@ void printUI(int yy,int mm,int dd)
         //如果键盘被点击则获取键位对应数值
         if (key != ESC)
         {
-            if (key == ARROW || (i == mm - 1  && start == 0) || key == ENTER)
+            if (key == ARROW || (i == mm - 1 && start == 0) || key == ENTER)
             //按下的是方向键，回车键或第一次启动函数则输出日历并判断键位
             {
                 system("cls");
@@ -202,20 +200,20 @@ void printUI(int yy,int mm,int dd)
                 start = 1;
                 //标记函数为已经启动过
                 if (key == LEFT2)
-                //键盘左键按下
+                    //键盘左键按下
                     if (i != 0)
                         i--;
                     else
                         i = 11, year--;
                 if (key == RIGHT2)
-                //键盘右键按下
+                    //键盘右键按下
                     if (i != 11)
                         i++;
                     else
                         i = 0, year++;
 
                 if (key == UP2)
-                //键盘上键按下，选择选项
+                    //键盘上键按下，选择选项
                     switch (optionpick)
                     {
                     case 1:
@@ -348,7 +346,7 @@ void printUI(int yy,int mm,int dd)
                         break;
                     }
                 else if (key == DOWN2)
-                //键盘下键按下，选择选项
+                    //键盘下键按下，选择选项
                     switch (optionpick)
                     {
                     case 5:
@@ -488,13 +486,13 @@ void printUI(int yy,int mm,int dd)
                     case 1:
                         //tomato();
                         break;
-                    case 2: 
-                    //实现跳转到指定日期功能
+                    case 2:
+                        //实现跳转到指定日期功能
                         system("cls");
                         printf("输入要跳转的日期(如2021 11 08):");
-                        int yy1,mm1,dd1;
+                        int yy1, mm1, dd1;
                         scanf("%d %d %d", &yy1, &mm1, &dd1);
-                        printUI(yy1,mm1,dd1);
+                        printUI(yy1, mm1, dd1);
                         break;
                     case 3:
                         //note();
@@ -540,15 +538,15 @@ void printUI(int yy,int mm,int dd)
                 go(0, 0);
                 color(DEFAULTCOLOR);
                 days = numberOfDays(i, year);
-                
+
                 printf("           ←%d年%s→            \n", year, getMonthName(i));
                 // 输出年份月份
-                
+
                 printf(" Sun   Mon  Tue  Wed  Thu  Fri  Sat\n");
                 // 输出行
-                
+
                 int k;
-                int current = dayNumber(1, i + 1 , year);
+                int current = dayNumber(1, i + 1, year);
                 for (k = 0; k < current; k++)
                 {
                     printf("     ");
@@ -566,7 +564,7 @@ void printUI(int yy,int mm,int dd)
                         printf("%5d", j);
                         x += 5;
                     }
-                    else if (i == mm - 1  && j == dd && year == yy)
+                    else if (i == mm - 1 && j == dd && year == yy)
                     {
                         //输出搜索结果的日期为设定颜色
                         go(x, y);
@@ -594,13 +592,13 @@ void printUI(int yy,int mm,int dd)
 
                 if (k)
                     printf("\n"), y++;
-                    //换行
+                //换行
             }
         }
         else
             exit(0);
-            //检测到ESC则退出程序
-        
+        //检测到ESC则退出程序
+
         time_t timep2;
         struct tm *p2;
         time(&timep2);
@@ -620,16 +618,15 @@ void color(int a)
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), a);
 }
 
-void go(int x, int y) 
+void go(int x, int y)
 //光标移动函数，X表示横坐标，Y表示纵坐标
 {
-    COORD coord; 
+    COORD coord;
     //坐标
     coord.X = x;
     coord.Y = y;
-    HANDLE a = GetStdHandle(STD_OUTPUT_HANDLE); 
+    HANDLE a = GetStdHandle(STD_OUTPUT_HANDLE);
     //获得标准输出句柄
-    SetConsoleCursorPosition(a, coord);         
+    SetConsoleCursorPosition(a, coord);
     //以标准输出的句柄为参数设置控制台光标坐标
 }
-

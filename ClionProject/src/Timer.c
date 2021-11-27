@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <Windows.h>
 #include <stdbool.h>
-#include "myhead.h"
+#include "connection.h"
 #define ENTER 13
 #define ESC 27
 #define ARROW 224

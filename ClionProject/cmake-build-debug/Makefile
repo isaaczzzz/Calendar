@@ -152,6 +152,78 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Calendar.dir\build.make CMakeFiles/Calendar.dir/main.c.s
 .PHONY : main.c.s
 
+src/Schedule.obj: src/Schedule.c.obj
+.PHONY : src/Schedule.obj
+
+# target to build an object file
+src/Schedule.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Calendar.dir\build.make CMakeFiles/Calendar.dir/src/Schedule.c.obj
+.PHONY : src/Schedule.c.obj
+
+src/Schedule.i: src/Schedule.c.i
+.PHONY : src/Schedule.i
+
+# target to preprocess a source file
+src/Schedule.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Calendar.dir\build.make CMakeFiles/Calendar.dir/src/Schedule.c.i
+.PHONY : src/Schedule.c.i
+
+src/Schedule.s: src/Schedule.c.s
+.PHONY : src/Schedule.s
+
+# target to generate assembly for a file
+src/Schedule.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Calendar.dir\build.make CMakeFiles/Calendar.dir/src/Schedule.c.s
+.PHONY : src/Schedule.c.s
+
+src/SetAlarm.obj: src/SetAlarm.c.obj
+.PHONY : src/SetAlarm.obj
+
+# target to build an object file
+src/SetAlarm.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Calendar.dir\build.make CMakeFiles/Calendar.dir/src/SetAlarm.c.obj
+.PHONY : src/SetAlarm.c.obj
+
+src/SetAlarm.i: src/SetAlarm.c.i
+.PHONY : src/SetAlarm.i
+
+# target to preprocess a source file
+src/SetAlarm.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Calendar.dir\build.make CMakeFiles/Calendar.dir/src/SetAlarm.c.i
+.PHONY : src/SetAlarm.c.i
+
+src/SetAlarm.s: src/SetAlarm.c.s
+.PHONY : src/SetAlarm.s
+
+# target to generate assembly for a file
+src/SetAlarm.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Calendar.dir\build.make CMakeFiles/Calendar.dir/src/SetAlarm.c.s
+.PHONY : src/SetAlarm.c.s
+
+src/Settings.obj: src/Settings.c.obj
+.PHONY : src/Settings.obj
+
+# target to build an object file
+src/Settings.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Calendar.dir\build.make CMakeFiles/Calendar.dir/src/Settings.c.obj
+.PHONY : src/Settings.c.obj
+
+src/Settings.i: src/Settings.c.i
+.PHONY : src/Settings.i
+
+# target to preprocess a source file
+src/Settings.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Calendar.dir\build.make CMakeFiles/Calendar.dir/src/Settings.c.i
+.PHONY : src/Settings.c.i
+
+src/Settings.s: src/Settings.c.s
+.PHONY : src/Settings.s
+
+# target to generate assembly for a file
+src/Settings.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Calendar.dir\build.make CMakeFiles/Calendar.dir/src/Settings.c.s
+.PHONY : src/Settings.c.s
+
 src/Timer.obj: src/Timer.c.obj
 .PHONY : src/Timer.obj
 
@@ -188,6 +260,15 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... src/Schedule.obj
+	@echo ... src/Schedule.i
+	@echo ... src/Schedule.s
+	@echo ... src/SetAlarm.obj
+	@echo ... src/SetAlarm.i
+	@echo ... src/SetAlarm.s
+	@echo ... src/Settings.obj
+	@echo ... src/Settings.i
+	@echo ... src/Settings.s
 	@echo ... src/Timer.obj
 	@echo ... src/Timer.i
 	@echo ... src/Timer.s

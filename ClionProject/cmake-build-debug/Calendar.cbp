@@ -85,6 +85,15 @@
 		<Unit filename="C:/Users/ZXH/GitHub/Calendar/ClionProject/main.c">
 			<Option target="Calendar"/>
 		</Unit>
+		<Unit filename="C:/Users/ZXH/GitHub/Calendar/ClionProject/src/Schedule.c">
+			<Option target="Calendar"/>
+		</Unit>
+		<Unit filename="C:/Users/ZXH/GitHub/Calendar/ClionProject/src/SetAlarm.c">
+			<Option target="Calendar"/>
+		</Unit>
+		<Unit filename="C:/Users/ZXH/GitHub/Calendar/ClionProject/src/Settings.c">
+			<Option target="Calendar"/>
+		</Unit>
 		<Unit filename="C:/Users/ZXH/GitHub/Calendar/ClionProject/src/Timer.c">
 			<Option target="Calendar"/>
 		</Unit>

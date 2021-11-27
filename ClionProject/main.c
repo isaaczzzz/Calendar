@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <time.h>
 #include <stdlib.h>
-#include "myhead.h"
+#include "connection.h"
 #define BACKBLUE BACKGROUND_BLUE | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY | BACKGROUND_INTENSITY
 #define WHITE FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY
 #define BLUE FOREGROUND_BLUE | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY
@@ -490,15 +490,16 @@ void printUI(int yy, int mm, int dd)
                             int yy1, mm1, dd1;
                             scanf("%d %d %d", &yy1, &mm1, &dd1);
                             printUI(yy1, mm1, dd1);
+                            ShowSchedule(yy1, mm1, dd1);
                             break;
                         case 3:
-                            //note();
+                            AddSchedule();
                             break;
                         case 4:
                             //timing();
                             break;
                         case 5:
-                            //setalarm();
+                            SetAlarm();
                             break;
                         case 6:
                             //settings();
@@ -605,6 +606,7 @@ void printUI(int yy, int mm, int dd)
         printf("现在是：%04d/%02d/%02d %02d:%02d:%02d", p2->tm_year + 1900, p2->tm_mon + 1, p2->tm_mday,
                (p2->tm_hour + 8 == 24 ? 0 : p2->tm_hour), p2->tm_min, p2->tm_sec);
         //循环输出当前时间
+        //加时区
     }
 }
 

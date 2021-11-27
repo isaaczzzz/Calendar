@@ -1,5 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Calendar.dir/main.c.obj"
+  "CMakeFiles/Calendar.dir/src/Schedule.c.obj"
+  "CMakeFiles/Calendar.dir/src/SetAlarm.c.obj"
+  "CMakeFiles/Calendar.dir/src/Settings.c.obj"
   "CMakeFiles/Calendar.dir/src/Timer.c.obj"
   "Calendar.exe"
   "Calendar.exe.manifest"

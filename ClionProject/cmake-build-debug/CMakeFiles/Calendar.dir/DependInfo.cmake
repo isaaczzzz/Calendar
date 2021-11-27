@@ -9,6 +9,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "C:/Users/ZXH/GitHub/Calendar/ClionProject/main.c" "C:/Users/ZXH/GitHub/Calendar/ClionProject/cmake-build-debug/CMakeFiles/Calendar.dir/main.c.obj"
+  "C:/Users/ZXH/GitHub/Calendar/ClionProject/src/Schedule.c" "C:/Users/ZXH/GitHub/Calendar/ClionProject/cmake-build-debug/CMakeFiles/Calendar.dir/src/Schedule.c.obj"
+  "C:/Users/ZXH/GitHub/Calendar/ClionProject/src/SetAlarm.c" "C:/Users/ZXH/GitHub/Calendar/ClionProject/cmake-build-debug/CMakeFiles/Calendar.dir/src/SetAlarm.c.obj"
+  "C:/Users/ZXH/GitHub/Calendar/ClionProject/src/Settings.c" "C:/Users/ZXH/GitHub/Calendar/ClionProject/cmake-build-debug/CMakeFiles/Calendar.dir/src/Settings.c.obj"
   "C:/Users/ZXH/GitHub/Calendar/ClionProject/src/Timer.c" "C:/Users/ZXH/GitHub/Calendar/ClionProject/cmake-build-debug/CMakeFiles/Calendar.dir/src/Timer.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")

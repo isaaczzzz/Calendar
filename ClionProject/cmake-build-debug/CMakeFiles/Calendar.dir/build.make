@@ -93,21 +93,69 @@ CMakeFiles/Calendar.dir/src/Timer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Calendar.dir/src/Timer.c.s"
 	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\ZXH\GitHub\Calendar\ClionProject\src\Timer.c -o CMakeFiles\Calendar.dir\src\Timer.c.s
 
+CMakeFiles/Calendar.dir/src/Schedule.c.obj: CMakeFiles/Calendar.dir/flags.make
+CMakeFiles/Calendar.dir/src/Schedule.c.obj: CMakeFiles/Calendar.dir/includes_C.rsp
+CMakeFiles/Calendar.dir/src/Schedule.c.obj: ../src/Schedule.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\ZXH\GitHub\Calendar\ClionProject\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Calendar.dir/src/Schedule.c.obj"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Calendar.dir\src\Schedule.c.obj -c C:\Users\ZXH\GitHub\Calendar\ClionProject\src\Schedule.c
+
+CMakeFiles/Calendar.dir/src/Schedule.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Calendar.dir/src/Schedule.c.i"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\ZXH\GitHub\Calendar\ClionProject\src\Schedule.c > CMakeFiles\Calendar.dir\src\Schedule.c.i
+
+CMakeFiles/Calendar.dir/src/Schedule.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Calendar.dir/src/Schedule.c.s"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\ZXH\GitHub\Calendar\ClionProject\src\Schedule.c -o CMakeFiles\Calendar.dir\src\Schedule.c.s
+
+CMakeFiles/Calendar.dir/src/Settings.c.obj: CMakeFiles/Calendar.dir/flags.make
+CMakeFiles/Calendar.dir/src/Settings.c.obj: CMakeFiles/Calendar.dir/includes_C.rsp
+CMakeFiles/Calendar.dir/src/Settings.c.obj: ../src/Settings.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\ZXH\GitHub\Calendar\ClionProject\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Calendar.dir/src/Settings.c.obj"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Calendar.dir\src\Settings.c.obj -c C:\Users\ZXH\GitHub\Calendar\ClionProject\src\Settings.c
+
+CMakeFiles/Calendar.dir/src/Settings.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Calendar.dir/src/Settings.c.i"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\ZXH\GitHub\Calendar\ClionProject\src\Settings.c > CMakeFiles\Calendar.dir\src\Settings.c.i
+
+CMakeFiles/Calendar.dir/src/Settings.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Calendar.dir/src/Settings.c.s"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\ZXH\GitHub\Calendar\ClionProject\src\Settings.c -o CMakeFiles\Calendar.dir\src\Settings.c.s
+
+CMakeFiles/Calendar.dir/src/SetAlarm.c.obj: CMakeFiles/Calendar.dir/flags.make
+CMakeFiles/Calendar.dir/src/SetAlarm.c.obj: CMakeFiles/Calendar.dir/includes_C.rsp
+CMakeFiles/Calendar.dir/src/SetAlarm.c.obj: ../src/SetAlarm.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\ZXH\GitHub\Calendar\ClionProject\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Calendar.dir/src/SetAlarm.c.obj"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Calendar.dir\src\SetAlarm.c.obj -c C:\Users\ZXH\GitHub\Calendar\ClionProject\src\SetAlarm.c
+
+CMakeFiles/Calendar.dir/src/SetAlarm.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Calendar.dir/src/SetAlarm.c.i"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\ZXH\GitHub\Calendar\ClionProject\src\SetAlarm.c > CMakeFiles\Calendar.dir\src\SetAlarm.c.i
+
+CMakeFiles/Calendar.dir/src/SetAlarm.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Calendar.dir/src/SetAlarm.c.s"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\ZXH\GitHub\Calendar\ClionProject\src\SetAlarm.c -o CMakeFiles\Calendar.dir\src\SetAlarm.c.s
+
 # Object files for target Calendar
 Calendar_OBJECTS = \
 "CMakeFiles/Calendar.dir/main.c.obj" \
-"CMakeFiles/Calendar.dir/src/Timer.c.obj"
+"CMakeFiles/Calendar.dir/src/Timer.c.obj" \
+"CMakeFiles/Calendar.dir/src/Schedule.c.obj" \
+"CMakeFiles/Calendar.dir/src/Settings.c.obj" \
+"CMakeFiles/Calendar.dir/src/SetAlarm.c.obj"
 
 # External object files for target Calendar
 Calendar_EXTERNAL_OBJECTS =
 
 Calendar.exe: CMakeFiles/Calendar.dir/main.c.obj
 Calendar.exe: CMakeFiles/Calendar.dir/src/Timer.c.obj
+Calendar.exe: CMakeFiles/Calendar.dir/src/Schedule.c.obj
+Calendar.exe: CMakeFiles/Calendar.dir/src/Settings.c.obj
+Calendar.exe: CMakeFiles/Calendar.dir/src/SetAlarm.c.obj
 Calendar.exe: CMakeFiles/Calendar.dir/build.make
 Calendar.exe: CMakeFiles/Calendar.dir/linklibs.rsp
 Calendar.exe: CMakeFiles/Calendar.dir/objects1.rsp
 Calendar.exe: CMakeFiles/Calendar.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\ZXH\GitHub\Calendar\ClionProject\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable Calendar.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\ZXH\GitHub\Calendar\ClionProject\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable Calendar.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Calendar.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

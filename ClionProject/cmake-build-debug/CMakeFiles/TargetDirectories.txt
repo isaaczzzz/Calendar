@@ -1,3 +1,0 @@
-C:/Users/ZXH/GitHub/Calendar/ClionProject/cmake-build-debug/CMakeFiles/Calendar.dir
-C:/Users/ZXH/GitHub/Calendar/ClionProject/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/ZXH/GitHub/Calendar/ClionProject/cmake-build-debug/CMakeFiles/rebuild_cache.dir

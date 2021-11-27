@@ -6,25 +6,6 @@
 void StopWatch(void);
 void CountDown(void);
 void color_print(const char *s, int color);
-//void go(int x, int y);
-/*
-int main(void)
-{
-    system("chcp 936");
-    system("cls");
-
-    int opt;
-    printf("1: 正计时;   2: 倒计时\n");
-    scanf("%d", &opt);
-    if (opt == 1)
-        StopWatch();
-    else
-        CountDown(); //倒计时
-    getchar();
-    getchar();
-    return 0;
-}
-*/
 
 //正计时
 void StopWatch(void)

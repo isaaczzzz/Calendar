@@ -8,13 +8,13 @@ void printUI(int, int, int);
 int main(void)
 {
     system("color F9");
-    //è®¾ç½®æ§åˆ¶å°é»˜è®¤é¢œè‰²
+    //ÉèÖÃ¿ØÖÆÌ¨Ä¬ÈÏÑÕÉ«
     system("chcp 936");
     system("cls");
-    //è®¾ç½®ç¼–ç ä¸ºGBKå¹¶æ¸…å±
+    //ÉèÖÃ±àÂëÎªGBK²¢ÇåÆÁ
     CONSOLE_CURSOR_INFO cursor_info = {1, 0};
     SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor_info);
-    //éšè—å…‰æ ‡
+    //Òş²Ø¹â±ê
 
     time_t timep;
     struct tm *p;
@@ -25,11 +25,11 @@ int main(void)
     int day = p->tm_mday;
 
     printUI(year, mon, day);
-    //è·å–æ—¶é—´å¹¶è°ƒç”¨printUIå‡½æ•°
+    //»ñÈ¡Ê±¼ä²¢µ÷ÓÃprintUIº¯Êı
     return 0;
 }
 
-//è¿”å›æœˆä»½çš„èµ·å§‹æ˜ŸæœŸ
+//·µ»ØÔÂ·İµÄÆğÊ¼ĞÇÆÚ
 int dayNumber(int day, int month, int year)
 {
     static int t[] = {0, 3, 2, 5, 0, 3,
@@ -45,40 +45,40 @@ char *getMonthName(int monthNumber)
     switch (monthNumber)
     {
         case 0:
-            month = "ä¸€æœˆ";
+            month = "Ò»ÔÂ";
             break;
         case 1:
-            month = "äºŒæœˆ";
+            month = "¶şÔÂ";
             break;
         case 2:
-            month = "ä¸‰æœˆ";
+            month = "ÈıÔÂ";
             break;
         case 3:
-            month = "å››æœˆ";
+            month = "ËÄÔÂ";
             break;
         case 4:
-            month = "äº”æœˆ";
+            month = "ÎåÔÂ";
             break;
         case 5:
-            month = "å…­æœˆ";
+            month = "ÁùÔÂ";
             break;
         case 6:
-            month = "ä¸ƒæœˆ";
+            month = "ÆßÔÂ";
             break;
         case 7:
-            month = "å…«æœˆ";
+            month = "°ËÔÂ";
             break;
         case 8:
-            month = "ä¹æœˆ";
+            month = "¾ÅÔÂ";
             break;
         case 9:
-            month = "åæœˆ";
+            month = "Ê®ÔÂ";
             break;
         case 10:
-            month = "åä¸€æœˆ";
+            month = "Ê®Ò»ÔÂ";
             break;
         case 11:
-            month = "åäºŒæœˆ";
+            month = "Ê®¶şÔÂ";
             break;
     }
     return month;
@@ -93,7 +93,7 @@ int numberOfDays(int monthNumber, int year)
     // February
     if (monthNumber == 1)
     {
-        // é—°å¹´åˆ¤æ–­
+        // ÈòÄêÅĞ¶Ï
         if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))
             return (29);
         else
@@ -141,7 +141,7 @@ int numberOfDays(int monthNumber, int year)
         return (31);
 }
 
-//è¾“å‡ºæŒ‡å®šæ—¥æœŸæ‰€åœ¨æ—¥å†å¹¶ç»˜åˆ¶UI
+//Êä³öÖ¸¶¨ÈÕÆÚËùÔÚÈÕÀú²¢»æÖÆUI
 void printUI(int yy, int mm, int dd)
 {
     int x = 0, y = 2;
@@ -149,7 +149,7 @@ void printUI(int yy, int mm, int dd)
     struct tm *p;
     time(&timep);
     p = gmtime(&timep);
-    //è·å–å½“å‰æ—¶é—´
+    //»ñÈ¡µ±Ç°Ê±¼ä
 
     int year = yy;
     int mon = p->tm_mon + 1;
@@ -167,294 +167,294 @@ void printUI(int yy, int mm, int dd)
         key = 0;
         if (kbhit())
             key = getch();
-        //å¦‚æœé”®ç›˜è¢«ç‚¹å‡»åˆ™è·å–é”®ä½å¯¹åº”æ•°å€¼
+        //Èç¹û¼üÅÌ±»µã»÷Ôò»ñÈ¡¼üÎ»¶ÔÓ¦ÊıÖµ
         if (key != ESC)
         {
             if (key == ARROW || (i == mm - 1 && start == 0) || key == ENTER)
-                //æŒ‰ä¸‹çš„æ˜¯æ–¹å‘é”®ï¼Œå›è½¦é”®æˆ–ç¬¬ä¸€æ¬¡å¯åŠ¨å‡½æ•°åˆ™è¾“å‡ºæ—¥å†å¹¶åˆ¤æ–­é”®ä½
+                //°´ÏÂµÄÊÇ·½Ïò¼ü£¬»Ø³µ¼ü»òµÚÒ»´ÎÆô¶¯º¯ÊıÔòÊä³öÈÕÀú²¢ÅĞ¶Ï¼üÎ»
             {
                 system("cls");
                 if (kbhit())
                     key = getch();
                 start = 1;
-                //æ ‡è®°å‡½æ•°ä¸ºå·²ç»å¯åŠ¨è¿‡
+                //±ê¼Çº¯ÊıÎªÒÑ¾­Æô¶¯¹ı
                 if (key == LEFT2)
-                    //é”®ç›˜å·¦é”®æŒ‰ä¸‹
+                    //¼üÅÌ×ó¼ü°´ÏÂ
                     if (i != 0)
                         i--;
                     else
                         i = 11, year--;
                 if (key == RIGHT2)
-                    //é”®ç›˜å³é”®æŒ‰ä¸‹
+                    //¼üÅÌÓÒ¼ü°´ÏÂ
                     if (i != 11)
                         i++;
                     else
                         i = 0, year++;
 
                 if (key == UP2)
-                    //é”®ç›˜ä¸Šé”®æŒ‰ä¸‹ï¼Œé€‰æ‹©é€‰é¡¹
+                    //¼üÅÌÉÏ¼ü°´ÏÂ£¬Ñ¡ÔñÑ¡Ïî
                     switch (optionpick)
                     {
                         case 1:
                             go(50, 0);
                             color(DEFAULTCOLOR);
-                            printf("ç•ªèŒ„é’Ÿ");
+                            printf("·¬ÇÑÖÓ");
                             go(50, 2);
                             color(DEFAULTCOLOR);
-                            printf("æ—¥æœŸæŸ¥è¯¢");
+                            printf("ÈÕÆÚ²éÑ¯");
                             go(50, 4);
                             color(DEFAULTCOLOR);
-                            printf("æ·»åŠ æ—¥ç¨‹");
+                            printf("Ìí¼ÓÈÕ³Ì");
                             go(50, 6);
                             color(DEFAULTCOLOR);
-                            printf("æ­£è®¡æ—¶");
+                            printf("Õı¼ÆÊ±");
                             go(50, 8);
                             color(DEFAULTCOLOR);
-                            printf("è®¾ç½®é—¹é’Ÿ");
+                            printf("ÉèÖÃÄÖÖÓ");
                             go(50, 10);
                             color(HIGHLIGHT);
-                            printf("è®¾ç½®");
+                            printf("ÉèÖÃ");
                             optionpick = 6;
                             break;
                         case 2:
                             go(50, 0);
                             color(HIGHLIGHT);
-                            printf("ç•ªèŒ„é’Ÿ");
+                            printf("·¬ÇÑÖÓ");
                             go(50, 2);
                             color(DEFAULTCOLOR);
-                            printf("æ—¥æœŸæŸ¥è¯¢");
+                            printf("ÈÕÆÚ²éÑ¯");
                             go(50, 4);
                             color(DEFAULTCOLOR);
-                            printf("æ·»åŠ æ—¥ç¨‹");
+                            printf("Ìí¼ÓÈÕ³Ì");
                             go(50, 6);
                             color(DEFAULTCOLOR);
-                            printf("æ­£è®¡æ—¶");
+                            printf("Õı¼ÆÊ±");
                             go(50, 8);
                             color(DEFAULTCOLOR);
-                            printf("è®¾ç½®é—¹é’Ÿ");
+                            printf("ÉèÖÃÄÖÖÓ");
                             go(50, 10);
                             color(DEFAULTCOLOR);
-                            printf("è®¾ç½®");
+                            printf("ÉèÖÃ");
                             optionpick = 1;
                             break;
                         case 3:
                             go(50, 0);
                             color(DEFAULTCOLOR);
-                            printf("ç•ªèŒ„é’Ÿ");
+                            printf("·¬ÇÑÖÓ");
                             go(50, 2);
                             color(HIGHLIGHT);
-                            printf("æ—¥æœŸæŸ¥è¯¢");
+                            printf("ÈÕÆÚ²éÑ¯");
                             go(50, 4);
                             color(DEFAULTCOLOR);
-                            printf("æ·»åŠ æ—¥ç¨‹");
+                            printf("Ìí¼ÓÈÕ³Ì");
                             go(50, 6);
                             color(DEFAULTCOLOR);
-                            printf("æ­£è®¡æ—¶");
+                            printf("Õı¼ÆÊ±");
                             go(50, 8);
                             color(DEFAULTCOLOR);
-                            printf("è®¾ç½®é—¹é’Ÿ");
+                            printf("ÉèÖÃÄÖÖÓ");
                             go(50, 10);
                             color(DEFAULTCOLOR);
-                            printf("è®¾ç½®");
+                            printf("ÉèÖÃ");
                             optionpick = 2;
                             break;
                         case 4:
                             go(50, 0);
                             color(DEFAULTCOLOR);
-                            printf("ç•ªèŒ„é’Ÿ");
+                            printf("·¬ÇÑÖÓ");
                             go(50, 2);
                             color(DEFAULTCOLOR);
-                            printf("æ—¥æœŸæŸ¥è¯¢");
+                            printf("ÈÕÆÚ²éÑ¯");
                             go(50, 4);
                             color(HIGHLIGHT);
-                            printf("æ·»åŠ æ—¥ç¨‹");
+                            printf("Ìí¼ÓÈÕ³Ì");
                             go(50, 6);
                             color(DEFAULTCOLOR);
-                            printf("æ­£è®¡æ—¶");
+                            printf("Õı¼ÆÊ±");
                             go(50, 8);
                             color(DEFAULTCOLOR);
-                            printf("è®¾ç½®é—¹é’Ÿ");
+                            printf("ÉèÖÃÄÖÖÓ");
                             go(50, 10);
                             color(DEFAULTCOLOR);
-                            printf("è®¾ç½®");
+                            printf("ÉèÖÃ");
                             optionpick = 3;
                             break;
                         case 5:
                             go(50, 0);
                             color(DEFAULTCOLOR);
-                            printf("ç•ªèŒ„é’Ÿ");
+                            printf("·¬ÇÑÖÓ");
                             go(50, 2);
                             color(DEFAULTCOLOR);
-                            printf("æ—¥æœŸæŸ¥è¯¢");
+                            printf("ÈÕÆÚ²éÑ¯");
                             go(50, 4);
                             color(DEFAULTCOLOR);
-                            printf("æ·»åŠ æ—¥ç¨‹");
+                            printf("Ìí¼ÓÈÕ³Ì");
                             go(50, 6);
                             color(HIGHLIGHT);
-                            printf("æ­£è®¡æ—¶");
+                            printf("Õı¼ÆÊ±");
                             go(50, 8);
                             color(DEFAULTCOLOR);
-                            printf("è®¾ç½®é—¹é’Ÿ");
+                            printf("ÉèÖÃÄÖÖÓ");
                             go(50, 10);
                             color(DEFAULTCOLOR);
-                            printf("è®¾ç½®");
+                            printf("ÉèÖÃ");
                             optionpick = 4;
                             break;
                         case 6:
                             go(50, 0);
                             color(DEFAULTCOLOR);
-                            printf("ç•ªèŒ„é’Ÿ");
+                            printf("·¬ÇÑÖÓ");
                             go(50, 2);
                             color(DEFAULTCOLOR);
-                            printf("æ—¥æœŸæŸ¥è¯¢");
+                            printf("ÈÕÆÚ²éÑ¯");
                             go(50, 4);
                             color(DEFAULTCOLOR);
-                            printf("æ·»åŠ æ—¥ç¨‹");
+                            printf("Ìí¼ÓÈÕ³Ì");
                             go(50, 6);
                             color(DEFAULTCOLOR);
-                            printf("æ­£è®¡æ—¶");
+                            printf("Õı¼ÆÊ±");
                             go(50, 8);
                             color(HIGHLIGHT);
-                            printf("è®¾ç½®é—¹é’Ÿ");
+                            printf("ÉèÖÃÄÖÖÓ");
                             go(50, 10);
                             color(DEFAULTCOLOR);
-                            printf("è®¾ç½®");
+                            printf("ÉèÖÃ");
                             optionpick = 5;
                             break;
                     }
                 else if (key == DOWN2)
-                    //é”®ç›˜ä¸‹é”®æŒ‰ä¸‹ï¼Œé€‰æ‹©é€‰é¡¹
+                    //¼üÅÌÏÂ¼ü°´ÏÂ£¬Ñ¡ÔñÑ¡Ïî
                     switch (optionpick)
                     {
                         case 5:
                             go(50, 0);
                             color(DEFAULTCOLOR);
-                            printf("ç•ªèŒ„é’Ÿ");
+                            printf("·¬ÇÑÖÓ");
                             go(50, 2);
                             color(DEFAULTCOLOR);
-                            printf("æ—¥æœŸæŸ¥è¯¢");
+                            printf("ÈÕÆÚ²éÑ¯");
                             go(50, 4);
                             color(DEFAULTCOLOR);
-                            printf("æ·»åŠ æ—¥ç¨‹");
+                            printf("Ìí¼ÓÈÕ³Ì");
                             go(50, 6);
                             color(DEFAULTCOLOR);
-                            printf("æ­£è®¡æ—¶");
+                            printf("Õı¼ÆÊ±");
                             go(50, 8);
                             color(DEFAULTCOLOR);
-                            printf("è®¾ç½®é—¹é’Ÿ");
+                            printf("ÉèÖÃÄÖÖÓ");
                             go(50, 10);
                             color(HIGHLIGHT);
-                            printf("è®¾ç½®");
+                            printf("ÉèÖÃ");
                             optionpick = 6;
                             break;
                         case 6:
                             go(50, 0);
                             color(HIGHLIGHT);
-                            printf("ç•ªèŒ„é’Ÿ");
+                            printf("·¬ÇÑÖÓ");
                             go(50, 2);
                             color(DEFAULTCOLOR);
-                            printf("æ—¥æœŸæŸ¥è¯¢");
+                            printf("ÈÕÆÚ²éÑ¯");
                             go(50, 4);
                             color(DEFAULTCOLOR);
-                            printf("æ·»åŠ æ—¥ç¨‹");
+                            printf("Ìí¼ÓÈÕ³Ì");
                             go(50, 6);
                             color(DEFAULTCOLOR);
-                            printf("æ­£è®¡æ—¶");
+                            printf("Õı¼ÆÊ±");
                             go(50, 8);
                             color(DEFAULTCOLOR);
-                            printf("è®¾ç½®é—¹é’Ÿ");
+                            printf("ÉèÖÃÄÖÖÓ");
                             go(50, 10);
                             color(DEFAULTCOLOR);
-                            printf("è®¾ç½®");
+                            printf("ÉèÖÃ");
                             optionpick = 1;
                             break;
                         case 1:
                             go(50, 0);
                             color(DEFAULTCOLOR);
-                            printf("ç•ªèŒ„é’Ÿ");
+                            printf("·¬ÇÑÖÓ");
                             go(50, 2);
                             color(HIGHLIGHT);
-                            printf("æ—¥æœŸæŸ¥è¯¢");
+                            printf("ÈÕÆÚ²éÑ¯");
                             go(50, 4);
                             color(DEFAULTCOLOR);
-                            printf("æ·»åŠ æ—¥ç¨‹");
+                            printf("Ìí¼ÓÈÕ³Ì");
                             go(50, 6);
                             color(DEFAULTCOLOR);
-                            printf("æ­£è®¡æ—¶");
+                            printf("Õı¼ÆÊ±");
                             go(50, 8);
                             color(DEFAULTCOLOR);
-                            printf("è®¾ç½®é—¹é’Ÿ");
+                            printf("ÉèÖÃÄÖÖÓ");
                             go(50, 10);
                             color(DEFAULTCOLOR);
-                            printf("è®¾ç½®");
+                            printf("ÉèÖÃ");
                             optionpick = 2;
                             break;
                         case 2:
                             go(50, 0);
                             color(DEFAULTCOLOR);
-                            printf("ç•ªèŒ„é’Ÿ");
+                            printf("·¬ÇÑÖÓ");
                             go(50, 2);
                             color(DEFAULTCOLOR);
-                            printf("æ—¥æœŸæŸ¥è¯¢");
+                            printf("ÈÕÆÚ²éÑ¯");
                             go(50, 4);
                             color(HIGHLIGHT);
-                            printf("æ·»åŠ æ—¥ç¨‹");
+                            printf("Ìí¼ÓÈÕ³Ì");
                             go(50, 6);
                             color(DEFAULTCOLOR);
-                            printf("æ­£è®¡æ—¶");
+                            printf("Õı¼ÆÊ±");
                             go(50, 8);
                             color(DEFAULTCOLOR);
-                            printf("è®¾ç½®é—¹é’Ÿ");
+                            printf("ÉèÖÃÄÖÖÓ");
                             go(50, 10);
                             color(DEFAULTCOLOR);
-                            printf("è®¾ç½®");
+                            printf("ÉèÖÃ");
                             optionpick = 3;
                             break;
                         case 3:
                             go(50, 0);
                             color(DEFAULTCOLOR);
-                            printf("ç•ªèŒ„é’Ÿ");
+                            printf("·¬ÇÑÖÓ");
                             go(50, 2);
                             color(DEFAULTCOLOR);
-                            printf("æ—¥æœŸæŸ¥è¯¢");
+                            printf("ÈÕÆÚ²éÑ¯");
                             go(50, 4);
                             color(DEFAULTCOLOR);
-                            printf("æ·»åŠ æ—¥ç¨‹");
+                            printf("Ìí¼ÓÈÕ³Ì");
                             go(50, 6);
                             color(HIGHLIGHT);
-                            printf("æ­£è®¡æ—¶");
+                            printf("Õı¼ÆÊ±");
                             go(50, 8);
                             color(DEFAULTCOLOR);
-                            printf("è®¾ç½®é—¹é’Ÿ");
+                            printf("ÉèÖÃÄÖÖÓ");
                             go(50, 10);
                             color(DEFAULTCOLOR);
-                            printf("è®¾ç½®");
+                            printf("ÉèÖÃ");
                             optionpick = 4;
                             break;
                         case 4:
                             go(50, 0);
                             color(DEFAULTCOLOR);
-                            printf("ç•ªèŒ„é’Ÿ");
+                            printf("·¬ÇÑÖÓ");
                             go(50, 2);
                             color(DEFAULTCOLOR);
-                            printf("æ—¥æœŸæŸ¥è¯¢");
+                            printf("ÈÕÆÚ²éÑ¯");
                             go(50, 4);
                             color(DEFAULTCOLOR);
-                            printf("æ·»åŠ æ—¥ç¨‹");
+                            printf("Ìí¼ÓÈÕ³Ì");
                             go(50, 6);
                             color(DEFAULTCOLOR);
-                            printf("æ­£è®¡æ—¶");
+                            printf("Õı¼ÆÊ±");
                             go(50, 8);
                             color(HIGHLIGHT);
-                            printf("è®¾ç½®é—¹é’Ÿ");
+                            printf("ÉèÖÃÄÖÖÓ");
                             go(50, 10);
                             color(DEFAULTCOLOR);
-                            printf("è®¾ç½®");
+                            printf("ÉèÖÃ");
                             optionpick = 5;
                             break;
                     }
                 else if (key == ENTER)
-                    //å›è½¦é”®æŒ‰ä¸‹ï¼Œè¯»å–é€‰é¡¹å¹¶è¿›å…¥å¯¹åº”åŠŸèƒ½
+                    //»Ø³µ¼ü°´ÏÂ£¬¶ÁÈ¡Ñ¡Ïî²¢½øÈë¶ÔÓ¦¹¦ÄÜ
                 {
                     switch (optionpick)
                     {
@@ -462,9 +462,9 @@ void printUI(int yy, int mm, int dd)
                             CountDown();
                             break;
                         case 2:
-                            //å®ç°è·³è½¬åˆ°æŒ‡å®šæ—¥æœŸåŠŸèƒ½
+                            //ÊµÏÖÌø×ªµ½Ö¸¶¨ÈÕÆÚ¹¦ÄÜ
                             system("cls");
-                            printf("è¾“å…¥è¦è·³è½¬çš„æ—¥æœŸ(å¦‚2021 11 08):");
+                            printf("ÊäÈëÒªÌø×ªµÄÈÕÆÚ(Èç2021 11 08):");
                             int yy1, mm1, dd1;
                             scanf("%d %d %d", &yy1, &mm1, &dd1);
                             printUI(yy1, mm1, dd1);
@@ -490,22 +490,22 @@ void printUI(int yy, int mm, int dd)
                 {
                     go(50, 0);
                     color(HIGHLIGHT);
-                    printf("ç•ªèŒ„é’Ÿ");
+                    printf("·¬ÇÑÖÓ");
                     go(50, 2);
                     color(DEFAULTCOLOR);
-                    printf("æ—¥æœŸæŸ¥è¯¢");
+                    printf("ÈÕÆÚ²éÑ¯");
                     go(50, 4);
                     color(DEFAULTCOLOR);
-                    printf("æ·»åŠ æ—¥ç¨‹");
+                    printf("Ìí¼ÓÈÕ³Ì");
                     go(50, 6);
                     color(DEFAULTCOLOR);
-                    printf("æ­£è®¡æ—¶");
+                    printf("Õı¼ÆÊ±");
                     go(50, 8);
                     color(DEFAULTCOLOR);
-                    printf("è®¾ç½®é—¹é’Ÿ");
+                    printf("ÉèÖÃÄÖÖÓ");
                     go(50, 10);
                     color(DEFAULTCOLOR);
-                    printf("è®¾ç½®");
+                    printf("ÉèÖÃ");
                     optionpick = 1;
                 }
                 x = 0;
@@ -515,11 +515,11 @@ void printUI(int yy, int mm, int dd)
                 color(DEFAULTCOLOR);
                 days = numberOfDays(i, year);
 
-                printf("           â†%då¹´%sâ†’            \n", year, getMonthName(i));
-                // è¾“å‡ºå¹´ä»½æœˆä»½
+                printf("           ¡û%dÄê%s¡ú            \n", year, getMonthName(i));
+                // Êä³öÄê·İÔÂ·İ
 
                 printf(" Sun   Mon  Tue  Wed  Thu  Fri  Sat\n");
-                // è¾“å‡ºè¡Œ
+                // Êä³öĞĞ
 
                 int k;
                 int current = dayNumber(1, i + 1, year);
@@ -528,13 +528,13 @@ void printUI(int yy, int mm, int dd)
                     printf("     ");
                     x += 5;
                 }
-                // è¾“å‡ºç©ºæ—¥æœŸ
+                // Êä³ö¿ÕÈÕÆÚ
 
                 for (int j = 1; j <= days; j++)
                 {
                     if (i == mon - 1 && j == today && year == thisyear)
                     {
-                        //è¾“å‡ºä»Šå¤©æ—¥æœŸä¸ºè®¾å®šé¢œè‰²
+                        //Êä³ö½ñÌìÈÕÆÚÎªÉè¶¨ÑÕÉ«
                         go(x, y);
                         color(TODAY);
                         printf("%5d", j);
@@ -542,7 +542,7 @@ void printUI(int yy, int mm, int dd)
                     }
                     else if (i == mm - 1 && j == dd && year == yy)
                     {
-                        //è¾“å‡ºæœç´¢ç»“æœçš„æ—¥æœŸä¸ºè®¾å®šé¢œè‰²
+                        //Êä³öËÑË÷½á¹ûµÄÈÕÆÚÎªÉè¶¨ÑÕÉ«
                         go(x, y);
                         color(RESULT);
                         printf("%5d", j);
@@ -550,7 +550,7 @@ void printUI(int yy, int mm, int dd)
                     }
                     else
                     {
-                        //å…¶ä»–æ™®é€šæ—¥æœŸè¾“å‡ºä¸ºè®¾å®šé¢œè‰²
+                        //ÆäËûÆÕÍ¨ÈÕÆÚÊä³öÎªÉè¶¨ÑÕÉ«
                         go(x, y);
                         color(DEFAULTCOLOR);
                         printf("%5d", j);
@@ -568,12 +568,12 @@ void printUI(int yy, int mm, int dd)
 
                 if (k)
                     printf("\n"), y++;
-                //æ¢è¡Œ
+                //»»ĞĞ
             }
         }
         else
             exit(0);
-        //æ£€æµ‹åˆ°ESCåˆ™é€€å‡ºç¨‹åº
+        //¼ì²âµ½ESCÔòÍË³ö³ÌĞò
 
         time_t timep2;
         struct tm *p2;
@@ -581,10 +581,10 @@ void printUI(int yy, int mm, int dd)
         p2 = gmtime(&timep2);
         go(0, y);
         color(DEFAULTCOLOR);
-        printf("ç°åœ¨æ˜¯ï¼š%04d/%02d/%02d %02d:%02d:%02d", p2->tm_year + 1900, p2->tm_mon + 1, p2->tm_mday,
+        printf("ÏÖÔÚÊÇ£º%04d/%02d/%02d %02d:%02d:%02d", p2->tm_year + 1900, p2->tm_mon + 1, p2->tm_mday,
                (p2->tm_hour + 8 == 24 ? 0 : p2->tm_hour), p2->tm_min, p2->tm_sec);
-        //å¾ªç¯è¾“å‡ºå½“å‰æ—¶é—´
-        //åŠ æ—¶åŒº
+        //Ñ­»·Êä³öµ±Ç°Ê±¼ä
+        //¼ÓÊ±Çø
     }
 }
 
@@ -593,15 +593,15 @@ void color(int a)
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), a);
 }
 
-//å…‰æ ‡ç§»åŠ¨å‡½æ•°ï¼ŒXè¡¨ç¤ºæ¨ªåæ ‡ï¼ŒYè¡¨ç¤ºçºµåæ ‡
+//¹â±êÒÆ¶¯º¯Êı£¬X±íÊ¾ºá×ø±ê£¬Y±íÊ¾×İ×ø±ê
 void go(int x, int y)
 {
     COORD coord;
-    //åæ ‡
+    //×ø±ê
     coord.X = x;
     coord.Y = y;
     HANDLE a = GetStdHandle(STD_OUTPUT_HANDLE);
-    //è·å¾—æ ‡å‡†è¾“å‡ºå¥æŸ„
+    //»ñµÃ±ê×¼Êä³ö¾ä±ú
     SetConsoleCursorPosition(a, coord);
-    //ä»¥æ ‡å‡†è¾“å‡ºçš„å¥æŸ„ä¸ºå‚æ•°è®¾ç½®æ§åˆ¶å°å…‰æ ‡åæ ‡
+    //ÒÔ±ê×¼Êä³öµÄ¾ä±úÎª²ÎÊıÉèÖÃ¿ØÖÆÌ¨¹â±ê×ø±ê
 }

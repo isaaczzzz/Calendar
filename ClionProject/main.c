@@ -1,26 +1,4 @@
-#include <stdio.h>
-#include <conio.h>
-#include <windows.h>
-#include <time.h>
-#include <stdlib.h>
 #include "connection.h"
-#define BACKBLUE BACKGROUND_BLUE | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY | BACKGROUND_INTENSITY
-#define WHITE FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY
-#define BLUE FOREGROUND_BLUE | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY
-#define RED FOREGROUND_RED | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY
-#define GREEN FOREGROUND_GREEN | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY
-#define ENTER 13
-#define ESC 27
-#define ARROW 224
-#define UP2 72
-#define DOWN2 80
-#define LEFT2 75
-#define RIGHT2 77
-#define S 115
-#define HIGHLIGHT BACKBLUE
-#define DEFAULTCOLOR BLUE
-#define TODAY RED
-#define RESULT GREEN
 
 int dayNumber(int, int, int);
 char *getMonthName(int);
@@ -51,8 +29,8 @@ int main(void)
     return 0;
 }
 
-int dayNumber(int day, int month, int year)
 //返回月份的起始星期
+int dayNumber(int day, int month, int year)
 {
     static int t[] = {0, 3, 2, 5, 0, 3,
                       5, 1, 4, 6, 2, 4};
@@ -163,8 +141,8 @@ int numberOfDays(int monthNumber, int year)
         return (31);
 }
 
-void printUI(int yy, int mm, int dd)
 //输出指定日期所在日历并绘制UI
+void printUI(int yy, int mm, int dd)
 {
     int x = 0, y = 2;
     time_t timep;
@@ -615,8 +593,8 @@ void color(int a)
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), a);
 }
 
-void go(int x, int y)
 //光标移动函数，X表示横坐标，Y表示纵坐标
+void go(int x, int y)
 {
     COORD coord;
     //坐标

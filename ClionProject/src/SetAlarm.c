@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <time.h>
-#include <Windows.h>
 #include "connection.h"
 
 void SetAlarm()

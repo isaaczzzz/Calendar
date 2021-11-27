@@ -7,16 +7,6 @@
 #IncludeRegexTransform: 
 
 ../include/connection.h
-function.h
-../include/function.h
-uiprint.h
-../include/uiprint.h
-
-../include/function.h
-
-../include/uiprint.h
-
-C:/Users/ZXH/GitHub/Calendar/ClionProject/main.c
 stdio.h
 -
 conio.h
@@ -27,38 +17,30 @@ time.h
 -
 stdlib.h
 -
+stdbool.h
+-
+function.h
+../include/function.h
+uiprint.h
+../include/uiprint.h
+
+../include/function.h
+
+../include/uiprint.h
+
+C:/Users/ZXH/GitHub/Calendar/ClionProject/main.c
 connection.h
 C:/Users/ZXH/GitHub/Calendar/ClionProject/connection.h
 
 C:/Users/ZXH/GitHub/Calendar/ClionProject/src/Schedule.c
-stdio.h
--
-stdlib.h
--
 connection.h
 C:/Users/ZXH/GitHub/Calendar/ClionProject/src/connection.h
 
 C:/Users/ZXH/GitHub/Calendar/ClionProject/src/SetAlarm.c
-stdio.h
--
-time.h
--
-Windows.h
--
 connection.h
 C:/Users/ZXH/GitHub/Calendar/ClionProject/src/connection.h
 
-C:/Users/ZXH/GitHub/Calendar/ClionProject/src/Settings.c
-
 C:/Users/ZXH/GitHub/Calendar/ClionProject/src/Timer.c
-stdio.h
--
-stdlib.h
--
-Windows.h
--
-stdbool.h
--
 connection.h
 C:/Users/ZXH/GitHub/Calendar/ClionProject/src/connection.h
 

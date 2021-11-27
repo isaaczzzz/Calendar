@@ -1,8 +1,6 @@
 /*********************
  * 添加日程，查询日程   *
  * *******************/
-#include <stdio.h>
-#include <stdlib.h>
 #include "connection.h"
 
 #define MAX_LENGTH 205

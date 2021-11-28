@@ -340,61 +340,61 @@ void PrintTimeZone(int offset)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("国际换日线(UTC-12)");
+            printf("国际换日线");
             go(8, 0);
             if (optionpicki == 1 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("中途岛(UTC-11)");
+            printf("中途岛");
             go(16, 0);
             if (optionpicki == 2 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("夏威夷(UTC-10)");
+            printf("夏威夷");
             go(24, 0);
             if (optionpicki == 3 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("阿拉斯加(UTC-9)");
+            printf("阿拉斯加");
             go(32, 0);
             if (optionpicki == 4 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("太平洋时间(UTC-8)");
+            printf("太平洋时间");
             go(40, 0);
             if (optionpicki == 5 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("山地时间(UTC-7)");
+            printf("山地时间");
             go(48, 0);
             if (optionpicki == 6 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("中部时间(UTC-6)");
+            printf("中部时间");
             go(56, 0);
             if (optionpicki == 7 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("东部时间(UTC-5)");
+            printf("东部时间");
             go(64, 0);
             if (optionpicki == 8 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("大西洋时间(UTC-4)");
+            printf("大西洋时间");
             go(0, 6);
             if (optionpicki == 0 && optionpickj == 1)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("巴西利亚(UTC-3)");
+            printf("巴西利亚");
             go(8, 6);
             if (optionpicki == 1 && optionpickj == 1)
                 color(HIGHLIGHT);
@@ -412,91 +412,91 @@ void PrintTimeZone(int offset)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("伦敦(世界标准时)");
+            printf("伦敦");
             go(32, 6);
             if (optionpicki == 4 && optionpickj == 1)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("柏林,巴黎(UTC+1)");
+            printf("柏林,巴黎");
             go(40, 6);
             if (optionpicki == 5 && optionpickj == 1)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("雅典,基辅(UTC+2)");
+            printf("雅典,基辅");
             go(48, 6);
             if (optionpicki == 6 && optionpickj == 1)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("莫斯科(UTC+3)");
+            printf("莫斯科");
             go(56, 6);
             if (optionpicki == 7 && optionpickj == 1)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("毛里求斯(UTC+4)");
+            printf("毛里求斯");
             go(64, 6);
             if (optionpicki == 8 && optionpickj == 1)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("巴基斯坦(UTC+5)");
+            printf("巴基斯坦");
             go(0, 12);
             if (optionpicki == 0 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("孟加拉(UTC+6)");
+            printf("孟加拉");
             go(8, 12);
             if (optionpicki == 1 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("曼谷(UTC+7)");
+            printf("曼谷");
             go(16, 12);
             if (optionpicki == 2 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("北京(UTC+8)");
+            printf("北京");
             go(24, 12);
             if (optionpicki == 3 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("东京(UTC+9)");
+            printf("东京");
             go(32, 12);
             if (optionpicki == 4 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("关岛(UTC+10)");
+            printf("关岛");
             go(40, 12);
             if (optionpicki == 5 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("瓦努阿图(UTC+11)");
+            printf("瓦努阿图");
             go(48, 12);
             if (optionpicki == 6 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("斐济(UTC+12)");
+            printf("斐济");
             go(56, 12);
             if (optionpicki == 7 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("基里巴斯(UTC+13)");
+            printf("基里巴斯");
             go(64, 12);
             if (optionpicki == 8 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("圣诞岛(UTC+14)");
+            printf("圣诞岛");
         }
     }
 }

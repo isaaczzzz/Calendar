@@ -141,8 +141,7 @@ void PrintTimeZone(int offset)
             go(0, 52);
             color(DEFAULTCOLOR);
             printf("UTC+14");
-            
-        }
+                }
         if (kbhit())
             key = getch();
         //如果键盘被点击则获取键位对应数值

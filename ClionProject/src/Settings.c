@@ -47,189 +47,456 @@ int main()
     printf("%d\n",S.Setting);
     }
     */
-    PrintTimeZone(8);
-    system("pause");
-}
-
-void PrintTimeZone(int offset)
-{
-    int key = 0;
     int optionpick = 1;
     int start = 0;
     while (1)
     {
-        if (start == 0)
-        {
-            go(0, 0);
-            color(DEFAULTCOLOR);
-            printf("UTC-12");
-            go(0, 2);
-            color(DEFAULTCOLOR);
-            printf("UTC-11");
-            go(0, 4);
-            color(DEFAULTCOLOR);
-            printf("UTC-10");
-            go(0, 6);
-            color(DEFAULTCOLOR);
-            printf("UTC-9");
-            go(0, 8);
-            color(DEFAULTCOLOR);
-            printf("UTC-8");
-            go(0, 10);
-            color(DEFAULTCOLOR);
-            printf("UTC-7");
-            go(0, 12);
-            color(DEFAULTCOLOR);
-            printf("UTC-6");
-            go(0, 14);
-            color(DEFAULTCOLOR);
-            printf("UTC-5");
-            go(0, 16);
-            color(DEFAULTCOLOR);
-            printf("UTC-4");
-            go(0, 18);
-            color(DEFAULTCOLOR);
-            printf("UTC-3");
-            go(0, 20);
-            color(DEFAULTCOLOR);
-            printf("UTC-2");
-            go(0, 22);
-            color(DEFAULTCOLOR);
-            printf("UTC-1");
-            go(0, 24);
-            color(DEFAULTCOLOR);
-            printf("UTC±0");
-            go(0, 26);
-            color(DEFAULTCOLOR);
-            printf("UTC+1");
-            go(0, 28);
-            color(DEFAULTCOLOR);
-            printf("UTC+2");
-            go(0, 30);
-            color(DEFAULTCOLOR);
-            printf("UTC+3");
-            go(0, 32);
-            color(DEFAULTCOLOR);
-            printf("UTC+4");
-            go(0, 34);
-            color(DEFAULTCOLOR);
-            printf("UTC+5");
-            go(0, 36);
-            color(DEFAULTCOLOR);
-            printf("UTC+6");
-            go(0, 38);
-            color(DEFAULTCOLOR);
-            printf("UTC+7");
-            go(0, 40);
-            color(DEFAULTCOLOR);
-            printf("UTC+8");
-            go(0, 42);
-            color(DEFAULTCOLOR);
-            printf("UTC+9");
-            go(0, 44);
-            color(DEFAULTCOLOR);
-            printf("UTC+10");
-            go(0, 46);
-            color(DEFAULTCOLOR);
-            printf("UTC+11");
-            go(0, 48);
-            color(DEFAULTCOLOR);
-            printf("UTC+12");
-            go(0, 50);
-            color(DEFAULTCOLOR);
-            printf("UTC+13");
-            go(0, 52);
-            color(DEFAULTCOLOR);
-            printf("UTC+14");
-                }
+        int key = 0;
         if (kbhit())
             key = getch();
-        //如果键盘被点击则获取键位对应数值
-        if (key == ARROW || key == ENTER)
-        //按下的是方向键，回车键或第一次启动函数则输出日历并判断键位
+        if (key == ENTER)
+        {
+            switch (optionpick)
+            {
+            case 1:
+                PrintTimeZone(8);
+                break;
+            case 2:
+                //format();
+                break;
+            case 3:
+                //hourformat();
+                break;
+            case 4:
+                //skin();
+                break;
+            case 5:
+                exit(0);
+                //main();
+                break;
+            }
+        }
+        if (key == ARROW)
+        {
+            if (kbhit())
+                key = getch();
+            if (key == UP2)
+                switch (optionpick)
+                {
+                case 1:
+                    go(50, 0);
+                    color(DEFAULTCOLOR);
+                    printf("国家，地区，时区设置");
+                    go(50, 4);
+                    color(DEFAULTCOLOR);
+                    printf("格式设置");
+                    go(50, 8);
+                    color(DEFAULTCOLOR);
+                    printf("24小时制/12小时制设置");
+                    go(50, 12);
+                    color(DEFAULTCOLOR);
+                    printf("外观设置");
+                    go(50, 16);
+                    color(HIGHLIGHT);
+                    printf("退出");
+                    optionpick = 5;
+                    break;
+                case 2:
+                    go(50, 0);
+                    color(HIGHLIGHT);
+                    printf("国家，地区，时区设置");
+                    go(50, 4);
+                    color(DEFAULTCOLOR);
+                    printf("格式设置");
+                    go(50, 8);
+                    color(DEFAULTCOLOR);
+                    printf("24小时制/12小时制设置");
+                    go(50, 12);
+                    color(DEFAULTCOLOR);
+                    printf("外观设置");
+                    go(50, 16);
+                    color(DEFAULTCOLOR);
+                    printf("退出");
+                    optionpick = 1;
+                    break;
+                case 3:
+                    go(50, 0);
+                    color(DEFAULTCOLOR);
+                    printf("国家，地区，时区设置");
+                    go(50, 4);
+                    color(HIGHLIGHT);
+                    printf("格式设置");
+                    go(50, 8);
+                    color(DEFAULTCOLOR);
+                    printf("24小时制/12小时制设置");
+                    go(50, 12);
+                    color(DEFAULTCOLOR);
+                    printf("外观设置");
+                    go(50, 16);
+                    color(DEFAULTCOLOR);
+                    printf("退出");
+                    optionpick = 2;
+                    break;
+                case 4:
+                    go(50, 0);
+                    color(DEFAULTCOLOR);
+                    printf("国家，地区，时区设置");
+                    go(50, 4);
+                    color(DEFAULTCOLOR);
+                    printf("格式设置");
+                    go(50, 8);
+                    color(HIGHLIGHT);
+                    printf("24小时制/12小时制设置");
+                    go(50, 12);
+                    color(DEFAULTCOLOR);
+                    printf("外观设置");
+                    go(50, 16);
+                    color(DEFAULTCOLOR);
+                    printf("退出");
+                    optionpick = 3;
+                    break;
+                case 5:
+                    go(50, 0);
+                    color(DEFAULTCOLOR);
+                    printf("国家，地区，时区设置");
+                    go(50, 4);
+                    color(DEFAULTCOLOR);
+                    printf("格式设置");
+                    go(50, 8);
+                    color(DEFAULTCOLOR);
+                    printf("24小时制/12小时制设置");
+                    go(50, 12);
+                    color(HIGHLIGHT);
+                    printf("外观设置");
+                    go(50, 16);
+                    color(DEFAULTCOLOR);
+                    printf("退出");
+                    optionpick = 4;
+                    break;
+                }
+            if (key == DOWN2)
+                switch (optionpick)
+                {
+                case 4:
+                    go(50, 0);
+                    color(DEFAULTCOLOR);
+                    printf("国家，地区，时区设置");
+                    go(50, 4);
+                    color(DEFAULTCOLOR);
+                    printf("格式设置");
+                    go(50, 8);
+                    color(DEFAULTCOLOR);
+                    printf("24小时制/12小时制设置");
+                    go(50, 12);
+                    color(DEFAULTCOLOR);
+                    printf("外观设置");
+                    go(50, 16);
+                    color(HIGHLIGHT);
+                    printf("退出");
+                    optionpick = 5;
+                    break;
+                case 5:
+                    go(50, 0);
+                    color(HIGHLIGHT);
+                    printf("国家，地区，时区设置");
+                    go(50, 4);
+                    color(DEFAULTCOLOR);
+                    printf("格式设置");
+                    go(50, 8);
+                    color(DEFAULTCOLOR);
+                    printf("24小时制/12小时制设置");
+                    go(50, 12);
+                    color(DEFAULTCOLOR);
+                    printf("外观设置");
+                    go(50, 16);
+                    color(DEFAULTCOLOR);
+                    printf("退出");
+                    optionpick = 1;
+                    break;
+                case 1:
+                    go(50, 0);
+                    color(DEFAULTCOLOR);
+                    printf("国家，地区，时区设置");
+                    go(50, 4);
+                    color(HIGHLIGHT);
+                    printf("格式设置");
+                    go(50, 8);
+                    color(DEFAULTCOLOR);
+                    printf("24小时制/12小时制设置");
+                    go(50, 12);
+                    color(DEFAULTCOLOR);
+                    printf("外观设置");
+                    go(50, 16);
+                    color(DEFAULTCOLOR);
+                    printf("退出");
+                    optionpick = 2;
+                    break;
+                case 2:
+                    go(50, 0);
+                    color(DEFAULTCOLOR);
+                    printf("国家，地区，时区设置");
+                    go(50, 4);
+                    color(DEFAULTCOLOR);
+                    printf("格式设置");
+                    go(50, 8);
+                    color(HIGHLIGHT);
+                    printf("24小时制/12小时制设置");
+                    go(50, 12);
+                    color(DEFAULTCOLOR);
+                    printf("外观设置");
+                    go(50, 16);
+                    color(DEFAULTCOLOR);
+                    printf("退出");
+                    optionpick = 3;
+                    break;
+                case 3:
+                    go(50, 0);
+                    color(DEFAULTCOLOR);
+                    printf("国家，地区，时区设置");
+                    go(50, 4);
+                    color(DEFAULTCOLOR);
+                    printf("格式设置");
+                    go(50, 8);
+                    color(DEFAULTCOLOR);
+                    printf("24小时制/12小时制设置");
+                    go(50, 12);
+                    color(HIGHLIGHT);
+                    printf("外观设置");
+                    go(50, 16);
+                    color(DEFAULTCOLOR);
+                    printf("退出");
+                    optionpick = 4;
+                    break;
+                }
+        }
+        if (start == 0)
+        {
+            start = 1;
+            go(50, 0);
+            color(HIGHLIGHT);
+            printf("国家，地区，时区设置");
+            go(50, 4);
+            color(DEFAULTCOLOR);
+            printf("格式设置");
+            go(50, 8);
+            color(DEFAULTCOLOR);
+            printf("24小时制/12小时制设置");
+            go(50, 12);
+            color(DEFAULTCOLOR);
+            printf("外观设置");
+            go(50, 16);
+            color(DEFAULTCOLOR);
+            printf("退出");
+        }
+    }
+}
+
+void PrintTimeZone(int offset)
+{
+    int optionpicki = 0;
+    int optionpickj = 0;
+    int start = 0;
+
+    system("cls");
+    while (1)
+    {
+        int key = 0;
+        if (kbhit())
+            key = getch();
+        if (key == ENTER)
         {
             system("cls");
+            printf("%d %d",optionpicki,optionpickj);
+        }
+        if (key == ARROW || start == 0)
+        {
+            start = 1;
+            if (kbhit())
+                key = getch();
+            switch (key)
+            {
+            case UP2:
+                optionpickj = (optionpickj == 0) ? 2 : (optionpickj - 1);
+                break;
+
+            case DOWN2:
+                optionpickj = (optionpickj == 2) ? 0 : (optionpickj + 1);
+                break;
+
+            case LEFT2:
+                optionpicki = (optionpicki == 0) ? 8 : (optionpicki - 1);
+                break;
+
+            case RIGHT2:
+                optionpicki = (optionpicki == 8) ? 0 : (optionpicki + 1);
+                break;
+
+            default:
+                break;
+            }
+
             go(0, 0);
-            color(DEFAULTCOLOR);
-            printf("UTC-12");
-            go(0, 2);
-            color(DEFAULTCOLOR);
-            printf("UTC-11");
-            go(0, 4);
-            color(DEFAULTCOLOR);
-            printf("UTC-10");
+            if (optionpicki == 0 && optionpickj == 0)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("国际换日线(UTC-12)");
+            go(8, 0);
+            if (optionpicki == 1 && optionpickj == 0)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("中途岛(UTC-11)");
+            go(16, 0);
+            if (optionpicki == 2 && optionpickj == 0)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("夏威夷(UTC-10)");
+            go(24, 0);
+            if (optionpicki == 3 && optionpickj == 0)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("阿拉斯加(UTC-9)");
+            go(32, 0);
+            if (optionpicki == 4 && optionpickj == 0)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("太平洋时间(UTC-8)");
+            go(40, 0);
+            if (optionpicki == 5 && optionpickj == 0)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("山地时间(UTC-7)");
+            go(48, 0);
+            if (optionpicki == 6 && optionpickj == 0)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("中部时间(UTC-6)");
+            go(56, 0);
+            if (optionpicki == 7 && optionpickj == 0)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("东部时间(UTC-5)");
+            go(64, 0);
+            if (optionpicki == 8 && optionpickj == 0)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("大西洋时间(UTC-4)");
             go(0, 6);
-            color(DEFAULTCOLOR);
-            printf("UTC-9");
-            go(0, 8);
-            color(DEFAULTCOLOR);
-            printf("UTC-8");
-            go(0, 10);
-            color(DEFAULTCOLOR);
-            printf("UTC-7");
-            go(0, 12);
-            color(DEFAULTCOLOR);
-            printf("UTC-6");
-            go(0, 14);
-            color(DEFAULTCOLOR);
-            printf("UTC-5");
-            go(0, 16);
-            color(DEFAULTCOLOR);
-            printf("UTC-4");
-            go(0, 18);
-            color(DEFAULTCOLOR);
-            printf("UTC-3");
-            go(0, 20);
-            color(DEFAULTCOLOR);
+            if (optionpicki == 0 && optionpickj == 1)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("巴西利亚(UTC-3)");
+            go(8, 6);
+            if (optionpicki == 1 && optionpickj == 1)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
             printf("UTC-2");
-            go(0, 22);
-            color(DEFAULTCOLOR);
+            go(16, 6);
+            if (optionpicki == 2 && optionpickj == 1)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
             printf("UTC-1");
-            go(0, 24);
-            color(DEFAULTCOLOR);
-            printf("UTC±0");
-            go(0, 26);
-            color(DEFAULTCOLOR);
-            printf("UTC+1");
-            go(0, 28);
-            color(DEFAULTCOLOR);
-            printf("UTC+2");
-            go(0, 30);
-            color(DEFAULTCOLOR);
-            printf("UTC+3");
-            go(0, 32);
-            color(DEFAULTCOLOR);
-            printf("UTC+4");
-            go(0, 34);
-            color(DEFAULTCOLOR);
-            printf("UTC+5");
-            go(0, 36);
-            color(DEFAULTCOLOR);
-            printf("UTC+6");
-            go(0, 38);
-            color(DEFAULTCOLOR);
-            printf("UTC+7");
-            go(0, 40);
-            color(DEFAULTCOLOR);
-            printf("UTC+8");
-            go(0, 42);
-            color(DEFAULTCOLOR);
-            printf("UTC+9");
-            go(0, 44);
-            color(DEFAULTCOLOR);
-            printf("UTC+10");
-            go(0, 46);
-            color(DEFAULTCOLOR);
-            printf("UTC+11");
-            go(0, 48);
-            color(DEFAULTCOLOR);
-            printf("UTC+12");
-            go(0, 50);
-            color(DEFAULTCOLOR);
-            printf("UTC+13");
-            go(0, 52);
-            color(DEFAULTCOLOR);
-            printf("UTC+14");
+            go(24, 6);
+            if (optionpicki == 3 && optionpickj == 1)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("伦敦(世界标准时)");
+            go(32, 6);
+            if (optionpicki == 4 && optionpickj == 1)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("柏林,巴黎(UTC+1)");
+            go(40, 6);
+            if (optionpicki == 5 && optionpickj == 1)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("雅典,基辅(UTC+2)");
+            go(48, 6);
+            if (optionpicki == 6 && optionpickj == 1)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("莫斯科(UTC+3)");
+            go(56, 6);
+            if (optionpicki == 7 && optionpickj == 1)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("毛里求斯(UTC+4)");
+            go(64, 6);
+            if (optionpicki == 8 && optionpickj == 1)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("巴基斯坦(UTC+5)");
+            go(0, 12);
+            if (optionpicki == 0 && optionpickj == 2)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("孟加拉(UTC+6)");
+            go(8, 12);
+            if (optionpicki == 1 && optionpickj == 2)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("曼谷(UTC+7)");
+            go(16, 12);
+            if (optionpicki == 2 && optionpickj == 2)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("北京(UTC+8)");
+            go(24, 12);
+            if (optionpicki == 3 && optionpickj == 2)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("东京(UTC+9)");
+            go(32, 12);
+            if (optionpicki == 4 && optionpickj == 2)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("关岛(UTC+10)");
+            go(40, 12);
+            if (optionpicki == 5 && optionpickj == 2)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("瓦努阿图(UTC+11)");
+            go(48, 12);
+            if (optionpicki == 6 && optionpickj == 2)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("斐济(UTC+12)");
+            go(56, 12);
+            if (optionpicki == 7 && optionpickj == 2)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("基里巴斯(UTC+13)");
+            go(64, 12);
+            if (optionpicki == 8 && optionpickj == 2)
+                color(HIGHLIGHT);
+            else
+                color(DEFAULTCOLOR);
+            printf("圣诞岛(UTC+14)");
         }
     }
 }

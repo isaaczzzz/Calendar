@@ -480,7 +480,7 @@ void printUI(int yy, int mm, int dd)
                             SetAlarm();
                             break;
                         case 6:
-                            //settings();
+                            Settings();
                         default:
                             break;
                     }

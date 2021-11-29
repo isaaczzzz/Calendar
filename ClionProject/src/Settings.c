@@ -1,29 +1,4 @@
-#include <stdio.h>
-#include <conio.h>
-#include <windows.h>
-#include <time.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#define ENTER 13
-#define ESC 27
-#define ARROW 224
-#define UP2 72
-#define DOWN2 80
-#define LEFT2 75
-#define RIGHT2 77
-#define BACKBLUE BACKGROUND_BLUE | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY | BACKGROUND_INTENSITY
-#define WHITE FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY
-#define BLUE FOREGROUND_BLUE | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY
-#define RED FOREGROUND_RED | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY
-#define GREEN FOREGROUND_GREEN | FOREGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY
-#define HIGHLIGHT BACKBLUE
-#define DEFAULTCOLOR BLUE
-#define TODAY RED
-#define RESULT GREEN
-#define DEFAULTTIMEZONE 8
-#define DEFAULTFORMAT 1
-#define DEFAULTHOURFORMAT 24
-//#include "connection.h"
+#include "connection.h"
 void color(int);
 void HourFormat();
 void Format();
@@ -31,7 +6,7 @@ void PrintTimeZone(int);
 void LoadSettings(int[]);
 void SetSettings(int[]);
 void go(int, int);
-int main()
+void Settings()
 {
     int settings[7];
     LoadSettings(settings);
@@ -64,8 +39,7 @@ int main()
                 //Skin();
                 break;
             case 5:
-                exit(0);
-                //main();
+                main();
                 break;
             }
         }
@@ -748,22 +722,4 @@ void SetSettings(int a[7])
     fp = fopen("Settings.dat", "r+");
     fprintf(fp, "%d,%d,%d,%d,%d,%d,%d", a[0], a[1], a[2], a[3], a[4], a[5], a[6]);
     fclose(fp);
-}
-
-void color(int a)
-{
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), a);
-}
-
-//光标移动函数，X表示横坐标，Y表示纵坐标
-void go(int x, int y)
-{
-    COORD coord;
-    //坐标
-    coord.X = x;
-    coord.Y = y;
-    HANDLE a = GetStdHandle(STD_OUTPUT_HANDLE);
-    //获得标准输出句柄
-    SetConsoleCursorPosition(a, coord);
-    //以标准输出的句柄为参数设置控制台光标坐标
 }

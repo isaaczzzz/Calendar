@@ -30,7 +30,7 @@ void Format();
 void PrintTimeZone(int);
 void LoadSettings(int[]);
 void SetSettings(int[]);
-void go(int,int);
+void go(int, int);
 int main()
 {
     int settings[7];
@@ -531,25 +531,43 @@ void PrintTimeZone(int offset)
             default:
                 break;
             }
-
+            system("cls");
             go(0, 0);
             if (optionpicki == 0 && optionpickj == 0)
+            {
                 color(HIGHLIGHT);
+                printf("UTC-12");
+            }
             else
+            {
                 color(DEFAULTCOLOR);
-            printf("国际换日线"); //utc-12
+                printf("国际换日线");
+            }
+            //utc-12
             go(14, 0);
             if (optionpicki == 1 && optionpickj == 0)
+            {
                 color(HIGHLIGHT);
+                printf("UTC-11");
+            }
             else
+            {
                 color(DEFAULTCOLOR);
-            printf("中途岛"); //utc-11
+                printf("中途岛");
+            }
+            //utc-11
             go(24, 0);
             if (optionpicki == 2 && optionpickj == 0)
+            {
                 color(HIGHLIGHT);
+                printf("UTC-10");
+            }
             else
+            {
                 color(DEFAULTCOLOR);
-            printf("夏威夷"); //utc-10
+                printf("夏威夷");
+            }
+            //utc-10
             go(34, 0);
             if (optionpicki == 3 && optionpickj == 0)
                 color(HIGHLIGHT);
@@ -706,7 +724,7 @@ void LoadSettings(int a[])
     {
         fclose(fp);
         fp = fopen("Settings.dat", "w+");
-        fprintf(fp, "%d,%d,%d,%d,%d,%d,%d", DEFAULTTIMEZONE, DEFAULTFORMAT, DEFAULTHOURFORMAT, BLUE, BACKBLUE,RED,GREEN);
+        fprintf(fp, "%d,%d,%d,%d,%d,%d,%d", DEFAULTTIMEZONE, DEFAULTFORMAT, DEFAULTHOURFORMAT, BLUE, BACKBLUE, RED, GREEN);
         *a = DEFAULTTIMEZONE;
         *(a + 1) = DEFAULTFORMAT;
         *(a + 2) = DEFAULTHOURFORMAT;
@@ -718,7 +736,7 @@ void LoadSettings(int a[])
     }
     else
     {
-        fscanf(fp, "%d,%d,%d,%d,%d,%d,%d", a, a + 1, a + 2, a + 3,a + 4,a + 5,a + 6);
+        fscanf(fp, "%d,%d,%d,%d,%d,%d,%d", a, a + 1, a + 2, a + 3, a + 4, a + 5, a + 6);
         fclose(fp);
     }
 }
@@ -727,7 +745,7 @@ void SetSettings(int a[7])
 {
     FILE *fp;
     fp = fopen("Settings.dat", "r+");
-    fprintf(fp, "%d,%d,%d,%d,%d,%d,%d", a[0], a[1], a[2],a[3],a[4],a[5],a[6]);
+    fprintf(fp, "%d,%d,%d,%d,%d,%d,%d", a[0], a[1], a[2], a[3], a[4], a[5], a[6]);
     fclose(fp);
 }
 

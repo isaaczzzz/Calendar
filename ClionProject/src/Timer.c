@@ -3,10 +3,6 @@
  * *******************/
 #include "connection.h"
 
-void StopWatch(void);
-void CountDown(void);
-void color_print(const char *s, int color);
-
 //正计时
 void StopWatch(void)
 {
@@ -15,7 +11,8 @@ void StopWatch(void)
 
     system("cls");
     go(45, 12);
-    color_print("按下任意键以开始计时...", 2);
+    color(DEFAULTCOLOR);
+    printf("按下任意键以开始计时...");
     getchar();
 
     while(!end) {
@@ -40,8 +37,10 @@ void StopWatch(void)
         if(kbhit()){
             key = getch();
         }
-        if(key == ESC)
+        if(key == ESC) {
+            end = 1;
             main();
+        }
         if(key == SPACE){
             key = 0;
             while(1){
@@ -80,14 +79,14 @@ void CountDown(void)
 
     system("cls");
     //边框
-    PrintRows(40, 65, 8, UP);
-    PrintColumns(9, 16, 40);
-    PrintRows(40, 65, 17, DOWN);
-    PrintColumns(9, 16, 65);
+    PrintRows(44, 69, 8, UP);
+    PrintColumns(9, 16, 44);
+    PrintRows(44, 69, 17, DOWN);
+    PrintColumns(9, 16, 69);
 
-    go(50, 10);
+    go(54, 10);
     printf("番茄钟\n");
-    go(43, 12);
+    go(47, 12);
     printf("请输入时长:__:__:__\b\b\b\b\b\b\b\b");
     scanf("%d%d%d", &ohour, &omin, &osec);
     hour = ohour;
@@ -98,22 +97,22 @@ void CountDown(void)
         system("cls");
 
         //边框
-        PrintRows(40, 65, 8, UP);
-        PrintColumns(9, 16, 40);
-        PrintRows(40, 65, 17, DOWN);
-        PrintColumns(9, 16, 65);
+        PrintRows(44, 69, 8, UP);
+        PrintColumns(9, 16, 44);
+        PrintRows(44, 69, 17, DOWN);
+        PrintColumns(9, 16, 69);
 
         //倒计时条
-        go(42, 14);
+        go(46, 14);
         num = (int)(percent * 20);
         printf("|");
         for(int i = 0; i < num; i++)
             printf("▇");
 
-        go(50, 10);
+        go(54, 10);
         printf("番茄钟\n");
         putchar('\n');
-        go(49, 12);
+        go(53, 12);
         printf("%02d:%02d:%02d", hour, min, sec);
         Sleep(1000);
         sec--;
@@ -134,12 +133,12 @@ void CountDown(void)
 
     system("cls");
     //边框
-    PrintRows(40, 65, 8, UP);
-    PrintColumns(9, 16, 40);
-    PrintRows(40, 65, 17, DOWN);
-    PrintColumns(9, 16, 65);
+    PrintRows(44, 69, 8, UP);
+    PrintColumns(9, 16, 44);
+    PrintRows(44, 69, 17, DOWN);
+    PrintColumns(9, 16, 69);
 
-    go(50, 12);
+    go(54, 12);
     printf("时间到");
     getchar();
     getchar();

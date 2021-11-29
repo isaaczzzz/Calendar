@@ -20,33 +20,20 @@
 #define DEFAULTCOLOR BLUE
 #define TODAY RED
 #define RESULT GREEN
+#define DEFAULTTIMEZONE 8
+#define DEFAULTFORMAT 1
+#define DEFAULTHOURFORMAT 24
 //#include "connection.h"
-
-struct Settings
-{
-    int SettingItem;
-    int Setting;
-} S;
 
 int main()
 {
-    /*FILE *fp;
-    fp = fopen("Settings.dat", "wb+");
-    S.SettingItem = 3333332;
-    S.Setting = 3;
-    if (fwrite(&S, sizeof(S), 1, fp))
-    {
-        printf("Success\n");
-        
-    }
-    S.SettingItem = 1;
-    S.Setting = 2;
-    rewind(fp);
-    while(fread(&S, sizeof(S), 1, fp) == 1){
-    printf("%d\n",S.SettingItem);
-    printf("%d\n",S.Setting);
-    }
-    */
+    int settings[3];
+    LoadSettings(settings);
+
+    system("color F9");
+    //设置控制台默认颜色
+    system("chcp 936");
+    system("cls");
     int optionpick = 1;
     int start = 0;
     while (1)
@@ -59,16 +46,16 @@ int main()
             switch (optionpick)
             {
             case 1:
-                PrintTimeZone(8);
+                PrintTimeZone(settings[0]);
                 break;
             case 2:
-                //format();
+                //Format();
                 break;
             case 3:
-                //hourformat();
+                HourFormat();
                 break;
             case 4:
-                //skin();
+                //Skin();
                 break;
             case 5:
                 exit(0);
@@ -291,11 +278,175 @@ int main()
     }
 }
 
+void HourFormat()
+{
+    int hourformat, settings[3];
+    while (1)
+    {
+        system("cls");
+        go(50, 8);
+        color(DEFAULTCOLOR);
+        printf("输入想要设置的小时格式（12/24）：");
+        scanf("%d", &hourformat);
+        if ((hourformat != 12) && (hourformat != 24))
+        {
+            go(50, 9);
+            color(DEFAULTCOLOR);
+            printf("无效输入，请输入12或24");
+            Sleep(500);
+        }
+        else
+            break;
+    }
+    LoadSettings(settings);
+    settings[2] = hourformat;
+    SetSettings(settings);
+    main();
+}
+
 void PrintTimeZone(int offset)
 {
     int optionpicki = 0;
     int optionpickj = 0;
     int start = 0;
+
+    switch (offset)
+    {
+    case -12:
+        optionpicki = 0;
+        optionpickj = 0;
+        break;
+
+    case -11:
+        optionpicki = 1;
+        optionpickj = 0;
+        break;
+
+    case -10:
+        optionpicki = 2;
+        optionpickj = 0;
+        break;
+
+    case -9:
+        optionpicki = 3;
+        optionpickj = 0;
+        break;
+
+    case -8:
+        optionpicki = 4;
+        optionpickj = 0;
+        break;
+
+    case -7:
+        optionpicki = 5;
+        optionpickj = 0;
+        break;
+
+    case -6:
+        optionpicki = 6;
+        optionpickj = 0;
+        break;
+
+    case -5:
+        optionpicki = 7;
+        optionpickj = 0;
+        break;
+
+    case -4:
+        optionpicki = 8;
+        optionpickj = 0;
+        break;
+
+    case -3:
+        optionpicki = 0;
+        optionpickj = 1;
+        break;
+
+    case -2:
+        optionpicki = 1;
+        optionpickj = 1;
+        break;
+
+    case -1:
+        optionpicki = 2;
+        optionpickj = 1;
+        break;
+
+    case 0:
+        optionpicki = 3;
+        optionpickj = 1;
+        break;
+
+    case 1:
+        optionpicki = 4;
+        optionpickj = 1;
+        break;
+
+    case 2:
+        optionpicki = 5;
+        optionpickj = 1;
+        break;
+
+    case 3:
+        optionpicki = 6;
+        optionpickj = 1;
+        break;
+
+    case 4:
+        optionpicki = 7;
+        optionpickj = 1;
+        break;
+
+    case 5:
+        optionpicki = 8;
+        optionpickj = 1;
+        break;
+
+    case 6:
+        optionpicki = 0;
+        optionpickj = 2;
+        break;
+
+    case 7:
+        optionpicki = 1;
+        optionpickj = 2;
+        break;
+
+    case 8:
+        optionpicki = 2;
+        optionpickj = 2;
+        break;
+
+    case 9:
+        optionpicki = 3;
+        optionpickj = 2;
+        break;
+
+    case 10:
+        optionpicki = 4;
+        optionpickj = 2;
+        break;
+
+    case 11:
+        optionpicki = 5;
+        optionpickj = 2;
+        break;
+
+    case 12:
+        optionpicki = 6;
+        optionpickj = 2;
+        break;
+
+    case 13:
+        optionpicki = 7;
+        optionpickj = 2;
+        break;
+
+    case 14:
+        optionpicki = 8;
+        optionpickj = 2;
+        break;
+    }
 
     system("cls");
     while (1)
@@ -303,10 +454,14 @@ void PrintTimeZone(int offset)
         int key = 0;
         if (kbhit())
             key = getch();
+        if (key == ESC)
+            main();
         if (key == ENTER)
         {
-            system("cls");
-            printf("%d %d",optionpicki,optionpickj);
+            int settings[3];
+            LoadSettings(settings);
+            settings[0] = optionpicki + optionpickj * 9 - 12;
+            SetSettings(settings);
         }
         if (key == ARROW || start == 0)
         {
@@ -340,61 +495,61 @@ void PrintTimeZone(int offset)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("国际换日线");
+            printf("国际换日线"); //utc-12
             go(8, 0);
             if (optionpicki == 1 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("中途岛");
+            printf("中途岛"); //utc-11
             go(16, 0);
             if (optionpicki == 2 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("夏威夷");
+            printf("夏威夷"); //utc-10
             go(24, 0);
             if (optionpicki == 3 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("阿拉斯加");
+            printf("阿拉斯加"); //utc-9
             go(32, 0);
             if (optionpicki == 4 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("太平洋时间");
+            printf("太平洋时间"); //utc-8
             go(40, 0);
             if (optionpicki == 5 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("山地时间");
+            printf("山地时间"); //utc-7
             go(48, 0);
             if (optionpicki == 6 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("中部时间");
+            printf("中部时间"); //utc-6
             go(56, 0);
             if (optionpicki == 7 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("东部时间");
+            printf("东部时间"); //utc-5
             go(64, 0);
             if (optionpicki == 8 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("大西洋时间");
+            printf("大西洋时间"); //utc-4
             go(0, 6);
             if (optionpicki == 0 && optionpickj == 1)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("巴西利亚");
+            printf("巴西利亚"); //utc-3
             go(8, 6);
             if (optionpicki == 1 && optionpickj == 1)
                 color(HIGHLIGHT);
@@ -412,91 +567,91 @@ void PrintTimeZone(int offset)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("伦敦");
+            printf("伦敦"); //utc+-0
             go(32, 6);
             if (optionpicki == 4 && optionpickj == 1)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("柏林,巴黎");
+            printf("柏林,巴黎"); //utc+1
             go(40, 6);
             if (optionpicki == 5 && optionpickj == 1)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("雅典,基辅");
+            printf("雅典,基辅"); //utc+2
             go(48, 6);
             if (optionpicki == 6 && optionpickj == 1)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("莫斯科");
+            printf("莫斯科"); //utc+3
             go(56, 6);
             if (optionpicki == 7 && optionpickj == 1)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("毛里求斯");
+            printf("毛里求斯"); //utc+4
             go(64, 6);
             if (optionpicki == 8 && optionpickj == 1)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("巴基斯坦");
+            printf("巴基斯坦"); //utc+5
             go(0, 12);
             if (optionpicki == 0 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("孟加拉");
+            printf("孟加拉"); //utc+6
             go(8, 12);
             if (optionpicki == 1 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("曼谷");
+            printf("曼谷"); //utc+7
             go(16, 12);
             if (optionpicki == 2 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("北京");
+            printf("北京"); //utc+8
             go(24, 12);
             if (optionpicki == 3 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("东京");
+            printf("东京"); //utc+9
             go(32, 12);
             if (optionpicki == 4 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("关岛");
+            printf("关岛"); //utc+10
             go(40, 12);
             if (optionpicki == 5 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("瓦努阿图");
+            printf("瓦努阿图"); //utc+11
             go(48, 12);
             if (optionpicki == 6 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("斐济");
+            printf("斐济"); //utc+12
             go(56, 12);
             if (optionpicki == 7 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("基里巴斯");
+            printf("基里巴斯"); //utc+13
             go(64, 12);
             if (optionpicki == 8 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("圣诞岛");
+            printf("圣诞岛"); //utc+14
         }
     }
 }
@@ -507,11 +662,33 @@ void Settings()
     fp = fopen("Settings.dat", "wb+");
 }
 
-void LoadSettings()
+void LoadSettings(int a[])
 {
     FILE *fp;
+    fp = fopen("Settings.dat", "r+");
+    if (fp == NULL)
+    {
+        fclose(fp);
+        fp = fopen("Settings.dat", "w+");
+        fprintf(fp, "%d,%d,%d", DEFAULTTIMEZONE, DEFAULTFORMAT, DEFAULTHOURFORMAT);
+        *a = DEFAULTTIMEZONE;
+        *(a + 1) = DEFAULTFORMAT;
+        *(a + 2) = DEFAULTHOURFORMAT;
+        fclose(fp);
+    }
+    else
+    {
+        fscanf(fp, "%d,%d,%d", a, a + 1, a + 2);
+        fclose(fp);
+    }
+}
 
-    fp = fopen("Settings.dat", "wb+");
+void SetSettings(int a[3])
+{
+    FILE *fp;
+    fp = fopen("Settings.dat", "r+");
+    fprintf(fp, "%d,%d,%d", a[0], a[1], a[2]);
+    fclose(fp);
 }
 
 void color(int a)

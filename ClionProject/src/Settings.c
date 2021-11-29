@@ -20,35 +20,18 @@
 #define DEFAULTCOLOR BLUE
 #define TODAY RED
 #define RESULT GREEN
+#define DEFAULTTIMEZONE 8
+#define DEFAULTFORMAT 1
+#define DEFAULTHOURFORMAT 24
 //#include "connection.h"
-
-struct Settings
-{
-    int SettingItem;
-    int Setting;
-} S;
 
 int main()
 {
-    /*FILE *fp;
-    fp = fopen("Settings.dat", "wb+");
-    S.SettingItem = 3333332;
-    S.Setting = 3;
-    if (fwrite(&S, sizeof(S), 1, fp))
-    {
-        printf("Success\n");
-        
-    }
-    S.SettingItem = 1;
-    S.Setting = 2;
-    rewind(fp);
-    while(fread(&S, sizeof(S), 1, fp) == 1){
-    printf("%d\n",S.SettingItem);
-    printf("%d\n",S.Setting);
-    }
-    */
+    int settings[3];
+    LoadSettings(settings);
+
     system("color F9");
-    //ÉèÖÃ¿ØÖÆÌ¨Ä¬ÈÏÑÕÉ«
+    //ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½Ì¨Ä¬ï¿½ï¿½ï¿½ï¿½É«
     system("chcp 936");
     system("cls");
     int optionpick = 1;
@@ -63,16 +46,16 @@ int main()
             switch (optionpick)
             {
             case 1:
-                PrintTimeZone(8);
+                PrintTimeZone(settings[0]);
                 break;
             case 2:
-                //format();
+                //Format();
                 break;
             case 3:
-                //hourformat();
+                HourFormat();
                 break;
             case 4:
-                //skin();
+                //Skin();
                 break;
             case 5:
                 exit(0);
@@ -90,91 +73,91 @@ int main()
                 case 1:
                     go(50, 0);
                     color(DEFAULTCOLOR);
-                    printf("¹ú¼Ò£¬µØÇø£¬Ê±ÇøÉèÖÃ");
+                    printf("ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 4);
                     color(DEFAULTCOLOR);
-                    printf("¸ñÊ½ÉèÖÃ");
+                    printf("ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 8);
                     color(DEFAULTCOLOR);
-                    printf("24Ð¡Ê±ÖÆ/12Ð¡Ê±ÖÆÉèÖÃ");
+                    printf("24Ð¡Ê±ï¿½ï¿½/12Ð¡Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 12);
                     color(DEFAULTCOLOR);
-                    printf("Íâ¹ÛÉèÖÃ");
+                    printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 16);
                     color(HIGHLIGHT);
-                    printf("ÍË³ö");
+                    printf("ï¿½Ë³ï¿½");
                     optionpick = 5;
                     break;
                 case 2:
                     go(50, 0);
                     color(HIGHLIGHT);
-                    printf("¹ú¼Ò£¬µØÇø£¬Ê±ÇøÉèÖÃ");
+                    printf("ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 4);
                     color(DEFAULTCOLOR);
-                    printf("¸ñÊ½ÉèÖÃ");
+                    printf("ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 8);
                     color(DEFAULTCOLOR);
-                    printf("24Ð¡Ê±ÖÆ/12Ð¡Ê±ÖÆÉèÖÃ");
+                    printf("24Ð¡Ê±ï¿½ï¿½/12Ð¡Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 12);
                     color(DEFAULTCOLOR);
-                    printf("Íâ¹ÛÉèÖÃ");
+                    printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 16);
                     color(DEFAULTCOLOR);
-                    printf("ÍË³ö");
+                    printf("ï¿½Ë³ï¿½");
                     optionpick = 1;
                     break;
                 case 3:
                     go(50, 0);
                     color(DEFAULTCOLOR);
-                    printf("¹ú¼Ò£¬µØÇø£¬Ê±ÇøÉèÖÃ");
+                    printf("ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 4);
                     color(HIGHLIGHT);
-                    printf("¸ñÊ½ÉèÖÃ");
+                    printf("ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 8);
                     color(DEFAULTCOLOR);
-                    printf("24Ð¡Ê±ÖÆ/12Ð¡Ê±ÖÆÉèÖÃ");
+                    printf("24Ð¡Ê±ï¿½ï¿½/12Ð¡Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 12);
                     color(DEFAULTCOLOR);
-                    printf("Íâ¹ÛÉèÖÃ");
+                    printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 16);
                     color(DEFAULTCOLOR);
-                    printf("ÍË³ö");
+                    printf("ï¿½Ë³ï¿½");
                     optionpick = 2;
                     break;
                 case 4:
                     go(50, 0);
                     color(DEFAULTCOLOR);
-                    printf("¹ú¼Ò£¬µØÇø£¬Ê±ÇøÉèÖÃ");
+                    printf("ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 4);
                     color(DEFAULTCOLOR);
-                    printf("¸ñÊ½ÉèÖÃ");
+                    printf("ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 8);
                     color(HIGHLIGHT); 
-                    printf("24Ð¡Ê±ÖÆ/12Ð¡Ê±ÖÆÉèÖÃ");
+                    printf("24Ð¡Ê±ï¿½ï¿½/12Ð¡Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 12);
                     color(DEFAULTCOLOR);
-                    printf("Íâ¹ÛÉèÖÃ");
+                    printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 16);
                     color(DEFAULTCOLOR);
-                    printf("ÍË³ö");
+                    printf("ï¿½Ë³ï¿½");
                     optionpick = 3;
                     break;
                 case 5:
                     go(50, 0);
                     color(DEFAULTCOLOR);
-                    printf("¹ú¼Ò£¬µØÇø£¬Ê±ÇøÉèÖÃ");
+                    printf("ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 4);
                     color(DEFAULTCOLOR);
-                    printf("¸ñÊ½ÉèÖÃ");
+                    printf("ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 8);
                     color(DEFAULTCOLOR);
-                    printf("24Ð¡Ê±ÖÆ/12Ð¡Ê±ÖÆÉèÖÃ");
+                    printf("24Ð¡Ê±ï¿½ï¿½/12Ð¡Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 12);
                     color(HIGHLIGHT);
-                    printf("Íâ¹ÛÉèÖÃ");
+                    printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 16);
                     color(DEFAULTCOLOR);
-                    printf("ÍË³ö");
+                    printf("ï¿½Ë³ï¿½");
                     optionpick = 4;
                     break;
                 }
@@ -184,91 +167,91 @@ int main()
                 case 4:
                     go(50, 0);
                     color(DEFAULTCOLOR);
-                    printf("¹ú¼Ò£¬µØÇø£¬Ê±ÇøÉèÖÃ");
+                    printf("ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 4);
                     color(DEFAULTCOLOR);
-                    printf("¸ñÊ½ÉèÖÃ");
+                    printf("ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 8);
                     color(DEFAULTCOLOR);
-                    printf("24Ð¡Ê±ÖÆ/12Ð¡Ê±ÖÆÉèÖÃ");
+                    printf("24Ð¡Ê±ï¿½ï¿½/12Ð¡Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 12);
                     color(DEFAULTCOLOR);
-                    printf("Íâ¹ÛÉèÖÃ");
+                    printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 16);
                     color(HIGHLIGHT);
-                    printf("ÍË³ö");
+                    printf("ï¿½Ë³ï¿½");
                     optionpick = 5;
                     break;
                 case 5:
                     go(50, 0);
                     color(HIGHLIGHT);
-                    printf("¹ú¼Ò£¬µØÇø£¬Ê±ÇøÉèÖÃ");
+                    printf("ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 4);
                     color(DEFAULTCOLOR);
-                    printf("¸ñÊ½ÉèÖÃ");
+                    printf("ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 8);
                     color(DEFAULTCOLOR);
-                    printf("24Ð¡Ê±ÖÆ/12Ð¡Ê±ÖÆÉèÖÃ");
+                    printf("24Ð¡Ê±ï¿½ï¿½/12Ð¡Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 12);
                     color(DEFAULTCOLOR);
-                    printf("Íâ¹ÛÉèÖÃ");
+                    printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 16);
                     color(DEFAULTCOLOR);
-                    printf("ÍË³ö");
+                    printf("ï¿½Ë³ï¿½");
                     optionpick = 1;
                     break;
                 case 1:
                     go(50, 0);
                     color(DEFAULTCOLOR);
-                    printf("¹ú¼Ò£¬µØÇø£¬Ê±ÇøÉèÖÃ");
+                    printf("ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 4);
                     color(HIGHLIGHT);
-                    printf("¸ñÊ½ÉèÖÃ");
+                    printf("ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 8);
                     color(DEFAULTCOLOR);
-                    printf("24Ð¡Ê±ÖÆ/12Ð¡Ê±ÖÆÉèÖÃ");
+                    printf("24Ð¡Ê±ï¿½ï¿½/12Ð¡Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 12);
                     color(DEFAULTCOLOR);
-                    printf("Íâ¹ÛÉèÖÃ");
+                    printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 16);
                     color(DEFAULTCOLOR);
-                    printf("ÍË³ö");
+                    printf("ï¿½Ë³ï¿½");
                     optionpick = 2;
                     break;
                 case 2:
                     go(50, 0);
                     color(DEFAULTCOLOR);
-                    printf("¹ú¼Ò£¬µØÇø£¬Ê±ÇøÉèÖÃ");
+                    printf("ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 4);
                     color(DEFAULTCOLOR);
-                    printf("¸ñÊ½ÉèÖÃ");
+                    printf("ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 8);
                     color(HIGHLIGHT);
-                    printf("24Ð¡Ê±ÖÆ/12Ð¡Ê±ÖÆÉèÖÃ");
+                    printf("24Ð¡Ê±ï¿½ï¿½/12Ð¡Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 12);
                     color(DEFAULTCOLOR);
-                    printf("Íâ¹ÛÉèÖÃ");
+                    printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 16);
                     color(DEFAULTCOLOR);
-                    printf("ÍË³ö");
+                    printf("ï¿½Ë³ï¿½");
                     optionpick = 3;
                     break;
                 case 3:
                     go(50, 0);
                     color(DEFAULTCOLOR);
-                    printf("¹ú¼Ò£¬µØÇø£¬Ê±ÇøÉèÖÃ");
+                    printf("ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 4);
                     color(DEFAULTCOLOR);
-                    printf("¸ñÊ½ÉèÖÃ");
+                    printf("ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 8);
                     color(DEFAULTCOLOR);
-                    printf("24Ð¡Ê±ÖÆ/12Ð¡Ê±ÖÆÉèÖÃ");
+                    printf("24Ð¡Ê±ï¿½ï¿½/12Ð¡Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 12);
                     color(HIGHLIGHT);
-                    printf("Íâ¹ÛÉèÖÃ");
+                    printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     go(50, 16);
                     color(DEFAULTCOLOR);
-                    printf("ÍË³ö");
+                    printf("ï¿½Ë³ï¿½");
                     optionpick = 4;
                     break;
                 }
@@ -278,21 +261,47 @@ int main()
             start = 1;
             go(50, 0);
             color(HIGHLIGHT);
-            printf("¹ú¼Ò£¬µØÇø£¬Ê±ÇøÉèÖÃ");
+            printf("ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             go(50, 4);
             color(DEFAULTCOLOR);
-            printf("¸ñÊ½ÉèÖÃ");
+            printf("ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½");
             go(50, 8);
             color(DEFAULTCOLOR);
-            printf("24Ð¡Ê±ÖÆ/12Ð¡Ê±ÖÆÉèÖÃ");
+            printf("24Ð¡Ê±ï¿½ï¿½/12Ð¡Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             go(50, 12);
             color(DEFAULTCOLOR);
-            printf("Íâ¹ÛÉèÖÃ");
+            printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             go(50, 16);
             color(DEFAULTCOLOR);
-            printf("ÍË³ö");
+            printf("ï¿½Ë³ï¿½");
         }
     }
+}
+
+void HourFormat()
+{
+    int hourformat, settings[3];
+    while (1)
+    {
+        system("cls");
+        go(50, 8);
+        color(DEFAULTCOLOR);
+        printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ãµï¿½Ð¡Ê±ï¿½ï¿½Ê½ï¿½ï¿½12/24ï¿½ï¿½ï¿½ï¿½");
+        scanf("%d", &hourformat);
+        if ((hourformat != 12) && (hourformat != 24))
+        {
+            go(50, 9);
+            color(DEFAULTCOLOR);
+            printf("ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½ï¿½24");
+            Sleep(500);
+        }
+        else
+            break;
+    }
+    LoadSettings(settings);
+    settings[2] = hourformat;
+    SetSettings(settings);
+    main();
 }
 
 void PrintTimeZone(int offset)
@@ -301,16 +310,158 @@ void PrintTimeZone(int offset)
     int optionpickj = 0;
     int start = 0;
 
+    switch (offset)
+    {
+    case -12:
+        optionpicki = 0;
+        optionpickj = 0;
+        break;
+
+    case -11:
+        optionpicki = 1;
+        optionpickj = 0;
+        break;
+
+    case -10:
+        optionpicki = 2;
+        optionpickj = 0;
+        break;
+
+    case -9:
+        optionpicki = 3;
+        optionpickj = 0;
+        break;
+
+    case -8:
+        optionpicki = 4;
+        optionpickj = 0;
+        break;
+
+    case -7:
+        optionpicki = 5;
+        optionpickj = 0;
+        break;
+
+    case -6:
+        optionpicki = 6;
+        optionpickj = 0;
+        break;
+
+    case -5:
+        optionpicki = 7;
+        optionpickj = 0;
+        break;
+
+    case -4:
+        optionpicki = 8;
+        optionpickj = 0;
+        break;
+
+    case -3:
+        optionpicki = 0;
+        optionpickj = 1;
+        break;
+
+    case -2:
+        optionpicki = 1;
+        optionpickj = 1;
+        break;
+
+    case -1:
+        optionpicki = 2;
+        optionpickj = 1;
+        break;
+
+    case 0:
+        optionpicki = 3;
+        optionpickj = 1;
+        break;
+
+    case 1:
+        optionpicki = 4;
+        optionpickj = 1;
+        break;
+
+    case 2:
+        optionpicki = 5;
+        optionpickj = 1;
+        break;
+
+    case 3:
+        optionpicki = 6;
+        optionpickj = 1;
+        break;
+
+    case 4:
+        optionpicki = 7;
+        optionpickj = 1;
+        break;
+
+    case 5:
+        optionpicki = 8;
+        optionpickj = 1;
+        break;
+
+    case 6:
+        optionpicki = 0;
+        optionpickj = 2;
+        break;
+
+    case 7:
+        optionpicki = 1;
+        optionpickj = 2;
+        break;
+
+    case 8:
+        optionpicki = 2;
+        optionpickj = 2;
+        break;
+
+    case 9:
+        optionpicki = 3;
+        optionpickj = 2;
+        break;
+
+    case 10:
+        optionpicki = 4;
+        optionpickj = 2;
+        break;
+
+    case 11:
+        optionpicki = 5;
+        optionpickj = 2;
+        break;
+
+    case 12:
+        optionpicki = 6;
+        optionpickj = 2;
+        break;
+
+    case 13:
+        optionpicki = 7;
+        optionpickj = 2;
+        break;
+
+    case 14:
+        optionpicki = 8;
+        optionpickj = 2;
+        break;
+    }
+
     system("cls");
     while (1)
     {
         int key = 0;
         if (kbhit())
             key = getch();
+        if (key == ESC)
+            main();
         if (key == ENTER)
         {
-            system("cls");
-            printf("%d %d",optionpicki,optionpickj);
+            int settings[3];
+            LoadSettings(settings);
+            settings[0] = optionpicki + optionpickj * 9 - 12;
+            SetSettings(settings);
         }
         if (key == ARROW || start == 0)
         {
@@ -344,61 +495,61 @@ void PrintTimeZone(int offset)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("¹ú¼Ê»»ÈÕÏß");
+            printf("ï¿½ï¿½ï¿½Ê»ï¿½ï¿½ï¿½ï¿½ï¿½"); //utc-12
             go(8, 0);
             if (optionpicki == 1 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("ÖÐÍ¾µº");
+            printf("ï¿½ï¿½Í¾ï¿½ï¿½"); //utc-11
             go(16, 0);
             if (optionpicki == 2 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("ÏÄÍþÒÄ");
+            printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"); //utc-10
             go(24, 0);
             if (optionpicki == 3 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("°¢À­Ë¹¼Ó");
+            printf("ï¿½ï¿½ï¿½ï¿½Ë¹ï¿½ï¿½"); //utc-9
             go(32, 0);
             if (optionpicki == 4 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("Ì«Æ½ÑóÊ±¼ä");
+            printf("Ì«Æ½ï¿½ï¿½Ê±ï¿½ï¿½"); //utc-8
             go(40, 0);
             if (optionpicki == 5 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("É½µØÊ±¼ä");
+            printf("É½ï¿½ï¿½Ê±ï¿½ï¿½"); //utc-7
             go(48, 0);
             if (optionpicki == 6 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("ÖÐ²¿Ê±¼ä");
+            printf("ï¿½Ð²ï¿½Ê±ï¿½ï¿½"); //utc-6
             go(56, 0);
             if (optionpicki == 7 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("¶«²¿Ê±¼ä");
+            printf("ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½"); //utc-5
             go(64, 0);
             if (optionpicki == 8 && optionpickj == 0)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("´óÎ÷ÑóÊ±¼ä");
+            printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½"); //utc-4
             go(0, 6);
             if (optionpicki == 0 && optionpickj == 1)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("°ÍÎ÷ÀûÑÇ");
+            printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"); //utc-3
             go(8, 6);
             if (optionpicki == 1 && optionpickj == 1)
                 color(HIGHLIGHT);
@@ -416,91 +567,91 @@ void PrintTimeZone(int offset)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("Â×¶Ø");
+            printf("ï¿½×¶ï¿½"); //utc+-0
             go(32, 6);
             if (optionpicki == 4 && optionpickj == 1)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("°ØÁÖ,°ÍÀè");
+            printf("ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½"); //utc+1
             go(40, 6);
             if (optionpicki == 5 && optionpickj == 1)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("ÑÅµä,»ù¸¨");
+            printf("ï¿½Åµï¿½,ï¿½ï¿½ï¿½ï¿½"); //utc+2
             go(48, 6);
             if (optionpicki == 6 && optionpickj == 1)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("ÄªË¹¿Æ");
+            printf("ÄªË¹ï¿½ï¿½"); //utc+3
             go(56, 6);
             if (optionpicki == 7 && optionpickj == 1)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("Ã«ÀïÇóË¹");
+            printf("Ã«ï¿½ï¿½ï¿½ï¿½Ë¹"); //utc+4
             go(64, 6);
             if (optionpicki == 8 && optionpickj == 1)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("°Í»ùË¹Ì¹");
+            printf("ï¿½Í»ï¿½Ë¹Ì¹"); //utc+5
             go(0, 12);
             if (optionpicki == 0 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("ÃÏ¼ÓÀ­");
+            printf("ï¿½Ï¼ï¿½ï¿½ï¿½"); //utc+6
             go(8, 12);
             if (optionpicki == 1 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("Âü¹È");
+            printf("ï¿½ï¿½ï¿½ï¿½"); //utc+7
             go(16, 12);
             if (optionpicki == 2 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("±±¾©");
+            printf("ï¿½ï¿½ï¿½ï¿½"); //utc+8
             go(24, 12);
             if (optionpicki == 3 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("¶«¾©");
+            printf("ï¿½ï¿½ï¿½ï¿½"); //utc+9
             go(32, 12);
             if (optionpicki == 4 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("¹Øµº");
+            printf("ï¿½Øµï¿½"); //utc+10
             go(40, 12);
             if (optionpicki == 5 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("ÍßÅ¬°¢Í¼");
+            printf("ï¿½ï¿½Å¬ï¿½ï¿½Í¼"); //utc+11
             go(48, 12);
             if (optionpicki == 6 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("ì³¼Ã");
+            printf("ì³¼ï¿½"); //utc+12
             go(56, 12);
             if (optionpicki == 7 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("»ùÀï°ÍË¹");
+            printf("ï¿½ï¿½ï¿½ï¿½ï¿½Ë¹"); //utc+13
             go(64, 12);
             if (optionpicki == 8 && optionpickj == 2)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
-            printf("Ê¥µ®µº");
+            printf("Ê¥ï¿½ï¿½ï¿½ï¿½"); //utc+14
         }
     }
 }
@@ -511,11 +662,33 @@ void Settings()
     fp = fopen("Settings.dat", "wb+");
 }
 
-void LoadSettings()
+void LoadSettings(int a[])
 {
     FILE *fp;
+    fp = fopen("Settings.dat", "r+");
+    if (fp == NULL)
+    {
+        fclose(fp);
+        fp = fopen("Settings.dat", "w+");
+        fprintf(fp, "%d,%d,%d", DEFAULTTIMEZONE, DEFAULTFORMAT, DEFAULTHOURFORMAT);
+        *a = DEFAULTTIMEZONE;
+        *(a + 1) = DEFAULTFORMAT;
+        *(a + 2) = DEFAULTHOURFORMAT;
+        fclose(fp);
+    }
+    else
+    {
+        fscanf(fp, "%d,%d,%d", a, a + 1, a + 2);
+        fclose(fp);
+    }
+}
 
-    fp = fopen("Settings.dat", "wb+");
+void SetSettings(int a[3])
+{
+    FILE *fp;
+    fp = fopen("Settings.dat", "r+");
+    fprintf(fp, "%d,%d,%d", a[0], a[1], a[2]);
+    fclose(fp);
 }
 
 void color(int a)
@@ -523,15 +696,15 @@ void color(int a)
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), a);
 }
 
-//¹â±êÒÆ¶¯º¯Êý£¬X±íÊ¾ºá×ø±ê£¬Y±íÊ¾×Ý×ø±ê
+//ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ê£¬Yï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void go(int x, int y)
 {
     COORD coord;
-    //×ø±ê
+    //ï¿½ï¿½ï¿½ï¿½
     coord.X = x;
     coord.Y = y;
     HANDLE a = GetStdHandle(STD_OUTPUT_HANDLE);
-    //»ñµÃ±ê×¼Êä³ö¾ä±ú
+    //ï¿½ï¿½Ã±ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     SetConsoleCursorPosition(a, coord);
-    //ÒÔ±ê×¼Êä³öµÄ¾ä±úÎª²ÎÊýÉèÖÃ¿ØÖÆÌ¨¹â±ê×ø±ê
+    //ï¿½Ô±ï¿½×¼ï¿½ï¿½ï¿½ï¿½Ä¾ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½Ì¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }

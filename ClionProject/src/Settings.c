@@ -570,148 +570,149 @@ void PrintTimeZone(int offset)
             //utc-10
             go(34, 0);
             if (optionpicki == 3 && optionpickj == 0)
-                color(HIGHLIGHT);
+                {color(HIGHLIGHT);printf("UTC-9");}
             else
-                color(DEFAULTCOLOR);
-            printf("阿拉斯加"); //utc-9
+                {color(DEFAULTCOLOR);printf("阿拉斯加");}
+             //utc-9
             go(46, 0);
             if (optionpicki == 4 && optionpickj == 0)
-                color(HIGHLIGHT);
+                {color(HIGHLIGHT);printf("UTC-8"); }
             else
-                color(DEFAULTCOLOR);
-            printf("太平洋时间"); //utc-8
+                {color(DEFAULTCOLOR);printf("太平洋时间"); }
+             //utc-8
             go(60, 0);
             if (optionpicki == 5 && optionpickj == 0)
-                color(HIGHLIGHT);
+                {color(HIGHLIGHT);printf("UTC-7");}
             else
-                color(DEFAULTCOLOR);
-            printf("山地时间"); //utc-7
+                {color(DEFAULTCOLOR);printf("山地时间");}
+            //utc-7
             go(72, 0);
             if (optionpicki == 6 && optionpickj == 0)
-                color(HIGHLIGHT);
+                {color(HIGHLIGHT);printf("UTC-6");}
             else
-                color(DEFAULTCOLOR);
-            printf("中部时间"); //utc-6
+                {color(DEFAULTCOLOR);printf("中部时间");}
+            //utc-6
             go(84, 0);
             if (optionpicki == 7 && optionpickj == 0)
-                color(HIGHLIGHT);
+                {color(HIGHLIGHT);printf("UTC-5");}
             else
-                color(DEFAULTCOLOR);
-            printf("东部时间"); //utc-5
+                {color(DEFAULTCOLOR);printf("东部时间");}
+            //utc-5
             go(96, 0);
             if (optionpicki == 8 && optionpickj == 0)
-                color(HIGHLIGHT);
+                {color(HIGHLIGHT);printf("UTC-4");}
             else
-                color(DEFAULTCOLOR);
-            printf("大西洋时间"); //utc-4
+                {color(DEFAULTCOLOR);printf("大西洋时间");}
+            //utc-4，还有李金雨你?死了
             go(0, 6);
             if (optionpicki == 0 && optionpickj == 1)
-                color(HIGHLIGHT);
+                {color(HIGHLIGHT);printf("UTC-3");}
             else
-                color(DEFAULTCOLOR);
-            printf("巴西利亚"); //utc-3
+                {color(DEFAULTCOLOR);printf("巴西利亚");}
+            //utc-3
             go(14, 6);
             if (optionpicki == 1 && optionpickj == 1)
-                color(HIGHLIGHT);
+                {color(HIGHLIGHT);printf("UTC-2");}
             else
-                color(DEFAULTCOLOR);
-            printf("UTC-2");
+                {color(DEFAULTCOLOR);printf("UTC-2");}
+            //多了一行哈哈哈
             go(24, 6);
             if (optionpicki == 2 && optionpickj == 1)
                 color(HIGHLIGHT);
             else
                 color(DEFAULTCOLOR);
             printf("UTC-1");
+            //懒得改了
             go(34, 6);
             if (optionpicki == 3 && optionpickj == 1)
-                color(HIGHLIGHT);
+                {color(HIGHLIGHT);printf("UTC+-0");}
             else
-                color(DEFAULTCOLOR);
-            printf("伦敦"); //utc+-0
+                {color(DEFAULTCOLOR);printf("伦敦");}
+            //utc+-0
             go(46, 6);
             if (optionpicki == 4 && optionpickj == 1)
-                color(HIGHLIGHT);
+                {color(HIGHLIGHT);printf("UTC+1");}
             else
-                color(DEFAULTCOLOR);
-            printf("柏林,巴黎"); //utc+1
+                {color(DEFAULTCOLOR);printf("柏林,巴黎");}
+            //utc+1
             go(60, 6);
             if (optionpicki == 5 && optionpickj == 1)
-                color(HIGHLIGHT);
+                {color(HIGHLIGHT);printf("UTC+2");} 
             else
-                color(DEFAULTCOLOR);
-            printf("雅典,基辅"); //utc+2
+                {color(DEFAULTCOLOR);printf("雅典,基辅");}
+            //utc+2
             go(72, 6);
             if (optionpicki == 6 && optionpickj == 1)
-                color(HIGHLIGHT);
+                {color(HIGHLIGHT);printf("UTC+3");}
             else
-                color(DEFAULTCOLOR);
-            printf("莫斯科"); //utc+3
+                {color(DEFAULTCOLOR);printf("莫斯科");}
+            //utc+3
             go(84, 6);
             if (optionpicki == 7 && optionpickj == 1)
-                color(HIGHLIGHT);
+                {color(HIGHLIGHT);printf("UTC+4"); }
             else
-                color(DEFAULTCOLOR);
-            printf("毛里求斯"); //utc+4
+                {color(DEFAULTCOLOR);printf("毛里求斯"); }
+            //utc+4
             go(96, 6);
             if (optionpicki == 8 && optionpickj == 1)
-                color(HIGHLIGHT);
+                {color(HIGHLIGHT);printf("UTC+5"); }
             else
-                color(DEFAULTCOLOR);
-            printf("巴基斯坦"); //utc+5
+                {color(DEFAULTCOLOR);printf("巴基斯坦"); }
+            //utc+5
             go(0, 12);
             if (optionpicki == 0 && optionpickj == 2)
-                color(HIGHLIGHT);
+                {color(HIGHLIGHT);printf("UTC+6");}
             else
-                color(DEFAULTCOLOR);
-            printf("孟加拉"); //utc+6
+                {color(DEFAULTCOLOR);printf("孟加拉");}
+            //utc+6
             go(14, 12);
             if (optionpicki == 1 && optionpickj == 2)
-                color(HIGHLIGHT);
+                {color(HIGHLIGHT);printf("UTC+7");}
             else
-                color(DEFAULTCOLOR);
-            printf("曼谷"); //utc+7
+                {color(DEFAULTCOLOR);printf("曼谷");}
+             //utc+7
             go(24, 12);
             if (optionpicki == 2 && optionpickj == 2)
-                color(HIGHLIGHT);
+                {color(HIGHLIGHT);printf("UTC+8");}
             else
-                color(DEFAULTCOLOR);
-            printf("北京"); //utc+8
+                {color(DEFAULTCOLOR);printf("北京");}
+            //utc+8
             go(34, 12);
             if (optionpicki == 3 && optionpickj == 2)
-                color(HIGHLIGHT);
+                {color(HIGHLIGHT);printf("UTC+9");}
             else
-                color(DEFAULTCOLOR);
-            printf("东京"); //utc+9
+                {color(DEFAULTCOLOR);printf("东京");}
+            //utc+9
             go(46, 12);
             if (optionpicki == 4 && optionpickj == 2)
-                color(HIGHLIGHT);
+                {color(HIGHLIGHT);printf("UTC+10");}
             else
-                color(DEFAULTCOLOR);
-            printf("关岛"); //utc+10
+                {color(DEFAULTCOLOR);printf("关岛");}
+            //utc+10
             go(60, 12);
             if (optionpicki == 5 && optionpickj == 2)
-                color(HIGHLIGHT);
+                {color(HIGHLIGHT);printf("UTC+11"); }
             else
-                color(DEFAULTCOLOR);
-            printf("瓦努阿图"); //utc+11
+                {color(DEFAULTCOLOR);printf("瓦努阿图"); }
+            //utc+11
             go(72, 12);
             if (optionpicki == 6 && optionpickj == 2)
-                color(HIGHLIGHT);
+                {color(HIGHLIGHT);printf("UTC+12");}
             else
-                color(DEFAULTCOLOR);
-            printf("斐济"); //utc+12
+                {color(DEFAULTCOLOR);printf("斐济");}
+            //utc+12
             go(84, 12);
             if (optionpicki == 7 && optionpickj == 2)
-                color(HIGHLIGHT);
+                {color(HIGHLIGHT);printf("UTC+13"); }
             else
-                color(DEFAULTCOLOR);
-            printf("基里巴斯"); //utc+13
+                {color(DEFAULTCOLOR);printf("基里巴斯"); }
+            //utc+13
             go(96, 12);
             if (optionpicki == 8 && optionpickj == 2)
-                color(HIGHLIGHT);
+                {color(HIGHLIGHT);printf("UTC+14"); }
             else
-                color(DEFAULTCOLOR);
-            printf("圣诞岛"); //utc+14
+                {color(DEFAULTCOLOR);printf("圣诞岛"); }
+            //utc+14
         }
     }
 }

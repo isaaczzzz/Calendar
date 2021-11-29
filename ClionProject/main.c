@@ -23,9 +23,8 @@ int main(void)
     int year = p->tm_year + 1900;
     int mon = p->tm_mon + 1;
     int day = p->tm_mday;
-
-    printUI(year, mon, day);
     //获取时间并调用printUI函数
+    printUI(year, mon, day);
     return 0;
 }
 
@@ -467,7 +466,7 @@ void printUI(int yy, int mm, int dd)
                             printf("输入要跳转的日期(如2021 11 08):");
                             int yy1, mm1, dd1;
                             scanf("%d %d %d", &yy1, &mm1, &dd1);
-                            printUI(yy1, mm1, dd1);
+                            //printUI(yy1, mm1, dd1);
                             ShowSchedule(yy1, mm1, dd1);
                             break;
                         case 3:

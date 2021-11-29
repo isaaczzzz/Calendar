@@ -85,21 +85,24 @@ void AddSchedule(void)
 void ShowSchedule(int yy, int mm, int dd)
 {
     FILE *fp;
-    int i = 0, isFound = 0;
+    int i = 0, isFound = 0, row = 0;
     fp = fopen("schedule.dat", "rb");
 
-    system("cls");
-    
+    go(90, row);
     system("cls");
     if (fp == NULL) {
         printf("未能成功打开文件\n");
         return;
     }
+
     while (fread(&S, sizeof(S), 1, fp) == 1)
     {
         if (S.yy == yy && S.mm == mm && S.dd == dd)
         {
+            row++;//空行
+            go(90, row++);
             printf("当日的第 %d 个日程是: %s\n", i + 1, S.note);
+            go(90, row++);
             printf("重要等级为: ");
             switch (S.impo)
             {
@@ -122,7 +125,6 @@ void ShowSchedule(int yy, int mm, int dd)
     }
     if (isFound == 0)
         printf("未能在当日查询到日程\n");
-    printf("按下任意键继续............");
     getchar();
     getchar();
 }

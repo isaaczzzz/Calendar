@@ -85,17 +85,57 @@ void AddSchedule(void)
 void ShowSchedule(int yy, int mm, int dd)
 {
     FILE *fp;
-    int i = 0, isFound = 0, row = 0;
+    int row1, row2, row3, row4;
+    row1 = row2 = row3 = row4 = 1;
     fp = fopen("schedule.dat", "rb");
 
-    go(90, row);
     system("cls");
     if (fp == NULL) {
+        go(92, 0);
         printf("未能成功打开文件\n");
         return;
     }
 
+    PrintColumns(0, 28, 103);
+    go(89, 12);
+    printf("━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━");
+
+    go(92, 0);
+    printf("重要且紧急");
+    go(105, 0);
+    printf("重要不紧急");
+    go(90, 13);
+    printf("不重要但紧急");
+    go(105, 13);
+    printf("不重要不紧急");
+
     while (fread(&S, sizeof(S), 1, fp) == 1)
+    {
+        if (S.yy == yy && S.mm == mm && S.dd == dd) {
+            switch (S.impo)
+            {
+                case 1:
+                    go(92, ++row1);
+                    puts(S.note);
+                    break;
+                case 2:
+                    go(105, ++row2);
+                    puts(S.note);
+                    break;
+                case 3:
+                    go(90, ++row3 + 13);
+                    puts(S.note);
+                    break;
+                default:
+                    go(105, ++row4 + 12);
+                    puts(S.note);
+                    break;
+            }
+        }
+    }
+
+    //列表形式
+    /*while (fread(&S, sizeof(S), 1, fp) == 1)
     {
         if (S.yy == yy && S.mm == mm && S.dd == dd)
         {
@@ -124,9 +164,8 @@ void ShowSchedule(int yy, int mm, int dd)
         }
     }
     if (isFound == 0)
-        printf("未能在当日查询到日程\n");
-    getchar();
-    getchar();
+        printf("未能在当日查询到日程\n");*/
+
 }
 
 void PrintRows(int from, int to, const int column, bool uod)

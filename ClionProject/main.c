@@ -173,6 +173,7 @@ void printUI(int yy, int mm, int dd)
                 //按下的是方向键，回车键或第一次启动函数则输出日历并判断键位
             {
                 system("cls");
+                ShowSchedule(yy, mm, dd);
                 if (kbhit())
                     key = getch();
                 start = 1;
@@ -466,8 +467,8 @@ void printUI(int yy, int mm, int dd)
                             printf("输入要跳转的日期(如2021 11 08):");
                             int yy1, mm1, dd1;
                             scanf("%d %d %d", &yy1, &mm1, &dd1);
-                            //printUI(yy1, mm1, dd1);
-                            ShowSchedule(yy1, mm1, dd1);
+                            printUI(yy1, mm1, dd1);
+
                             break;
                         case 3:
                             AddSchedule();

@@ -17,10 +17,41 @@ void StopWatch(void)
     go(45, 12);
     color_print("按下任意键以开始计时...", 2);
     getchar();
-    getchar();
 
     while(!end) {
+        int key = 0;
+        if(kbhit()){
+            key = getch();
+        }
+        if(key == ESC)
+            main();
+        if(key == SPACE){
+            key = 0;
+            while(1){
+                if(kbhit()){
+                    key = getch();
+                }
+                if(key == SPACE)
+                    break;
+            }
+        }
         Sleep(1000);
+        key = 0;
+        if(kbhit()){
+            key = getch();
+        }
+        if(key == ESC)
+            main();
+        if(key == SPACE){
+            key = 0;
+            while(1){
+                if(kbhit()){
+                    key = getch();
+                }
+                if(key == SPACE)
+                    break;
+            }
+        }
         system("cls");
         sec++;
         if(sec > 59) {
@@ -33,6 +64,8 @@ void StopWatch(void)
         }
         go(50, 12);
         printf("%02d:%02d:%02d", hour, min, sec);
+        go(42, 14);
+        printf("按下ESC退出，按下空格键暂停");
     }
 }
 

@@ -474,7 +474,7 @@ void printUI(int yy, int mm, int dd)
                             AddSchedule();
                             break;
                         case 4:
-                            //timing();
+                            StopWatch();
                             break;
                         case 5:
                             SetAlarm();

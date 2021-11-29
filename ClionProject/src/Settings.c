@@ -709,9 +709,9 @@ void PrintTimeZone(int offset)
             //utc+13
             go(96, 12);
             if (optionpicki == 8 && optionpickj == 2)
-                {color(HIGHLIGHT);printf("UTC+14"); }
+                {color(HIGHLIGHT);printf("UTC+14");color(DEFAULTCOLOR); }
             else
-                {color(DEFAULTCOLOR);printf("Ê¥µ®µº"); }
+                {color(DEFAULTCOLOR);printf("Ê¥µ®µº");color(DEFAULTCOLOR); }
             //utc+14
         }
     }

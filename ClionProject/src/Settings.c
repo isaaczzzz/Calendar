@@ -47,6 +47,10 @@ int main()
     printf("%d\n",S.Setting);
     }
     */
+    system("color F9");
+    //设置控制台默认颜色
+    system("chcp 936");
+    system("cls");
     int optionpick = 1;
     int start = 0;
     while (1)
@@ -145,7 +149,7 @@ int main()
                     color(DEFAULTCOLOR);
                     printf("格式设置");
                     go(50, 8);
-                    color(HIGHLIGHT);
+                    color(HIGHLIGHT); 
                     printf("24小时制/12小时制设置");
                     go(50, 12);
                     color(DEFAULTCOLOR);

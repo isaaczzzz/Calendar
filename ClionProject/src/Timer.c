@@ -39,7 +39,7 @@ void StopWatch(void)
 //µπº∆ ±
 void CountDown(void)
 {
-    int hour, min, sec, i, num;
+    int hour, min, sec, num;
     int ohour, omin, osec;
     float percent = 1.0f;
     bool end = 0;
@@ -47,45 +47,13 @@ void CountDown(void)
 
     system("cls");
     //±ﬂøÚ
-    go(40, 8);
-    color_print("©≥©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©∑", 4);
-    go(40, 9);
-    color_print("©ß", 4);
-    go(40, 10);
-    color_print("©ß", 4);
-    go(40, 11);
-    color_print("©ß", 4);
-    go(40, 12);
-    color_print("©ß", 4);
-    go(40, 13);
-    color_print("©ß", 4);
-    go(40, 14);
-    color_print("©ß", 4);
-    go(40, 15);
-    color_print("©ß", 4);
-    go(40, 16);
-    color_print("©ß", 4);
-    go(40, 17);
-    color_print("©ª©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©ø", 4);
-    go(65, 9);
-    color_print("©ß", 4);
-    go(65, 10);
-    color_print("©ß", 4);
-    go(65, 11);
-    color_print("©ß", 4);
-    go(65, 12);
-    color_print("©ß", 4);
-    go(65, 13);
-    color_print("©ß", 4);
-    go(65, 14);
-    color_print("©ß", 4);
-    go(65, 15);
-    color_print("©ß", 4);
-    go(65, 16);
-    color_print("©ß", 4);
+    PrintRows(40, 65, 8, UP);
+    PrintColumns(9, 16, 40);
+    PrintRows(40, 65, 17, DOWN);
+    PrintColumns(9, 16, 65);
 
     go(50, 10);
-    color_print("∑¨«—÷”\n", 4);
+    printf("∑¨«—÷”\n");
     go(43, 12);
     printf("«Î ‰»Î ±≥§:__:__:__\b\b\b\b\b\b\b\b");
     scanf("%d%d%d", &ohour, &omin, &osec);
@@ -97,52 +65,20 @@ void CountDown(void)
         system("cls");
 
         //±ﬂøÚ
-        go(40, 8);
-        color_print("©≥©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©∑", 4);
-        go(40, 9);
-        color_print("©ß", 4);
-        go(40, 10);
-        color_print("©ß", 4);
-        go(40, 11);
-        color_print("©ß", 4);
-        go(40, 12);
-        color_print("©ß", 4);
-        go(40, 13);
-        color_print("©ß", 4);
-        go(40, 14);
-        color_print("©ß", 4);
-        go(40, 15);
-        color_print("©ß", 4);
-        go(40, 16);
-        color_print("©ß", 4);
-        go(40, 17);
-        color_print("©ª©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©ø", 4);
-        go(65, 9);
-        color_print("©ß", 4);
-        go(65, 10);
-        color_print("©ß", 4);
-        go(65, 11);
-        color_print("©ß", 4);
-        go(65, 12);
-        color_print("©ß", 4);
-        go(65, 13);
-        color_print("©ß", 4);
-        go(65, 14);
-        color_print("©ß", 4);
-        go(65, 15);
-        color_print("©ß", 4);
-        go(65, 16);
-        color_print("©ß", 4);
+        PrintRows(40, 65, 8, UP);
+        PrintColumns(9, 16, 40);
+        PrintRows(40, 65, 17, DOWN);
+        PrintColumns(9, 16, 65);
 
         //µπº∆ ±Ãı
         go(42, 14);
         num = (int)(percent * 20);
-        color_print("|", 4);
-        for(i = 0; i < num; i++)
-            color_print("®~", 4);
+        printf("|");
+        for(int i = 0; i < num; i++)
+            printf("®~");
 
         go(50, 10);
-        color_print("∑¨«—÷”\n", 4);
+        printf("∑¨«—÷”\n");
         putchar('\n');
         go(49, 12);
         printf("%02d:%02d:%02d", hour, min, sec);
@@ -165,45 +101,13 @@ void CountDown(void)
 
     system("cls");
     //±ﬂøÚ
-    go(40, 8);
-    color_print("©≥©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©∑", 4);
-    go(40, 9);
-    color_print("©ß", 4);
-    go(40, 10);
-    color_print("©ß", 4);
-    go(40, 11);
-    color_print("©ß", 4);
-    go(40, 12);
-    color_print("©ß", 4);
-    go(40, 13);
-    color_print("©ß", 4);
-    go(40, 14);
-    color_print("©ß", 4);
-    go(40, 15);
-    color_print("©ß", 4);
-    go(40, 16);
-    color_print("©ß", 4);
-    go(40, 17);
-    color_print("©ª©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©•©ø", 4);
-    go(65, 9);
-    color_print("©ß", 4);
-    go(65, 10);
-    color_print("©ß", 4);
-    go(65, 11);
-    color_print("©ß", 4);
-    go(65, 12);
-    color_print("©ß", 4);
-    go(65, 13);
-    color_print("©ß", 4);
-    go(65, 14);
-    color_print("©ß", 4);
-    go(65, 15);
-    color_print("©ß", 4);
-    go(65, 16);
-    color_print("©ß", 4);
+    PrintRows(40, 65, 8, UP);
+    PrintColumns(9, 16, 40);
+    PrintRows(40, 65, 17, DOWN);
+    PrintColumns(9, 16, 65);
 
     go(50, 12);
-    color_print(" ±º‰µΩ", 2);
+    printf(" ±º‰µΩ");
     getchar();
     getchar();
     system("cls");

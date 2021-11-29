@@ -14,17 +14,6 @@ struct Schedule
     int impo;
 } S;
 
-/*
-int main(void)
-{
-    system("chcp 936");
-    system("cls");
-
-    AddSchedule();
-    ShowSchedule();
-    return 0;
-}*/
-
 void AddSchedule(void)
 {
     FILE *fp;
@@ -32,26 +21,63 @@ void AddSchedule(void)
     int i;
 
     system("cls");
+    //边框
+    PrintRows(42, 75, 8, UP);
+    PrintColumns(9, 13, 42); //左
+    PrintRows(42, 75, 14, DOWN);
+    PrintColumns(9, 13, 75); //右
     go(45, 10);
     printf("请输入要添加的日期(年/月/日)");
     go(53, 12);
     printf("____ __ __\b\b\b\b\b\b\b\b\b\b");
     scanf("%d%d%d", &S.yy, &S.mm, &S.dd);
-    printf("输入日程内容(不超过100字): ");
+
+    system("cls");
+    //边框
+    PrintRows(40, 80, 6, UP);
+    PrintColumns(7, 16, 40); //左
+    PrintRows(40, 80, 17, DOWN);
+    PrintColumns(7, 16, 80); //右
+    go(45, 9);
+    printf("输入 %04d年%02d月%02d日 的日程内容: ", S.yy, S.mm, S.dd);
+    go(54, 10);
+    printf("(不超100字)");
     fflush(stdin);
+    go(45, 12);
     scanf("%[^\n]", S.note);
-    printf("输入四象限分类: (1:重要且紧急/2:重要不紧急/3:不重要但紧急/4:不重要不紧急):_\b");
+
+    //边框
+    PrintRows(40, 80, 18, UP);
+    PrintColumns(19, 25, 40);//左
+    PrintRows(40, 80, 25, DOWN);
+    PrintColumns(19, 24, 80);//右
+    go(43, 21);
+    printf("1.重要且紧急");
+    go(63, 21);
+    printf("2.重要不紧急");
+    go(43, 23);
+    printf("3.不重要但紧急");
+    go(63, 23);
+    printf("4.不重要不紧急");
+    go(53, 19);
+    printf("输入四象限分类: ");
     scanf("%d", &S.impo);
-    if (fwrite(&S, sizeof(S), 1, fp))
-    {
+
+    system("cls");
+    //边框
+    PrintRows(42, 75, 8, UP);
+    PrintColumns(9, 13, 42); //左
+    PrintRows(42, 75, 14, DOWN);
+    PrintColumns(9, 13, 75); //右
+    go(53, 10);
+    if (fwrite(&S, sizeof(S), 1, fp)) {
         puts("日程保存成功");
         fclose(fp);
     }
     else
         puts("\a日程保存失败\a");
-    printf("按下任意键继续............\n");
-    getchar();
-    getchar();
+    go(51, 12);
+    system("pause");
     fclose(fp);
     main();
 }
@@ -99,4 +125,32 @@ void ShowSchedule(int yy, int mm, int dd)
     printf("按下任意键继续............");
     getchar();
     getchar();
+}
+
+void PrintRows(int from, int to, const int column, bool uod)
+{
+    go(from, column);
+    if(uod)
+        printf("┏");
+    else
+        printf("┗");
+
+    for (++from; from <= to - 1; from++) {
+        go(from, column);
+        printf("━");
+    }
+
+    go(from, column);
+    if(uod)
+        printf("┓");
+    else
+        printf("┛");
+}
+
+void PrintColumns(int from, int to, int row)
+{
+    for(from; from <= to; from++){
+        go(row, from);
+        printf("┃");
+    }
 }

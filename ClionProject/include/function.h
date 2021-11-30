@@ -24,6 +24,10 @@ void SetAlarm(void);
 
 void Settings(void);
 void LoadSettings(int[]);
+int DefaultColor(void);
+int Highlight(void);
+int Today(void);
+int Result(void);
 
 int main(void);
 

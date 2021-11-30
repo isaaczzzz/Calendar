@@ -11,7 +11,7 @@ void StopWatch(void)
 
     system("cls");
     go(45, 12);
-    color(DEFAULTCOLOR);
+    color(DefaultColor());
     printf("按下任意键以开始计时...");
     getchar();
 

@@ -47,3 +47,96 @@ void PrintColumns(int from, int to, int row)
         printf("©§");
     }
 }
+
+int DefaultColor(){
+    int settings[7];
+    LoadSettings(settings);
+    switch (settings[3]) {
+        case 1://RED
+            return RED;
+        case 2://GREEN
+            return GREEN;
+        case 3://BLUE
+            return BLUE;
+        case 4://YELLOW
+            return YELLOW;
+        case 5://PURPLE
+            return PURPLE;
+        case 6://GREY
+            return GREY;
+        case 7://DEEPBLUE
+            return DEEPBLUE;
+        case 8://BLACK
+            return BLACK;
+    }
+}
+
+int Highlight(){
+    int settings[7];
+    LoadSettings(settings);
+    switch (settings[4]) {
+        case -1://RED
+            return BACKRED;
+        case -2://GREEN
+            return BACKGREEN;
+        case -3://BLUE
+            return BACKBLUE;
+        case -4://YELLOW
+            return BACKYELLOW;
+        case -5://PURPLE
+            return BACKPURPLE;
+        case -6://GREY
+            return BACKGREY;
+        case -7://DEEPBLUE
+            return BACKDEEPBLUE;
+        case -8://BLACK
+            return BACKBLACK;
+    }
+}
+
+int Today(){
+    int settings[7];
+    LoadSettings(settings);
+    switch (settings[5]) {
+        case 1://RED
+            return RED;
+        case 2://GREEN
+            return GREEN;
+        case 3://BLUE
+            return BLUE;
+        case 4://YELLOW
+            return YELLOW;
+        case 5://PURPLE
+            return PURPLE;
+        case 6://GREY
+            return GREY;
+        case 7://DEEPBLUE
+            return DEEPBLUE;
+        case 8://BLACK
+            return BLACK;
+    }
+}
+
+int Result(){
+    int settings[7];
+    LoadSettings(settings);
+    switch (settings[6]) {
+        case 1://RED
+            return RED;
+        case 2://GREEN
+            return GREEN;
+        case 3://BLUE
+            return BLUE;
+        case 4://YELLOW
+            return YELLOW;
+        case 5://PURPLE
+            return PURPLE;
+        case 6://GREY
+            return GREY;
+        case 7://DEEPBLUE
+            return DEEPBLUE;
+        case 8://BLACK
+            return BLACK;
+    }
+}
+

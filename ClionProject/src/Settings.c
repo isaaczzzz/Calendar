@@ -291,22 +291,22 @@ void Format()
     while (1)
     {
         system("cls");
-        go(50, 9);
+        go(45, 10);
         color(DefaultColor());
         printf("1->YYYY-MM-DD(如2003-05-08)");
-        go(50, 10);
+        go(45, 12);
         color(DefaultColor());
         printf("2->DD-MM-YYYY(如08-05-2003)");
-        go(50, 11);
+        go(45, 14);
         color(DefaultColor());
         printf("3->MM-DD-YYYY(如05-08-2003)");
-        go(50, 8);
+        go(45, 8);
         color(DefaultColor());
         printf("输入想要设置的日期格式：");
         scanf("%d", &format);
         if ((format != 1) && (format != 2) && (format != 3))
         {
-            go(50, 9);
+            go(45, 16);
             color(DefaultColor());
             printf("无效输入，请输入1/2/3");
             Sleep(500);

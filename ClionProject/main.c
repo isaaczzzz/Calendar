@@ -435,7 +435,19 @@ void printUI(int yy, int mm, int dd)
                 color(DefaultColor());
                 days = NumberOfDays(i, year);
 
-                printf("           ←%d年%s→            \n", year, getMonthName(i));
+                switch (ReturnFormat()) {
+                    case 1:
+                        printf("           ←%d年%s→            \n", year, getMonthName(i));
+                        break;
+                    case 2:
+                        printf("           ←%s,%d年→            \n", getMonthName(i), year);
+                        break;
+                    case 3:
+                        printf("           ←%s,%d年→            \n",  getMonthName(i), year);
+                        break;
+                }
+
+
                 // 输出年份月份
 
                 printf(" Sun   Mon  Tue  Wed  Thu  Fri  Sat\n");

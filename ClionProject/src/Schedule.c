@@ -101,7 +101,18 @@ void ShowSchedule(int yy, int mm, int dd)
     printf("©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©ï©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥");
     go(96, 0);
     color(Highlight());
-    printf("%04d-%02d-%02d",yy,mm,dd);
+    switch (ReturnFormat()) {
+        case 1:
+            printf("%04d-%02d-%02d",yy,mm,dd);
+            break;
+        case 2:
+            printf("%02d-%02d-%04d",dd,mm,yy);
+            break;
+        case 3:
+            printf("%02d-%02d-%04d",mm,dd,yy);
+            break;
+    }
+
     color(DefaultColor());
     printf("µÄÈÕ³Ì");
     go(92, 1);

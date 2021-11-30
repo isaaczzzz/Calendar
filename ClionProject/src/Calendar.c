@@ -120,6 +120,19 @@ int TimeZone()
     return settings[0];
 }
 
+int ReturnHourFormat()
+{
+    int settings[7];
+    LoadSettings(settings);
+    return settings[2];
+}
+
+int ReturnFormat(){
+    int settings[7];
+    LoadSettings(settings);
+    return settings[1];
+}
+
 void PrintTime(int x, int y, int tz)
 {
     time_t timep;

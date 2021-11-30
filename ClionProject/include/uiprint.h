@@ -15,5 +15,7 @@ int DefaultColor(void);
 int Highlight(void);
 int Today(void);
 int Result(void);
+int ReturnHourFormat(void);
+int ReturnFormat(void);
 
 #endif //CALENDAR_UIPRINT_H

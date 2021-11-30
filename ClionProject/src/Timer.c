@@ -139,7 +139,7 @@ void CountDown(void)
     PrintColumns(9, 16, 69);
 
     go(54, 12);
-    printf("时间到");
+    printf("\a时间到\a");
     getchar();
     getchar();
     system("cls");
@@ -149,7 +149,7 @@ void CountDown(void)
 
 /*********************
  * 0 = 黑色 8 = 灰色
- * 1 = 蓝色 9 = 淡蓝色
+ * 1 = 蓝色 9 = 淡蓝色；0
  * 2 = 绿色 A = 淡绿色
  * 3 = 浅绿色 B = 淡浅绿色
  * 4 = 红色 C = 淡红色

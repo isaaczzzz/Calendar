@@ -499,8 +499,7 @@ void printUI(int yy, int mm, int dd)
         go(0, y);
         color(DefaultColor());
         printf("现在是：%04d/%02d/%02d %02d:%02d:%02d", p2->tm_year + 1900, p2->tm_mon + 1, p2->tm_mday,
-               (p2->tm_hour + 8 == 24 ? 0 : p2->tm_hour), p2->tm_min, p2->tm_sec);
+               (p2->tm_hour + TimeZone() == 24 ? 0 : p2->tm_hour + TimeZone()), p2->tm_min, p2->tm_sec);
         //循环输出当前时间
-        //加时区
     }
 }

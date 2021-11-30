@@ -10,4 +10,4 @@ add_executable(Calendar
         src/Schedule.c
         src/Settings.c
         src/SetAlarm.c
-        src/Print.c)
+        src/Print.c src/Calendar.c)

@@ -425,6 +425,9 @@ void printUI(int yy, int mm, int dd)
                 go(50, 0);
                 color(Highlight());
                 printf("TITLE!!!!");
+                go(46, 1);
+                color(Highlight());
+                printf("ENTERÑ¡Ôñ£¬ESCÍË³ö");
                 go(0, 0);
                 color(DefaultColor());
                 days = NumberOfDays(i, year);

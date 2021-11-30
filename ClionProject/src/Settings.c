@@ -923,7 +923,7 @@ void Skins()
                 printf("蓝色");
             }
             //utc-10
-            go(46, 0);
+            go(44, 0);
             if (optionpicki == 3 && optionpickj == 0)
             {
                 color(BACKYELLOW);
@@ -935,7 +935,7 @@ void Skins()
                 printf("黄色");
             }
             //utc-9
-            go(60, 0);
+            go(54, 0);
             if (optionpicki == 4 && optionpickj == 0)
             {
                 color(BACKPURPLE);
@@ -947,7 +947,7 @@ void Skins()
                 printf("紫色");
             }
             //utc-8
-            go(72, 0);
+            go(64, 0);
             if (optionpicki == 5 && optionpickj == 0)
             {
                 color(BACKGREY);
@@ -959,7 +959,7 @@ void Skins()
                 printf("灰色");
             }
             //utc-7
-            go(84, 0);
+            go(74, 0);
             if (optionpicki == 6 && optionpickj == 0)
             {
                 color(BACKDEEPBLUE);
@@ -971,7 +971,7 @@ void Skins()
                 printf("深蓝色");
             }
             //utc-6
-            go(96, 0);
+            go(86, 0);
             if (optionpicki == 7 && optionpickj == 0)
             {
                 color(BACKBLACK);
@@ -985,7 +985,7 @@ void Skins()
             //utc-5
             go(0, 6);
             color(Highlight());
-            printf("被选中强调颜色");
+            printf("强调颜色");
             go(14, 6);
             if (optionpicki == 0 && optionpickj == 1)
             {
@@ -1022,7 +1022,7 @@ void Skins()
                 printf("蓝色");
             }
             //utc-10
-            go(46, 6);
+            go(44, 6);
             if (optionpicki == 3 && optionpickj == 1)
             {
                 color(BACKYELLOW);
@@ -1034,7 +1034,7 @@ void Skins()
                 printf("黄色");
             }
             //utc-9
-            go(60, 6);
+            go(54, 6);
             if (optionpicki == 4 && optionpickj == 1)
             {
                 color(BACKPURPLE);
@@ -1046,7 +1046,7 @@ void Skins()
                 printf("紫色");
             }
             //utc-8
-            go(72, 6);
+            go(64, 6);
             if (optionpicki == 5 && optionpickj == 1)
             {
                 color(BACKGREY);
@@ -1058,7 +1058,7 @@ void Skins()
                 printf("灰色");
             }
             //utc-7
-            go(84, 6);
+            go(74, 6);
             if (optionpicki == 6 && optionpickj == 1)
             {
                 color(BACKDEEPBLUE);
@@ -1070,7 +1070,7 @@ void Skins()
                 printf("深蓝色");
             }
             //utc-6
-            go(96, 6);
+            go(86, 6);
             if (optionpicki == 7 && optionpickj == 1)
             {
                 color(BACKBLACK);
@@ -1121,7 +1121,7 @@ void Skins()
                 printf("蓝色");
             }
             //utc-10
-            go(46, 12);
+            go(44, 12);
             if (optionpicki == 3 && optionpickj == 2)
             {
                 color(BACKYELLOW);
@@ -1133,7 +1133,7 @@ void Skins()
                 printf("黄色");
             }
             //utc-9
-            go(60, 12);
+            go(54, 12);
             if (optionpicki == 4 && optionpickj == 2)
             {
                 color(BACKPURPLE);
@@ -1145,7 +1145,7 @@ void Skins()
                 printf("紫色");
             }
             //utc-8
-            go(72, 12);
+            go(64, 12);
             if (optionpicki == 5 && optionpickj == 2)
             {
                 color(BACKGREY);
@@ -1157,7 +1157,7 @@ void Skins()
                 printf("灰色");
             }
             //utc-7
-            go(84, 12);
+            go(74, 12);
             if (optionpicki == 6 && optionpickj == 2)
             {
                 color(BACKDEEPBLUE);
@@ -1169,7 +1169,7 @@ void Skins()
                 printf("深蓝色");
             }
             //utc-6
-            go(96, 12);
+            go(86, 12);
             if (optionpicki == 7 && optionpickj == 2)
             {
                 color(BACKBLACK);
@@ -1183,7 +1183,7 @@ void Skins()
             //utc-5
             go(0, 18);
             color(Result());
-            printf("被查询日颜色");
+            printf("被查颜色");
             go(14, 18);
             if (optionpicki == 0 && optionpickj == 3)
             {
@@ -1220,7 +1220,7 @@ void Skins()
                 printf("蓝色");
             }
             //utc-10
-            go(46, 18);
+            go(44, 18);
             if (optionpicki == 3 && optionpickj == 3)
             {
                 color(BACKYELLOW);
@@ -1232,7 +1232,7 @@ void Skins()
                 printf("黄色");
             }
             //utc-9
-            go(60, 18);
+            go(54, 18);
             if (optionpicki == 4 && optionpickj == 3)
             {
                 color(BACKPURPLE);
@@ -1244,7 +1244,7 @@ void Skins()
                 printf("紫色");
             }
             //utc-8
-            go(72, 18);
+            go(64, 18);
             if (optionpicki == 5 && optionpickj == 3)
             {
                 color(BACKGREY);
@@ -1256,7 +1256,7 @@ void Skins()
                 printf("灰色");
             }
             //utc-7
-            go(84, 18);
+            go(74, 18);
             if (optionpicki == 6 && optionpickj == 3)
             {
                 color(BACKDEEPBLUE);
@@ -1268,7 +1268,7 @@ void Skins()
                 printf("深蓝色");
             }
             //utc-6
-            go(96, 18);
+            go(86, 18);
             if (optionpicki == 7 && optionpickj == 3)
             {
                 color(BACKBLACK);

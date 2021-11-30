@@ -5,6 +5,7 @@
 #include <conio.h>
 #include <windows.h>
 #include <time.h>
+#include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include "function.h"

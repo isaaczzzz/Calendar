@@ -4,8 +4,38 @@ void printUI(int, int, int);
 
 int main(void)
 {
-
-    system("color F9");
+    char defaultcolor[2],cl[10] = "COLOR F";
+    int settings[7];
+    LoadSettings(settings);
+    switch (settings[3]) {
+        case 1://RED
+            defaultcolor[0] = 'C';
+            break;
+        case 2://GREEN
+            defaultcolor[0] = 'A';
+            break;
+        case 3://BLUE
+            defaultcolor[0] = '9';
+            break;
+        case 4://YELLOW
+            defaultcolor[0] = '6';
+            break;
+        case 5://PURPLE
+            defaultcolor[0] = 'D';
+            break;
+        case 6://GREY
+            defaultcolor[0] = '8';
+            break;
+        case 7://WHITE
+            defaultcolor[0] = '7';
+            break;
+        case 8://BLACK
+            defaultcolor[0] = '0';
+            break;
+    }
+    strcat(cl,defaultcolor);
+    printf(cl);
+    system(cl);
     //设置控制台默认颜色
     system("chcp 936");
 

@@ -23,6 +23,7 @@ void ShowSchedule(int yy, int mm, int dd);
 void SetAlarm(void);
 
 void Settings(void);
+void LoadSettings(int[]);
 
 int main(void);
 

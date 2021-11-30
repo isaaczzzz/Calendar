@@ -28,6 +28,7 @@ int DefaultColor(void);
 int Highlight(void);
 int Today(void);
 int Result(void);
+int TimeZone(void);
 
 int main(void);
 

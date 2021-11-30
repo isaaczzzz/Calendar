@@ -140,3 +140,8 @@ int Result(){
     }
 }
 
+int TimeZone(){
+    int settings[7];
+    LoadSettings(settings);
+    return settings[0];
+}

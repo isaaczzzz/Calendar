@@ -175,6 +175,72 @@ void PrintTime(int x, int y, int tz)
             day = NumberOfDays(mon, year);
         }
     }
+    if(ReturnHourFormat() == 12) {
+        if (hour >= 12) {
+            if (hour == 12)
+                switch (ReturnFormat()) {
+                    case 1:
+                        printf("现在是: %04d-%02d-%02d 12:%02d:%02d PM", year, mon + 1, day,min, sec);
+                        break;
+                    case 2:
+                        printf("现在是: %02d-%02d-%04d 12:%02d:%02d PM", day, mon + 1, year,  min, sec);
+                        break;
+                    case 3:
+                        printf("现在是: %02d-%02d-%04d 12:%02d:%02d PM", mon + 1, day,year, min, sec);
+                        break;
+                }
+            else {
+                hour -= 12;
+                switch (ReturnFormat()) {
+                    case 1:
+                        printf("现在是: %04d-%02d-%02d %02d:%02d:%02d PM", year, mon + 1, day, hour, min, sec);
+                        break;
+                    case 2:
+                        printf("现在是: %02d-%02d-%04d %02d:%02d:%02d PM", day, mon + 1, year, hour, min, sec);
+                        break;
+                    case 3:
+                        printf("现在是: %02d-%02d-%04d %02d:%02d:%02d PM", mon + 1, day,year, hour, min, sec);
+                        break;
+                }
+            }
+        } else {
+            if (hour == 0)
+                switch (ReturnFormat()) {
+                    case 1:
+                        printf("现在是: %04d-%02d-%02d 12:%02d:%02d AM", year, mon + 1, day, min, sec);
+                        break;
+                    case 2:
+                        printf("现在是: %02d-%02d-%04d 12:%02d:%02d AM", day, mon + 1, year,  min, sec);
+                        break;
+                    case 3:
+                        printf("现在是: %02d-%02d-%04d 12:%02d:%02d AM", mon + 1, day,year,  min, sec);
+                        break;
+                }
+            else
+                switch (ReturnFormat()) {
+                    case 1:
+                        printf("现在是: %04d-%02d-%02d %02d:%02d:%02d AM", year, mon + 1, day, hour, min, sec);
+                        break;
+                    case 2:
+                        printf("现在是: %02d-%02d-%04d %02d:%02d:%02d AM", day, mon + 1, year, hour, min, sec);
+                        break;
+                    case 3:
+                        printf("现在是: %02d-%02d-%04d %02d:%02d:%02d AM", mon + 1, day,year, hour, min, sec);
+                        break;
+                }
+        }
+    }
+    else switch (ReturnFormat()) {
+        case 1:
+            printf("现在是: %04d-%02d-%02d %02d:%02d:%02d", year, mon + 1, day, hour, min, sec);
+            break;
+        case 2:
+            printf("现在是: %02d-%02d-%04d %02d:%02d:%02d", day, mon + 1, year, hour, min, sec);
+            break;
+        case 3:
+            printf("现在是: %02d-%02d-%04d %02d:%02d:%02d", mon + 1, day,year, hour, min, sec);
+            break;
+    }
 
-    printf("现在是: %04d/%02d/%02d %02d:%02d:%02d", year, mon + 1, day, hour, min, sec);
 }
+

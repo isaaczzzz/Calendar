@@ -28,21 +28,21 @@ void Settings()
         {
             switch (optionpick)
             {
-            case 1:
-                PrintTimeZone(settings[0]);
-                break;
-            case 2:
-                Format();
-                break;
-            case 3:
-                HourFormat();
-                break;
-            case 4:
-                Skins();
-                break;
-            case 5:
-                main();
-                break;
+                case 1:
+                    PrintTimeZone(settings[0]);
+                    break;
+                case 2:
+                    Format();
+                    break;
+                case 3:
+                    HourFormat();
+                    break;
+                case 4:
+                    Skins();
+                    break;
+                case 5:
+                    main();
+                    break;
             }
         }
         if (key == ARROW)
@@ -52,210 +52,232 @@ void Settings()
             if (key == UP2)
                 switch (optionpick)
                 {
-                case 1:
-                    go(50, 0);
-                    color(DefaultColor());
-                    printf("时区设置");
-                    go(50, 4);
-                    color(DefaultColor());
-                    printf("格式设置");
-                    go(50, 8);
-                    color(DefaultColor());
-                    printf("24小时制/12小时制设置");
-                    go(50, 12);
-                    color(DefaultColor());
-                    printf("外观设置");
-                    go(50, 16);
-                    color(Highlight());
-                    printf("退出");
-                    optionpick = 5;
-                    break;
-                case 2:
-                    go(50, 0);
-                    color(Highlight());
-                    printf("时区设置");
-                    go(50, 4);
-                    color(DefaultColor());
-                    printf("格式设置");
-                    go(50, 8);
-                    color(DefaultColor());
-                    printf("24小时制/12小时制设置");
-                    go(50, 12);
-                    color(DefaultColor());
-                    printf("外观设置");
-                    go(50, 16);
-                    color(DefaultColor());
-                    printf("退出");
-                    optionpick = 1;
-                    break;
-                case 3:
-                    go(50, 0);
-                    color(DefaultColor());
-                    printf("时区设置");
-                    go(50, 4);
-                    color(Highlight());
-                    printf("格式设置");
-                    go(50, 8);
-                    color(DefaultColor());
-                    printf("24小时制/12小时制设置");
-                    go(50, 12);
-                    color(DefaultColor());
-                    printf("外观设置");
-                    go(50, 16);
-                    color(DefaultColor());
-                    printf("退出");
-                    optionpick = 2;
-                    break;
-                case 4:
-                    go(50, 0);
-                    color(DefaultColor());
-                    printf("时区设置");
-                    go(50, 4);
-                    color(DefaultColor());
-                    printf("格式设置");
-                    go(50, 8);
-                    color(Highlight());
-                    printf("24小时制/12小时制设置");
-                    go(50, 12);
-                    color(DefaultColor());
-                    printf("外观设置");
-                    go(50, 16);
-                    color(DefaultColor());
-                    printf("退出");
-                    optionpick = 3;
-                    break;
-                case 5:
-                    go(50, 0);
-                    color(DefaultColor());
-                    printf("时区设置");
-                    go(50, 4);
-                    color(DefaultColor());
-                    printf("格式设置");
-                    go(50, 8);
-                    color(DefaultColor());
-                    printf("24小时制/12小时制设置");
-                    go(50, 12);
-                    color(Highlight());
-                    printf("外观设置");
-                    go(50, 16);
-                    color(DefaultColor());
-                    printf("退出");
-                    optionpick = 4;
-                    break;
+                    case 1:
+                        system("cls");
+            go(50, 4);
+                        color(DefaultColor());
+                        printf("时区设置");
+                        go(50, 8);
+                        color(DefaultColor());
+                        printf("格式设置");
+                        go(50, 12);
+                        color(DefaultColor());
+                        printf("24小时制/12小时制设置");
+                        go(50, 16);
+                        color(DefaultColor());
+                        printf("外观设置");
+                        go(50, 20);
+                        color(Highlight());
+                        printf("↑退出↓");
+                        color(DefaultColor());
+                        optionpick = 5;
+                        break;
+                    case 2:
+                        system("cls");
+            go(50, 4);
+                        color(Highlight());
+                        printf("↑时区设置↓");
+                        go(50, 8);
+                        color(DefaultColor());
+                        printf("格式设置");
+                        go(50, 12);
+                        color(DefaultColor());
+                        printf("24小时制/12小时制设置");
+                        go(50, 16);
+                        color(DefaultColor());
+                        printf("外观设置");
+                        go(50, 20);
+                        color(DefaultColor());
+                        printf("退出");
+                        color(DefaultColor());
+                        optionpick = 1;
+                        break;
+                    case 3:
+                        system("cls");
+            go(50, 4);
+                        color(DefaultColor());
+                        printf("时区设置");
+                        go(50, 8);
+                        color(Highlight());
+                        printf("↑格式设置↓");
+                        go(50, 12);
+                        color(DefaultColor());
+                        printf("24小时制/12小时制设置");
+                        go(50, 16);
+                        color(DefaultColor());
+                        printf("外观设置");
+                        go(50, 20);
+                        color(DefaultColor());
+                        printf("退出");
+                        color(DefaultColor());
+                        optionpick = 2;
+                        break;
+                    case 4:
+                        system("cls");
+            go(50, 4);
+                        color(DefaultColor());
+                        printf("时区设置");
+                        go(50, 8);
+                        color(DefaultColor());
+                        printf("格式设置");
+                        go(50, 12);
+                        color(Highlight());
+                        printf("↑24小时制/12小时制设置↓");
+                        go(50, 16);
+                        color(DefaultColor());
+                        printf("外观设置");
+                        go(50, 20);
+                        color(DefaultColor());
+                        printf("退出");
+                        color(DefaultColor());
+                        optionpick = 3;
+                        break;
+                    case 5:
+                        system("cls");
+            go(50, 4);
+                        color(DefaultColor());
+                        printf("时区设置");
+                        go(50, 8);
+                        color(DefaultColor());
+                        printf("格式设置");
+                        go(50, 12);
+                        color(DefaultColor());
+                        printf("24小时制/12小时制设置");
+                        go(50, 16);
+                        color(Highlight());
+                        printf("↑外观设置↓");
+                        go(50, 20);
+                        color(DefaultColor());
+                        printf("退出");
+                        color(DefaultColor());
+                        optionpick = 4;
+                        break;
                 }
             if (key == DOWN2)
                 switch (optionpick)
                 {
-                case 4:
-                    go(50, 0);
-                    color(DefaultColor());
-                    printf("时区设置");
-                    go(50, 4);
-                    color(DefaultColor());
-                    printf("格式设置");
-                    go(50, 8);
-                    color(DefaultColor());
-                    printf("24小时制/12小时制设置");
-                    go(50, 12);
-                    color(DefaultColor());
-                    printf("外观设置");
-                    go(50, 16);
-                    color(Highlight());
-                    printf("退出");
-                    optionpick = 5;
-                    break;
-                case 5:
-                    go(50, 0);
-                    color(Highlight());
-                    printf("时区设置");
-                    go(50, 4);
-                    color(DefaultColor());
-                    printf("格式设置");
-                    go(50, 8);
-                    color(DefaultColor());
-                    printf("24小时制/12小时制设置");
-                    go(50, 12);
-                    color(DefaultColor());
-                    printf("外观设置");
-                    go(50, 16);
-                    color(DefaultColor());
-                    printf("退出");
-                    optionpick = 1;
-                    break;
-                case 1:
-                    go(50, 0);
-                    color(DefaultColor());
-                    printf("时区设置");
-                    go(50, 4);
-                    color(Highlight());
-                    printf("格式设置");
-                    go(50, 8);
-                    color(DefaultColor());
-                    printf("24小时制/12小时制设置");
-                    go(50, 12);
-                    color(DefaultColor());
-                    printf("外观设置");
-                    go(50, 16);
-                    color(DefaultColor());
-                    printf("退出");
-                    optionpick = 2;
-                    break;
-                case 2:
-                    go(50, 0);
-                    color(DefaultColor());
-                    printf("时区设置");
-                    go(50, 4);
-                    color(DefaultColor());
-                    printf("格式设置");
-                    go(50, 8);
-                    color(Highlight());
-                    printf("24小时制/12小时制设置");
-                    go(50, 12);
-                    color(DefaultColor());
-                    printf("外观设置");
-                    go(50, 16);
-                    color(DefaultColor());
-                    printf("退出");
-                    optionpick = 3;
-                    break;
-                case 3:
-                    go(50, 0);
-                    color(DefaultColor());
-                    printf("时区设置");
-                    go(50, 4);
-                    color(DefaultColor());
-                    printf("格式设置");
-                    go(50, 8);
-                    color(DefaultColor());
-                    printf("24小时制/12小时制设置");
-                    go(50, 12);
-                    color(Highlight());
-                    printf("外观设置");
-                    go(50, 16);
-                    color(DefaultColor());
-                    printf("退出");
-                    optionpick = 4;
-                    break;
+                    case 4:
+                        system("cls");
+            go(50, 4);
+                        color(DefaultColor());
+                        printf("时区设置");
+                        go(50, 8);
+                        color(DefaultColor());
+                        printf("格式设置");
+                        go(50, 12);
+                        color(DefaultColor());
+                        printf("24小时制/12小时制设置");
+                        go(50, 16);
+                        color(DefaultColor());
+                        printf("外观设置");
+                        go(50, 20);
+                        color(Highlight());
+                        printf("↑退出↓");
+                        color(DefaultColor());
+                        optionpick = 5;
+                        break;
+                    case 5:
+                        system("cls");
+            go(50, 4);
+                        color(Highlight());
+                        printf("↑时区设置↓");
+                        go(50, 8);
+                        color(DefaultColor());
+                        printf("格式设置");
+                        go(50, 12);
+                        color(DefaultColor());
+                        printf("24小时制/12小时制设置");
+                        go(50, 16);
+                        color(DefaultColor());
+                        printf("外观设置");
+                        go(50, 20);
+                        color(DefaultColor());
+                        printf("退出");
+                        color(DefaultColor());
+                        optionpick = 1;
+                        break;
+                    case 1:
+                        system("cls");
+            go(50, 4);
+                        color(DefaultColor());
+                        printf("时区设置");
+                        go(50, 8);
+                        color(Highlight());
+                        printf("↑格式设置↓");
+                        go(50, 12);
+                        color(DefaultColor());
+                        printf("24小时制/12小时制设置");
+                        go(50, 16);
+                        color(DefaultColor());
+                        printf("外观设置");
+                        go(50, 20);
+                        color(DefaultColor());
+                        printf("退出");
+                        color(DefaultColor());
+                        optionpick = 2;
+                        break;
+                    case 2:
+                        system("cls");
+            go(50, 4);
+                        color(DefaultColor());
+                        printf("时区设置");
+                        go(50, 8);
+                        color(DefaultColor());
+                        printf("格式设置");
+                        go(50, 12);
+                        color(Highlight());
+                        printf("↑24小时制/12小时制设置↓");
+                        go(50, 16);
+                        color(DefaultColor());
+                        printf("外观设置");
+                        go(50, 20);
+                        color(DefaultColor());
+                        printf("退出");
+                        color(DefaultColor());
+                        optionpick = 3;
+                        break;
+                    case 3:
+                        system("cls");
+            go(50, 4);
+                        color(DefaultColor());
+                        printf("时区设置");
+                        go(50, 8);
+                        color(DefaultColor());
+                        printf("格式设置");
+                        go(50, 12);
+                        color(DefaultColor());
+                        printf("24小时制/12小时制设置");
+                        go(50, 16);
+                        color(Highlight());
+                        printf("↑外观设置↓");
+                        go(50, 20);
+                        color(DefaultColor());
+                        printf("退出");
+                        color(DefaultColor());
+                        optionpick = 4;
+                        break;
                 }
         }
         if (start == 0)
         {
             start = 1;
-            go(50, 0);
-            color(Highlight());
-            printf("时区设置");
+            system("cls");
             go(50, 4);
-            color(DefaultColor());
-            printf("格式设置");
+            color(Highlight());
+            printf("↑时区设置↓");
             go(50, 8);
             color(DefaultColor());
-            printf("24小时制/12小时制设置");
+            printf("格式设置");
             go(50, 12);
             color(DefaultColor());
-            printf("外观设置");
+            printf("24小时制/12小时制设置");
             go(50, 16);
             color(DefaultColor());
+            printf("外观设置");
+            go(50, 20);
+            color(DefaultColor());
             printf("退出");
+                        color(DefaultColor());
         }
     }
 }

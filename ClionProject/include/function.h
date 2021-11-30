@@ -7,6 +7,8 @@
 int dayNumber(int, int, int);
 char *getMonthName(int);
 int NumberOfDays(int, int);
+int TimeZone(void);
+void PrintTime(int x, int y, int tz);
 
 /*********************
  * 番茄钟，正计时      *
@@ -20,15 +22,16 @@ void StopWatch(void);
 void AddSchedule(void);
 void ShowSchedule(int yy, int mm, int dd);
 
+/*********************
+ * 设置闹钟               *
+ * *******************/
 void SetAlarm(void);
 
+/*********************
+ * 设置               *
+ * *******************/
 void Settings(void);
 void LoadSettings(int[]);
-int DefaultColor(void);
-int Highlight(void);
-int Today(void);
-int Result(void);
-int TimeZone(void);
 
 int main(void);
 

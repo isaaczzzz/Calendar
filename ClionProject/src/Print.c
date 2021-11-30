@@ -145,37 +145,3 @@ int Result()
             return BLACK;
     }
 }
-
-int TimeZone()
-{
-    int settings[7];
-    LoadSettings(settings);
-    return settings[0];
-}
-
-void PrintTime(int x, int y, int tz)
-{
-    time_t timep;
-    struct tm *p;
-    time(&timep);
-    p = gmtime(&timep);
-
-    int sec = p -> tm_sec;
-    int min = p -> tm_min;
-    int hour = p -> tm_hour;
-    int day = p -> tm_mday;
-    int mon = p -> tm_mon;
-    int year = p -> tm_year + 1900;
-
-    go(x, y);
-    color(DefaultColor());
-
-    if(hour + TimeZone() >= 24) {
-        hour -= 24;
-        day++;
-        if(day > NumberOfDays(mon, year)) {
-
-        }
-    }
-    printf("ЯждкЪЧ: ");
-}

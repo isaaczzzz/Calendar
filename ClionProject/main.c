@@ -495,13 +495,6 @@ void printUI(int yy, int mm, int dd)
             exit(0);
         //检测到ESC则退出程序
 
-        /*time_t timep2;
-        struct tm *p2;
-        time(&timep2);
-        p2 = gmtime(&timep2)
-        go(0, y);*/
-        //PrintTime(0, y, TimeZone()); //循环输出当前时间
-        /*printf("现在是：%04d/%02d/%02d %02d:%02d:%02d", p2->tm_year + 1900, p2->tm_mon + 1, p2->tm_mday,
-               (p2->tm_hour + TimeZone() == 24 ? 0 : p2->tm_hour + TimeZone()), p2->tm_min, p2->tm_sec);*/
+        PrintTime(0, y + 1, TimeZone()); //循环输出当前时间
     }
 }

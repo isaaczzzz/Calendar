@@ -11,4 +11,9 @@ void PrintRows(int from, int to, int column, bool uod);
 //´òÓ¡±ß¿òÁÐ, 1 ×ó±ß¿ò 0 ÓÒ±ß¿ò
 void PrintColumns(int from, int to, int row);
 
+int DefaultColor(void);
+int Highlight(void);
+int Today(void);
+int Result(void);
+
 #endif //CALENDAR_UIPRINT_H

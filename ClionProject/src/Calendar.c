@@ -112,3 +112,56 @@ int NumberOfDays(int monthNumber, int year)
     if (monthNumber == 11)
         return (31);
 }
+
+int TimeZone()
+{
+    int settings[7];
+    LoadSettings(settings);
+    return settings[0];
+}
+
+void PrintTime(int x, int y, int tz)
+{
+    time_t timep;
+    struct tm *p;
+    time(&timep);
+    p = gmtime(&timep);
+
+    int sec = p -> tm_sec;
+    int min = p -> tm_min;
+    int hour = p -> tm_hour;
+    int day = p -> tm_mday;
+    int mon = p -> tm_mon;
+    int year = p -> tm_year + 1900;
+
+    go(x, y);
+    color(DefaultColor());
+
+    hour += TimeZone();
+    if(hour >= 24) {
+        hour -= 24;
+        day++;
+        if(day > NumberOfDays(mon, year)) {
+            day = 1;
+            mon++;
+            if(mon > 11) {
+                mon = 0;
+                year++;
+            }
+        }
+    }
+    if(hour < 0) {
+        hour += 24;
+        day--;
+        if (day <= 0) {
+            mon--;
+            if(mon < 0) {
+                mon = 11;
+                year--;
+            }
+            day = NumberOfDays(mon, year);
+        }
+    }
+
+    printf("ÏÖÔÚÊÇ: %04d/%02d/%02d %02d:%02d:%02d", year, mon + 1, day, hour, min, sec);
+}

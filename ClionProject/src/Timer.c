@@ -15,49 +15,61 @@ void StopWatch(void)
     printf("按下任意键以开始计时...");
     getchar();
 
-    while(!end) {
+    while (!end)
+    {
         int key = 0;
-        if(kbhit()){
+        if (kbhit())
+        {
             key = getch();
         }
-        if(key == ESC)
+        if (key == ESC)
             main();
-        if(key == SPACE){
+        if (key == SPACE)
+        {
             key = 0;
-            while(1){
-                if(kbhit()){
+            while (1)
+            {
+                if (kbhit())
+                {
                     key = getch();
                 }
-                if(key == SPACE)
+                if (key == SPACE)
                     break;
             }
         }
         Sleep(1000);
         key = 0;
-        if(kbhit()){
+        if (kbhit())
+        {
             key = getch();
         }
-        if(key == ESC) {
+        if (key == ESC)
+        {
             end = 1;
             main();
         }
-        if(key == SPACE){
+        if (key == SPACE)
+        {
             key = 0;
-            while(1){
-                if(kbhit()){
+            while (1)
+            {
+                if (kbhit())
+                {
                     key = getch();
                 }
-                if(key == SPACE)
+                if (key == SPACE)
                     break;
             }
         }
         system("cls");
         sec++;
-        if(sec > 59) {
+        if (sec > 59)
+        {
             min++;
             sec = 0;
         }
-        if(min > 59) {
+        if (min > 59)
+        {
             hour++;
             min = 0;
         }
@@ -98,7 +110,8 @@ void CountDown(void)
     min = omin;
     sec = osec;
 
-    while(!end) {
+    while (!end)
+    {
         system("cls");
 
         //边框
@@ -111,7 +124,7 @@ void CountDown(void)
         go(46, 14);
         num = (int)(percent * 20);
         printf("|");
-        for(int i = 0; i < num; i++)
+        for (int i = 0; i < num; i++)
             printf("▇");
 
         go(54, 10);
@@ -121,15 +134,17 @@ void CountDown(void)
         printf("%02d:%02d:%02d", hour, min, sec);
         Sleep(1000);
         sec--;
-        if(sec < 0) {
+        if (sec < 0)
+        {
             min--;
             sec = 59;
         }
-        if(min < 0) {
+        if (min < 0)
+        {
             hour--;
             min = 59;
         }
-        if(hour < 0) // 00:00:00状态也需维持1秒
+        if (hour < 0) // 00:00:00状态也需维持1秒
             end = 1;
         float fenzi = sec + min * 60 + hour * 3600;
         float fenmu = osec + omin * 60 + ohour * 3600;
@@ -151,7 +166,6 @@ void CountDown(void)
     main();
 }
 
-
 /*********************
  * 0 = 黑色 8 = 灰色
  * 1 = 蓝色 9 = 淡蓝色；0
@@ -165,7 +179,7 @@ void CountDown(void)
 void color_print(const char *s, int color)
 {
     HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | color| BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY);
+    SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | color | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY);
     printf(s);
     SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | 0 | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY); //改回默认白色
 }

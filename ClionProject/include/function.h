@@ -8,8 +8,8 @@ int dayNumber(int, int, int);
 char *getMonthName(int);
 int NumberOfDays(int, int);
 int TimeZone(void);
-void PrintTime(int x, int y, int tz);
-
+void PrintTime(int x, int y, int tz, int longorshort);
+void ReturnThisTime(int[]);
 /*********************
  * ·¬ÇÑÖÓ£¬Õý¼ÆÊ±      *
  * *******************/

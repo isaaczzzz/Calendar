@@ -48,9 +48,9 @@ void AddSchedule(void)
 
     //边框
     PrintRows(40, 80, 18, UP);
-    PrintColumns(19, 25, 40);//左
+    PrintColumns(19, 25, 40); //左
     PrintRows(40, 80, 25, DOWN);
-    PrintColumns(19, 24, 80);//右
+    PrintColumns(19, 24, 80); //右
     go(43, 21);
     printf("1.重要且紧急");
     go(63, 21);
@@ -70,7 +70,8 @@ void AddSchedule(void)
     PrintRows(42, 75, 14, DOWN);
     PrintColumns(9, 13, 75); //右
     go(53, 10);
-    if (fwrite(&S, sizeof(S), 1, fp)) {
+    if (fwrite(&S, sizeof(S), 1, fp))
+    {
         puts("日程保存成功");
         fclose(fp);
     }
@@ -90,7 +91,8 @@ void ShowSchedule(int yy, int mm, int dd)
     fp = fopen("schedule.dat", "rb");
 
     system("cls");
-    if (fp == NULL) {
+    if (fp == NULL)
+    {
         go(92, 0);
         printf("未能成功打开文件\n");
         return;
@@ -101,16 +103,17 @@ void ShowSchedule(int yy, int mm, int dd)
     printf("━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━");
     go(96, 0);
     color(Highlight());
-    switch (ReturnFormat()) {
-        case 1:
-            printf("%04d-%02d-%02d",yy,mm,dd);
-            break;
-        case 2:
-            printf("%02d-%02d-%04d",dd,mm,yy);
-            break;
-        case 3:
-            printf("%02d-%02d-%04d",mm,dd,yy);
-            break;
+    switch (ReturnFormat())
+    {
+    case 1:
+        printf("%04d-%02d-%02d", yy, mm, dd);
+        break;
+    case 2:
+        printf("%02d-%02d-%04d", dd, mm, yy);
+        break;
+    case 3:
+        printf("%02d-%02d-%04d", mm, dd, yy);
+        break;
     }
 
     color(DefaultColor());
@@ -126,25 +129,26 @@ void ShowSchedule(int yy, int mm, int dd)
 
     while (fread(&S, sizeof(S), 1, fp) == 1)
     {
-        if (S.yy == yy && S.mm == mm && S.dd == dd) {
+        if (S.yy == yy && S.mm == mm && S.dd == dd)
+        {
             switch (S.impo)
             {
-                case 1:
-                    go(92, ++row1);
-                    puts(S.note);
-                    break;
-                case 2:
-                    go(105, ++row2);
-                    puts(S.note);
-                    break;
-                case 3:
-                    go(90, ++row3 + 13);
-                    puts(S.note);
-                    break;
-                default:
-                    go(105, ++row4 + 12);
-                    puts(S.note);
-                    break;
+            case 1:
+                go(92, ++row1);
+                puts(S.note);
+                break;
+            case 2:
+                go(105, ++row2);
+                puts(S.note);
+                break;
+            case 3:
+                go(90, ++row3 + 13);
+                puts(S.note);
+                break;
+            default:
+                go(105, ++row4 + 12);
+                puts(S.note);
+                break;
             }
         }
     }
@@ -180,5 +184,4 @@ void ShowSchedule(int yy, int mm, int dd)
     }
     if (isFound == 0)
         printf("未能在当日查询到日程\n");*/
-
 }

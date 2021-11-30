@@ -48,7 +48,8 @@ void PrintColumns(int from, int to, int row)
     }
 }
 
-int DefaultColor(){
+int DefaultColor()
+{
     int settings[7];
     LoadSettings(settings);
     switch (settings[3]) {
@@ -71,7 +72,8 @@ int DefaultColor(){
     }
 }
 
-int Highlight(){
+int Highlight()
+{
     int settings[7];
     LoadSettings(settings);
     switch (settings[4]) {
@@ -94,7 +96,9 @@ int Highlight(){
     }
 }
 
-int Today(){
+//今天日期的颜色
+int Today()
+{
     int settings[7];
     LoadSettings(settings);
     switch (settings[5]) {
@@ -117,7 +121,9 @@ int Today(){
     }
 }
 
-int Result(){
+//查询日期的颜色
+int Result()
+{
     int settings[7];
     LoadSettings(settings);
     switch (settings[6]) {
@@ -140,8 +146,36 @@ int Result(){
     }
 }
 
-int TimeZone(){
+int TimeZone()
+{
     int settings[7];
     LoadSettings(settings);
     return settings[0];
+}
+
+void PrintTime(int x, int y, int tz)
+{
+    time_t timep;
+    struct tm *p;
+    time(&timep);
+    p = gmtime(&timep);
+
+    int sec = p -> tm_sec;
+    int min = p -> tm_min;
+    int hour = p -> tm_hour;
+    int day = p -> tm_mday;
+    int mon = p -> tm_mon;
+    int year = p -> tm_year + 1900;
+
+    go(x, y);
+    color(DefaultColor());
+
+    if(hour + TimeZone() >= 24) {
+        hour -= 24;
+        day++;
+        if(day > NumberOfDays(mon, year)) {
+
+        }
+    }
+    printf("现在是: ");
 }

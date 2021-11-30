@@ -6,7 +6,7 @@
  * *******************/
 int dayNumber(int, int, int);
 char *getMonthName(int);
-int numberOfDays(int, int);
+int NumberOfDays(int, int);
 
 /*********************
  * ·¬ÇÑÖÓ£¬Õı¼ÆÊ±      *

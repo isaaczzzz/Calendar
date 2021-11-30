@@ -430,7 +430,7 @@ void printUI(int yy, int mm, int dd)
                 //system("ping -n 2 127.0.0.1>nul");
                 go(0, 0);
                 color(DefaultColor());
-                days = numberOfDays(i, year);
+                days = NumberOfDays(i, year);
 
                 printf("           ←%d年%s→            \n", year, getMonthName(i));
                 // 输出年份月份
@@ -492,14 +492,13 @@ void printUI(int yy, int mm, int dd)
             exit(0);
         //检测到ESC则退出程序
 
-        time_t timep2;
+        /*time_t timep2;
         struct tm *p2;
         time(&timep2);
-        p2 = gmtime(&timep2);
-        go(0, y);
-        color(DefaultColor());
-        printf("现在是：%04d/%02d/%02d %02d:%02d:%02d", p2->tm_year + 1900, p2->tm_mon + 1, p2->tm_mday,
-               (p2->tm_hour + TimeZone() == 24 ? 0 : p2->tm_hour + TimeZone()), p2->tm_min, p2->tm_sec);
-        //循环输出当前时间
+        p2 = gmtime(&timep2)
+        go(0, y);*/
+        PrintTime(0, y, TimeZone()); //循环输出当前时间
+        /*printf("现在是：%04d/%02d/%02d %02d:%02d:%02d", p2->tm_year + 1900, p2->tm_mon + 1, p2->tm_mday,
+               (p2->tm_hour + TimeZone() == 24 ? 0 : p2->tm_hour + TimeZone()), p2->tm_min, p2->tm_sec);*/
     }
 }

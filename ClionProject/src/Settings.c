@@ -55,7 +55,7 @@ void Settings()
                 case 1:
                     go(50, 0);
                     color(DefaultColor());
-                    printf("国家，地区，时区设置");
+                    printf("时区设置");
                     go(50, 4);
                     color(DefaultColor());
                     printf("格式设置");
@@ -73,7 +73,7 @@ void Settings()
                 case 2:
                     go(50, 0);
                     color(Highlight());
-                    printf("国家，地区，时区设置");
+                    printf("时区设置");
                     go(50, 4);
                     color(DefaultColor());
                     printf("格式设置");
@@ -91,7 +91,7 @@ void Settings()
                 case 3:
                     go(50, 0);
                     color(DefaultColor());
-                    printf("国家，地区，时区设置");
+                    printf("时区设置");
                     go(50, 4);
                     color(Highlight());
                     printf("格式设置");
@@ -109,7 +109,7 @@ void Settings()
                 case 4:
                     go(50, 0);
                     color(DefaultColor());
-                    printf("国家，地区，时区设置");
+                    printf("时区设置");
                     go(50, 4);
                     color(DefaultColor());
                     printf("格式设置");
@@ -127,7 +127,7 @@ void Settings()
                 case 5:
                     go(50, 0);
                     color(DefaultColor());
-                    printf("国家，地区，时区设置");
+                    printf("时区设置");
                     go(50, 4);
                     color(DefaultColor());
                     printf("格式设置");
@@ -149,7 +149,7 @@ void Settings()
                 case 4:
                     go(50, 0);
                     color(DefaultColor());
-                    printf("国家，地区，时区设置");
+                    printf("时区设置");
                     go(50, 4);
                     color(DefaultColor());
                     printf("格式设置");
@@ -167,7 +167,7 @@ void Settings()
                 case 5:
                     go(50, 0);
                     color(Highlight());
-                    printf("国家，地区，时区设置");
+                    printf("时区设置");
                     go(50, 4);
                     color(DefaultColor());
                     printf("格式设置");
@@ -185,7 +185,7 @@ void Settings()
                 case 1:
                     go(50, 0);
                     color(DefaultColor());
-                    printf("国家，地区，时区设置");
+                    printf("时区设置");
                     go(50, 4);
                     color(Highlight());
                     printf("格式设置");
@@ -203,7 +203,7 @@ void Settings()
                 case 2:
                     go(50, 0);
                     color(DefaultColor());
-                    printf("国家，地区，时区设置");
+                    printf("时区设置");
                     go(50, 4);
                     color(DefaultColor());
                     printf("格式设置");
@@ -221,7 +221,7 @@ void Settings()
                 case 3:
                     go(50, 0);
                     color(DefaultColor());
-                    printf("国家，地区，时区设置");
+                    printf("时区设置");
                     go(50, 4);
                     color(DefaultColor());
                     printf("格式设置");
@@ -243,7 +243,7 @@ void Settings()
             start = 1;
             go(50, 0);
             color(Highlight());
-            printf("国家，地区，时区设置");
+            printf("时区设置");
             go(50, 4);
             color(DefaultColor());
             printf("格式设置");
@@ -620,7 +620,7 @@ void PrintTimeZone(int offset)
                 color(DefaultColor());
                 printf("大西洋时间");
             }
-            //utc-4，还有李金雨你?死了
+            //utc-4
             go(0, 12);
             if (optionpicki == 0 && optionpickj == 1)
             {
@@ -642,16 +642,19 @@ void PrintTimeZone(int offset)
             else
             {
                 color(DefaultColor());
-                printf("UTC-2");
+                printf("格陵兰");
             }
-            //多了一行哈哈哈
+            //utc-2
             go(24, 12);
-            if (optionpicki == 2 && optionpickj == 1)
+            if (optionpicki == 2 && optionpickj == 1) {
                 color(Highlight());
+                printf("UTC-1");
+            }
             else
+            {
                 color(DefaultColor());
-            printf("UTC-1");
-            //懒得改了
+                printf("佛得角");
+            }//utc-1
             go(34, 12);
             if (optionpicki == 3 && optionpickj == 1)
             {

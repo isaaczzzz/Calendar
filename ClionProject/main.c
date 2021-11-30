@@ -130,13 +130,13 @@ void printUI(int yy, int mm, int dd)
                             printf("设置闹钟");
                             go(50, 19);
                             color(Highlight());
-                            printf("设置");
+                            printf("↑设置↓");
                             optionpick = 6;
                             break;
                         case 2:
                             go(50, 9);
                             color(Highlight());
-                            printf("番茄钟");
+                            printf("↑番茄钟↓");
                             go(50, 11);
                             color(DefaultColor());
                             printf("日期查询");
@@ -160,7 +160,7 @@ void printUI(int yy, int mm, int dd)
                             printf("番茄钟");
                             go(50, 11);
                             color(Highlight());
-                            printf("日期查询");
+                            printf("↑日期查询↓");
                             go(50, 13);
                             color(DefaultColor());
                             printf("添加日程");
@@ -184,7 +184,7 @@ void printUI(int yy, int mm, int dd)
                             printf("日期查询");
                             go(50, 13);
                             color(Highlight());
-                            printf("添加日程");
+                            printf("↑添加日程↓");
                             go(50, 15);
                             color(DefaultColor());
                             printf("正计时");
@@ -208,7 +208,7 @@ void printUI(int yy, int mm, int dd)
                             printf("添加日程");
                             go(50, 15);
                             color(Highlight());
-                            printf("正计时");
+                            printf("↑正计时↓");
                             go(50, 17);
                             color(DefaultColor());
                             printf("设置闹钟");
@@ -232,7 +232,7 @@ void printUI(int yy, int mm, int dd)
                             printf("正计时");
                             go(50, 17);
                             color(Highlight());
-                            printf("设置闹钟");
+                            printf("↑设置闹钟↓");
                             go(50, 19);
                             color(DefaultColor());
                             printf("设置");
@@ -261,13 +261,13 @@ void printUI(int yy, int mm, int dd)
                             printf("设置闹钟");
                             go(50, 19);
                             color(Highlight());
-                            printf("设置");
+                            printf("↑设置↓");
                             optionpick = 6;
                             break;
                         case 6:
                             go(50, 9);
                             color(Highlight());
-                            printf("番茄钟");
+                            printf("↑番茄钟↓");
                             go(50, 11);
                             color(DefaultColor());
                             printf("日期查询");
@@ -291,7 +291,7 @@ void printUI(int yy, int mm, int dd)
                             printf("番茄钟");
                             go(50, 11);
                             color(Highlight());
-                            printf("日期查询");
+                            printf("↑日期查询↓");
                             go(50, 13);
                             color(DefaultColor());
                             printf("添加日程");
@@ -315,7 +315,7 @@ void printUI(int yy, int mm, int dd)
                             printf("日期查询");
                             go(50, 13);
                             color(Highlight());
-                            printf("添加日程");
+                            printf("↑添加日程↓");
                             go(50, 15);
                             color(DefaultColor());
                             printf("正计时");
@@ -339,7 +339,7 @@ void printUI(int yy, int mm, int dd)
                             printf("添加日程");
                             go(50, 15);
                             color(Highlight());
-                            printf("正计时");
+                            printf("↑正计时↓");
                             go(50, 17);
                             color(DefaultColor());
                             printf("设置闹钟");
@@ -363,7 +363,7 @@ void printUI(int yy, int mm, int dd)
                             printf("正计时");
                             go(50, 17);
                             color(Highlight());
-                            printf("设置闹钟");
+                            printf("↑设置闹钟↓");
                             go(50, 19);
                             color(DefaultColor());
                             printf("设置");
@@ -407,7 +407,7 @@ void printUI(int yy, int mm, int dd)
                 {
                     go(50, 9);
                     color(Highlight());
-                    printf("番茄钟");
+                    printf("↑番茄钟↓");
                     go(50, 11);
                     color(DefaultColor());
                     printf("日期查询");

@@ -587,21 +587,3 @@ void printUI(int yy, int mm, int dd)
         //加时区
     }
 }
-
-void color(int a)
-{
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), a);
-}
-
-//光标移动函数，X表示横坐标，Y表示纵坐标
-void go(int x, int y)
-{
-    COORD coord;
-    //坐标
-    coord.X = x;
-    coord.Y = y;
-    HANDLE a = GetStdHandle(STD_OUTPUT_HANDLE);
-    //获得标准输出句柄
-    SetConsoleCursorPosition(a, coord);
-    //以标准输出的句柄为参数设置控制台光标坐标
-}

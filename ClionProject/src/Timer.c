@@ -61,10 +61,15 @@ void StopWatch(void)
             hour++;
             min = 0;
         }
-        go(50, 12);
+        //边框
+        PrintRows(42, 71, 9, UP);
+        PrintColumns(10, 16, 42);
+        PrintRows(42, 71, 17, DOWN);
+        PrintColumns(10, 16, 71);
+        go(53, 12);
         printf("%02d:%02d:%02d", hour, min, sec);
-        go(42, 14);
-        printf("按下ESC退出，按下空格键暂停");
+        go(44, 14);
+        printf("按下ESC退出,按下空格键暂停");
     }
 }
 

@@ -167,31 +167,3 @@ void ShowSchedule(int yy, int mm, int dd)
         printf("未能在当日查询到日程\n");*/
 
 }
-
-void PrintRows(int from, int to, const int column, bool uod)
-{
-    go(from, column);
-    if(uod)
-        printf("┏");
-    else
-        printf("┗");
-
-    for (++from; from <= to - 1; from++) {
-        go(from, column);
-        printf("━");
-    }
-
-    go(from, column);
-    if(uod)
-        printf("┓");
-    else
-        printf("┛");
-}
-
-void PrintColumns(int from, int to, int row)
-{
-    for(from; from <= to; from++){
-        go(row, from);
-        printf("┃");
-    }
-}

@@ -1,3 +1,6 @@
+/*********************
+ * …Ë÷√ƒ÷÷”            *
+ * *******************/
 #include "connection.h"
 
 void SetAlarm(void)

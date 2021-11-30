@@ -102,7 +102,7 @@ void ShowSchedule(int yy, int mm, int dd)
     go(89, 13);
     printf("━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━");
     go(96, 0);
-    color(Highlight());
+    color(DefaultColor());
     switch (ReturnFormat())
     {
     case 1:
@@ -115,8 +115,6 @@ void ShowSchedule(int yy, int mm, int dd)
         printf("%02d-%02d-%04d", mm, dd, yy);
         break;
     }
-
-    color(DefaultColor());
     printf("的日程");
     go(92, 1);
     printf("重要且紧急");

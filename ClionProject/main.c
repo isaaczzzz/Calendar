@@ -61,7 +61,7 @@ void printUI(int yy, int mm, int dd)
 {
     int x = 0, y = 2, time[6];
     ReturnThisTime(time);
-    int year = time[5];
+    int year = yy;
     int mon = time[4] + 1;
     int thisyear = time[5];
     int today = time[3];

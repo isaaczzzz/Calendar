@@ -7,9 +7,11 @@ void printUI(int, int, int);
 
 int main(void)
 {
+
     system("color F9");
     //设置控制台默认颜色
     system("chcp 936");
+
     system("cls");
     //设置编码为GBK并清屏
     CONSOLE_CURSOR_INFO cursor_info = {1, 0};

@@ -96,17 +96,21 @@ void ShowSchedule(int yy, int mm, int dd)
         return;
     }
 
-    PrintColumns(0, 28, 103);
-    go(89, 12);
+    PrintColumns(1, 28, 103);
+    go(89, 13);
     printf("━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━");
-
-    go(92, 0);
+    go(96, 0);
+    color(Highlight());
+    printf("%04d-%02d-%02d",yy,mm,dd);
+    color(DefaultColor());
+    printf("的日程");
+    go(92, 1);
     printf("重要且紧急");
-    go(105, 0);
+    go(105, 1);
     printf("重要不紧急");
-    go(90, 13);
+    go(90, 14);
     printf("不重要但紧急");
-    go(105, 13);
+    go(105, 14);
     printf("不重要不紧急");
 
     while (fread(&S, sizeof(S), 1, fp) == 1)

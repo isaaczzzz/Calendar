@@ -102,7 +102,7 @@ void ShowSchedule(int yy, int mm, int dd)
     go(89, 13);
     printf("©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©ï©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥");
     go(96, 0);
-    color(Result());
+    color(Today());
     switch (ReturnFormat())
     {
     case 1:

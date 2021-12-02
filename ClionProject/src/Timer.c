@@ -13,7 +13,7 @@ void StopWatch(void)
     go(45, 12);
     color(DefaultColor());
     printf("按下任意键以开始计时...");
-    getchar();
+    while(!kbhit());
 
     while (!end)
     {
@@ -106,6 +106,21 @@ void CountDown(void)
     go(47, 12);
     printf("请输入时长:__:__:__\b\b\b\b\b\b\b\b");
     scanf("%d%d%d", &ohour, &omin, &osec);
+
+    if(ohour < 0 || omin < 0 || omin > 59 || osec < 0 || osec > 59) {
+        system("cls");
+        //边框
+        PrintRows(44, 69, 8, UP);
+        PrintColumns(9, 16, 44);
+        PrintRows(44, 69, 17, DOWN);
+        PrintColumns(9, 16, 69);
+        go(46, 12);
+        printf("请输入正确的时间格式!");
+        Sleep(1500);
+        return CountDown();
+    }
+
+
     hour = ohour;
     min = omin;
     sec = osec;
@@ -158,14 +173,32 @@ void CountDown(void)
     PrintRows(44, 69, 17, DOWN);
     PrintColumns(9, 16, 69);
 
-    go(54, 12);
-    printf("\a时间到\a");
-    getchar();
-    getchar();
-    system("cls");
-    main();
+    end = 0;
+    while (!end)
+    {
+        key = 0;
+        if (kbhit())
+            key = getch();
+        if (key == ESC)
+            main();
+        go(52, 12);
+        printf("\a▇ 时间到 ▇\a");
+        go(47, 14);
+        printf("按下ESC返回主界面...");
+        key = 0;
+        if (kbhit())
+        {
+            key = getch();
+        }
+        if (key == ESC)
+        {
+            end = 1;
+            main();
+        }
+    }
 }
 
+//闹钟
 void SetAlarm(void)
 {
     int hour, min, end = 0;
@@ -181,6 +214,19 @@ void SetAlarm(void)
     go(45, 13);
     printf("输入时间(24小时制): __:__\b\b\b\b\b");
     scanf("%d%d", &hour, &min);
+
+    if (hour > 23 || min > 59) {
+        system("cls");
+        //边框
+        PrintRows(44, 70, 7, UP);
+        PrintColumns(8, 17, 44);
+        PrintRows(44, 70, 18, DOWN);
+        PrintColumns(8, 17, 70);
+        go(49, 12);
+        printf("请输入正确的时间!");
+        Sleep(1500);
+        return SetAlarm();
+    }
 
     while (!end)
     {
@@ -240,26 +286,4 @@ void SetAlarm(void)
             main();
         }
     }
-    getchar();
-    getchar();
-    system("cls");
-    main();
-}
-
-/*********************
- * 0 = 黑色 8 = 灰色
- * 1 = 蓝色 9 = 淡蓝色；0
- * 2 = 绿色 A = 淡绿色
- * 3 = 浅绿色 B = 淡浅绿色
- * 4 = 红色 C = 淡红色
- * 5 = 紫色 D = 淡紫色
- * 6 = 黄色 E = 淡黄色
- * 7 = 白色 F = 亮白色
- * *******************/
-void color_print(const char *s, int color)
-{
-    HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | color | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY);
-    printf(s);
-    SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | 0 | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY); //改回默认白色
 }

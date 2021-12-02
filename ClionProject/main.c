@@ -374,12 +374,24 @@ void printUI(int yy, int mm, int dd)
                         break;
                     case 2:
                         //实现跳转到指定日期功能
-                        system("cls");
-                        printf("输入要跳转的日期(如2021 11 08):");
-                        int yy1, mm1, dd1;
-                        scanf("%d %d %d", &yy1, &mm1, &dd1);
-                        printUI(yy1, mm1, dd1);
-
+                        while (1){
+                            system("cls");
+                            go(35, 8);
+                            color(DefaultColor());
+                            printf("输入要跳转的日期(如2021 11 08):");
+                            int yy1, mm1, dd1;
+                            scanf("%d %d %d", &yy1, &mm1, &dd1);
+                            if(mm1 > 12 || mm1 < 1 || dd1 < 1 || dd1 > NumberOfDays(mm1 - 1 , yy1)){
+                                go(35, 9);
+                                color(DefaultColor());
+                                printf("日期格式不正确！");
+                                Sleep(1000);
+                            }
+                            else {
+                                printUI(yy1,mm1,dd1);
+                                break;
+                            }
+                        }
                         break;
                     case 3:
                         AddSchedule();
@@ -424,8 +436,8 @@ void printUI(int yy, int mm, int dd)
                 //system("ping -n 2 127.0.0.1>nul");
                 go(50, 0);
                 color(Highlight());
-                printf("TITLE!!!!");
-                go(46, 1);
+                printf("时间管理大师");
+                go(47, 1);
                 color(Highlight());
                 printf("ENTER选择，ESC退出");
                 go(0, 0);

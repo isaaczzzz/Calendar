@@ -2,7 +2,7 @@
 void color(int);
 void HourFormat();
 void Format();
-void PrintTimeZone(int);
+void PrintTimeZone();
 void LoadSettings(int[]);
 void SetSettings(int[]);
 void go(int, int);
@@ -10,13 +10,7 @@ void Skins();
 
 void Settings()
 {
-    int settings[7];
-    LoadSettings(settings);
-
-    system("color F9");
-    //设置控制台默认颜色
-    system("chcp 936");
-    system("cls");
+    //设置的主界面，在此选择设置选项
     int optionpick = 1;
     int start = 0;
     while (1)
@@ -29,7 +23,7 @@ void Settings()
             switch (optionpick)
             {
             case 1:
-                PrintTimeZone(settings[0]);
+                PrintTimeZone();
                 break;
             case 2:
                 Format();
@@ -284,6 +278,7 @@ void Settings()
 
 void HourFormat()
 {
+    //设置12小时/24小时制
     int hourformat, settings[7];
     while (1)
     {
@@ -310,6 +305,7 @@ void HourFormat()
 
 void Format()
 {
+    //设置日期格式
     int format, settings[7];
     while (1)
     {
@@ -348,13 +344,17 @@ void Format()
     Settings();
 }
 
-void PrintTimeZone(int offset)
+void PrintTimeZone()
 {
+    //设置时区
     int optionpicki = 0;
     int optionpickj = 0;
     int start = 0;
+    int settings[7];
+    LoadSettings(settings);
 
-    switch (offset)
+    //读取设置并设置焦点为设置的时区
+    switch (settings[0])
     {
     case -12:
         optionpicki = 0;
@@ -502,14 +502,14 @@ void PrintTimeZone(int offset)
             Settings();
         if (key == ENTER)
         {
-            int settings[7];
-            LoadSettings(settings);
             settings[0] = optionpicki + optionpickj * 9 - 12;
             SetSettings(settings);
             Settings();
+            //通过位置计算对应时区并存入设置，切换回设置页面
         }
         if (key == ARROW || start == 0)
         {
+            //键盘选择选项的实现
             start = 1;
             if (kbhit())
                 key = getch();
@@ -866,6 +866,7 @@ void PrintTimeZone(int offset)
 
 void Skins()
 {
+    //设置界面颜色
     int optionpicki = 0;
     int optionpickj = 0;
     int start = 0;
@@ -1318,9 +1319,11 @@ void Skins()
 
 void LoadSettings(int a[])
 {
+    //读取设置并存入数组
     FILE *fp;
     fp = fopen("Settings.dat", "r+");
     if (fp == NULL)
+    //Settings.dat不存在则自动创建
     {
         fclose(fp);
         fp = fopen("Settings.dat", "w+");
@@ -1343,6 +1346,7 @@ void LoadSettings(int a[])
 
 void SetSettings(int a[7])
 {
+    //将设置写入文件
     FILE *fp;
     fp = fopen("Settings.dat", "w+");
     fprintf(fp, "%d,%d,%d,%d,%d,%d,%d", a[0], a[1], a[2], a[3], a[4], a[5], a[6]);

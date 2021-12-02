@@ -297,7 +297,7 @@ void HourFormat()
             go(50, 9);
             color(DefaultColor());
             printf("无效输入，请输入12或24");
-            Sleep(500);
+            Sleep(1500);
         }
         else
             break;
@@ -335,7 +335,7 @@ void Format()
             go(45, 16);
             color(DefaultColor());
             printf("无效输入，请输入1/2/3/4");
-            Sleep(500);
+            Sleep(1500);
         }
         else
             break;

@@ -85,6 +85,8 @@ void printUI(int yy, int mm, int dd)
             {
                 system("cls");
                 ShowSchedule(yy, mm, dd);
+                PrintColumns(1, 28, 41);
+                PrintColumns(1, 28, 66);
                 if (kbhit())
                     key = getch();
                 start = 1;
@@ -385,7 +387,7 @@ void printUI(int yy, int mm, int dd)
                                 go(35, 9);
                                 color(DefaultColor());
                                 printf("日期格式不正确！");
-                                Sleep(1000);
+                                Sleep(1500);
                             }
                             else {
                                 printUI(yy1,mm1,dd1);
@@ -434,10 +436,10 @@ void printUI(int yy, int mm, int dd)
                 x = 0;
                 y = 2;
                 //system("ping -n 2 127.0.0.1>nul");
-                go(50, 0);
+                go(48, 0);
                 color(Highlight());
                 printf("时间管理大师");
-                go(47, 1);
+                go(45, 1);
                 color(Highlight());
                 printf("ENTER选择，ESC退出");
                 go(0, 0);

@@ -93,15 +93,15 @@ void ShowSchedule(int yy, int mm, int dd)
     system("cls");
     if (fp == NULL)
     {
-        go(92, 0);
+        go(76, 0);
         printf("未能成功打开文件\n");
         return;
     }
 
-    PrintColumns(1, 28, 103);
-    go(89, 13);
+    PrintColumns(1, 28, 87);
+    go(73, 13);//89
     printf("━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━");
-    go(96, 0);
+    go(80, 0);
     color(Today());
     switch (ReturnFormat())
     {
@@ -117,13 +117,13 @@ void ShowSchedule(int yy, int mm, int dd)
     }
     color(DefaultColor());
     printf("的日程");
-    go(92, 1);
+    go(76, 1);
     printf("重要且紧急");
-    go(105, 1);
+    go(89, 1);
     printf("重要不紧急");
-    go(90, 14);
+    go(74, 14);
     printf("不重要但紧急");
-    go(105, 14);
+    go(89, 14);
     printf("不重要不紧急");
 
     while (fread(&S, sizeof(S), 1, fp) == 1)
@@ -133,19 +133,19 @@ void ShowSchedule(int yy, int mm, int dd)
             switch (S.impo)
             {
             case 1:
-                go(92, ++row1);
+                go(76, ++row1);
                 puts(S.note);
                 break;
             case 2:
-                go(105, ++row2);
+                go(89, ++row2);
                 puts(S.note);
                 break;
             case 3:
-                go(90, ++row3 + 13);
+                go(74, ++row3 + 13);
                 puts(S.note);
                 break;
             default:
-                go(105, ++row4 + 12);
+                go(89, ++row4 + 12);
                 puts(S.note);
                 break;
             }

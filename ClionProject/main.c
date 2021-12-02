@@ -50,7 +50,6 @@ int main(void)
     system(cl);
     //设置控制台默认颜色
     system("chcp 936");
-
     system("cls");
     //设置编码为GBK并清屏
     CONSOLE_CURSOR_INFO cursor_info = {1, 0};
@@ -389,7 +388,7 @@ void printUI(int yy, int mm, int dd)
                         //实现跳转到指定日期功能
                         while (1){
                             system("cls");
-                            go(35, 8);
+                            go(40, 13);
                             color(DefaultColor());
                             printf("输入要跳转的日期(如2021 11 08):");
                             int yy1, mm1, dd1;

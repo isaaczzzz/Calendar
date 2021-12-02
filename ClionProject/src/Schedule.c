@@ -18,7 +18,6 @@ void AddSchedule(void)
 {
     FILE *fp;
     fp = fopen("schedule.dat", "ab+");
-    int i;
 
     system("cls");
     //边框
@@ -92,10 +91,11 @@ void ShowSchedule(int yy, int mm, int dd)
 
     system("cls");
     if (fp == NULL)
+    //Schedule.dat不存在则自动创建
     {
-        go(76, 0);
-        printf("未能成功打开文件\n");
-        return;
+        fclose(fp);
+        fp = fopen("Schedule.dat", "wb+");
+        fclose(fp);
     }
 
     PrintColumns(1, 28, 87);

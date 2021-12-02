@@ -5,6 +5,7 @@ void printUI(int, int, int);
 int main(void)
 {
     char defaultcolor[2] = "", cl[10] = "COLOR F";
+    //本程序在控制台中强制使用白色背景
     int settings[7];
     LoadSettings(settings);
     switch (settings[3])
@@ -34,6 +35,16 @@ int main(void)
         defaultcolor[0] = '0';
         break;
     }
+/*********************
+ * 0 = 黑色 8 = 灰色
+ * 1 = 蓝色 9 = 淡蓝色
+ * 2 = 绿色 A = 淡绿色
+ * 3 = 浅绿色 B = 淡浅绿色
+ * 4 = 红色 C = 淡红色
+ * 5 = 紫色 D = 淡紫色
+ * 6 = 黄色 E = 淡黄色
+ * 7 = 白色 F = 亮白色
+ * *******************/
     strcat(cl, defaultcolor);
     printf(cl);
     system(cl);
@@ -457,21 +468,22 @@ void printUI(int yy, int mm, int dd)
                 case 3:
                     printf("           ←%s,%d年→            \n", getMonthName(i), year);
                     break;
-                }
+                }// 输出年份月份
 
-                // 输出年份月份
 
-                printf(" Sun   Mon  Tue  Wed  Thu  Fri  Sat\n");
-                // 输出行
+
+                printf("  日    一   二   三   四   五   六\n");
+                // 输出星期
+
 
                 int k;
                 int current = dayNumber(1, i + 1, year);
                 for (k = 0; k < current; k++)
                 {
-                    printf("     ");
+                    printf("     ");// 输出占位空格
                     x += 5;
                 }
-                // 输出空日期
+
 
                 for (int j = 1; j <= days; j++)
                 {

@@ -136,6 +136,7 @@ int ReturnFormat()
 
 void ReturnThisTime(int thistime[])
 {
+    //返回当前时间(月份为0-11)
     time_t timep;
     struct tm *p;
     time(&timep);
@@ -189,6 +190,7 @@ void ReturnThisTime(int thistime[])
 
 void PrintTime(int x, int y, int tz, int longorshort)
 {
+    //输出时间到指定位置
     int time[6] = {};
     ReturnThisTime(time);
     int sec = time[0];
@@ -202,8 +204,10 @@ void PrintTime(int x, int y, int tz, int longorshort)
 
     if (longorshort == 0)
     {
+        //输出带日期与秒数的时间
         if (ReturnHourFormat() == 12)
         {
+            //24小时制转12小时制
             if (hour >= 12)
             {
                 if (hour == 12)
@@ -281,6 +285,7 @@ void PrintTime(int x, int y, int tz, int longorshort)
             }
     }
     else
+    //输出不带日期与秒数的时间
     {
         if (ReturnHourFormat() == 12)
         {

@@ -166,6 +166,7 @@ void CountDown(void)
     main();
 }
 
+//闹钟
 void SetAlarm(void)
 {
     int hour, min, end = 0;
@@ -244,22 +245,4 @@ void SetAlarm(void)
     getchar();
     system("cls");
     main();
-}
-
-/*********************
- * 0 = 黑色 8 = 灰色
- * 1 = 蓝色 9 = 淡蓝色；0
- * 2 = 绿色 A = 淡绿色
- * 3 = 浅绿色 B = 淡浅绿色
- * 4 = 红色 C = 淡红色
- * 5 = 紫色 D = 淡紫色
- * 6 = 黄色 E = 淡黄色
- * 7 = 白色 F = 亮白色
- * *******************/
-void color_print(const char *s, int color)
-{
-    HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | color | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY);
-    printf(s);
-    SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | 0 | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY); //改回默认白色
 }

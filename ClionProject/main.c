@@ -468,21 +468,22 @@ void printUI(int yy, int mm, int dd)
                 case 3:
                     printf("           ←%s,%d年→            \n", getMonthName(i), year);
                     break;
-                }
+                }// 输出年份月份
 
-                // 输出年份月份
 
-                printf(" Sun   Mon  Tue  Wed  Thu  Fri  Sat\n");
-                // 输出行
+
+                printf("  日    一   二   三   四   五   六\n");
+                // 输出星期
+
 
                 int k;
                 int current = dayNumber(1, i + 1, year);
                 for (k = 0; k < current; k++)
                 {
-                    printf("     ");
+                    printf("     ");// 输出占位空格
                     x += 5;
                 }
-                // 输出空日期
+
 
                 for (int j = 1; j <= days; j++)
                 {

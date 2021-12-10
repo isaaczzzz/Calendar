@@ -22,7 +22,7 @@ void StopWatch(void);
  * *******************/
 void AddSchedule(void);
 void ShowSchedule(int yy, int mm, int dd);
-void RecommandSchedule();
+void RecommendSchedule();
 
 /*********************
  * …Ë÷√ƒ÷÷”            *

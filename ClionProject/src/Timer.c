@@ -101,6 +101,8 @@ void CountDown(void)
     PrintRows(44, 69, 17, DOWN);
     PrintColumns(9, 16, 69);
 
+    RecommendSchedule();
+
     go(54, 10);
     printf("∑¨«—÷”\n");
     go(47, 12);

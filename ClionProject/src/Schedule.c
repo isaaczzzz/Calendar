@@ -89,8 +89,6 @@ void ShowSchedule(int yy, int mm, int dd)
     row1 = row2 = row3 = row4 = 1;
     fp = fopen("schedule.dat", "rb");
 
-    RecommandSchedule();
-
     system("cls");
     if (fp == NULL)
     //Schedule.dat不存在则自动创建
@@ -187,7 +185,7 @@ void ShowSchedule(int yy, int mm, int dd)
         printf("未能在当日查询到日程\n");*/
 }
 
-void RecommandSchedule()
+void RecommendSchedule()
 {
     FILE *fp;
     int time[6] = {0};

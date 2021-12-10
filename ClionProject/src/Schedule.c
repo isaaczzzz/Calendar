@@ -89,6 +89,8 @@ void ShowSchedule(int yy, int mm, int dd)
     row1 = row2 = row3 = row4 = 1;
     fp = fopen("schedule.dat", "rb");
 
+    RecommandSchedule();
+
     system("cls");
     if (fp == NULL)
     //Schedule.dat不存在则自动创建
@@ -183,4 +185,59 @@ void ShowSchedule(int yy, int mm, int dd)
     }
     if (isFound == 0)
         printf("未能在当日查询到日程\n");*/
+}
+
+void RecommandSchedule()
+{
+    FILE *fp;
+    int time[6] = {0};
+    int weight, fst, snd, trd, yy, mm, dd;
+    struct Schedule Rec1, Rec2, Rec3;
+    fst = 0;
+    snd = -1;
+    trd = -2;
+    fp = fopen("schedule.dat", "rb");
+
+    system("cls");
+    if (fp == NULL)
+        //Schedule.dat不存在则自动创建
+    {
+        fclose(fp);
+        fp = fopen("Schedule.dat", "wb+");
+        fclose(fp);
+    }
+
+    ReturnThisTime(time);
+    yy = time[5];
+    mm = time[4]; //0~11
+    dd = time[3];
+
+    for (int i = 0; i < 5; i++) {
+        dd += i;
+        if (dd > NumberOfDays(mm, yy)) {
+            dd = 1;
+            mm++;
+            if (mm > 11) {
+                mm = 1;
+                yy++;
+            }
+        }
+        mm++;//换为1~12月格式
+        while (fread(&S, sizeof(S), 1, fp) == 1) {
+            weight = 0;
+            if (S.yy == yy && S.mm == mm && S.dd == mm) {
+                weight = (5 - i) + (4 - S.impo); //权重计算，考虑日期和重要紧急度;
+                if (fst < weight)
+                    Rec1 = S;
+                else if (snd < weight)
+                    Rec2 = S;
+                else if (trd < weight)
+                    Rec3 = S;
+            }
+        }
+    }
+    //test
+    printf("%s\n", Rec1.note);
+    printf("%s\n", Rec2.note);
+    printf("%s\n", Rec3.note);
 }

@@ -17,13 +17,15 @@ void CountDown(void);
 void StopWatch(void);
 
 /*********************
- * 添加日程，查询日程   *
+ * 添加日程，查询日程    *
+ * 推荐日程            *
  * *******************/
 void AddSchedule(void);
 void ShowSchedule(int yy, int mm, int dd);
+void RecommandSchedule();
 
 /*********************
- * 设置闹钟               *
+ * 设置闹钟            *
  * *******************/
 void SetAlarm(void);
 

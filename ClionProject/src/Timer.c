@@ -230,7 +230,7 @@ void SetAlarm(void)
 
     while (!end)
     {
-        int time[6] = {};
+        int time[6] = {0};
         ReturnThisTime(time);
 
         system("cls");

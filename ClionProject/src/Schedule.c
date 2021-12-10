@@ -145,12 +145,13 @@ void ShowSchedule(int yy, int mm, int dd)
                 puts(S.note);
                 break;
             default:
-                go(89, ++row4 + 12);
+                go(89, ++row4 + 13);
                 puts(S.note);
                 break;
             }
         }
     }
+    fclose(fp);
 
     //列表形式
     /*while (fread(&S, sizeof(S), 1, fp) == 1)
@@ -194,9 +195,12 @@ void RecommendSchedule()
     fst = 0;
     snd = -1;
     trd = -2;
-    fp = fopen("schedule.dat", "rb");
 
-    system("cls");
+    ReturnThisTime(time);
+    yy = time[5];
+    mm = time[4] + 1; // 0 ~ 11
+
+    fp = fopen("schedule.dat", "rb");
     if (fp == NULL)
         //Schedule.dat不存在则自动创建
     {
@@ -204,15 +208,10 @@ void RecommendSchedule()
         fp = fopen("Schedule.dat", "wb+");
         fclose(fp);
     }
-
-    ReturnThisTime(time);
-    yy = time[5];
-    mm = time[4]; //0~11
-    dd = time[3];
-
     for (int i = 0; i < 5; i++) {
-        dd += i;
-        if (dd > NumberOfDays(mm, yy)) {
+        dd = time[3] + i;
+        if (dd > NumberOfDays(mm - 1, yy)) { // 形参中mm为0~11
+            printf("%d\n", NumberOfDays(mm, yy));
             dd = 1;
             mm++;
             if (mm > 11) {
@@ -220,22 +219,37 @@ void RecommendSchedule()
                 yy++;
             }
         }
-        mm++;//换为1~12月格式
+
+        fseek(fp, 0, SEEK_SET); //文件指针移回开头，重新读取
+
         while (fread(&S, sizeof(S), 1, fp) == 1) {
             weight = 0;
-            if (S.yy == yy && S.mm == mm && S.dd == mm) {
-                weight = (5 - i) + (4 - S.impo); //权重计算，考虑日期和重要紧急度;
-                if (fst < weight)
+            if (S.yy == yy && S.mm == mm && S.dd == dd) {
+                weight = (5 - i) + (4 - S.impo); //权重计算，考虑日期和重要紧急度
+                //printf("w: %d\n", weight);
+                //printf("%s\n", S.note);
+                if (fst < weight) {
+                    Rec2 = Rec1;
+                    snd = fst;
                     Rec1 = S;
-                else if (snd < weight)
+                    fst = weight;
+                }
+                else if (snd < weight) {
+                    Rec3 = Rec2;
+                    trd = snd;
                     Rec2 = S;
-                else if (trd < weight)
+                    snd = weight;
+                }
+                else if (trd < weight) {
                     Rec3 = S;
+                    trd = weight;
+                }
             }
         }
     }
+    fclose(fp);
     //test
-    printf("%s\n", Rec1.note);
-    printf("%s\n", Rec2.note);
-    printf("%s\n", Rec3.note);
+    printf("1. %s\n", Rec1.note);
+    printf("2. %s\n", Rec2.note);
+    printf("3. %s\n", Rec3.note);
 }

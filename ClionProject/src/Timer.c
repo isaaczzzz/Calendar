@@ -95,13 +95,15 @@ void CountDown(void)
     int key;
 
     system("cls");
+    RecommendSchedule();
+    system("pause");
+
+    system("cls");
     //±ß¿ò
     PrintRows(44, 69, 8, UP);
     PrintColumns(9, 16, 44);
     PrintRows(44, 69, 17, DOWN);
     PrintColumns(9, 16, 69);
-
-    RecommendSchedule();
 
     go(54, 10);
     printf("·¬ÇÑÖÓ\n");

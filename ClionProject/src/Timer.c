@@ -105,7 +105,7 @@ void CountDown(void)
     go(54, 10);
     printf("番茄钟\n");
     go(47, 12);
-    printf("请输入时长:__:__:__\b\b\b\b\b\b\b\b");
+    printf("请输入时长:__ __ __\b\b\b\b\b\b\b\b");
     scanf("%d%d%d", &ohour, &omin, &osec);
 
     if(ohour < 0 || omin < 0 || omin > 59 || osec < 0 || osec > 59) {

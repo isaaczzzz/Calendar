@@ -26,7 +26,7 @@ void AddSchedule(void)
     PrintRows(42, 75, 14, DOWN);
     PrintColumns(9, 13, 75); //右
     go(45, 10);
-    printf("请输入要添加的日期(年/月/日)");
+    printf("请输入要添加的日期(年 月 日)");
     go(53, 12);
     printf("____ __ __\b\b\b\b\b\b\b\b\b\b");
     scanf("%d%d%d", &S.yy, &S.mm, &S.dd);

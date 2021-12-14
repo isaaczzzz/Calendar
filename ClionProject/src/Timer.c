@@ -94,9 +94,6 @@ void CountDown(void)
     bool end = 0;
     int key;
 
-    system("cls");
-    RecommendSchedule();
-    system("pause");
 
     system("cls");
     //±ß¿ò

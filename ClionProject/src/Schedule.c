@@ -186,7 +186,7 @@ void ShowSchedule(int yy, int mm, int dd)
         printf("未能在当日查询到日程\n");*/
 }
 
-void RecommendSchedule()
+void RecommendSchedule(int x, int y)
 {
     FILE *fp;
     int time[6] = {0};
@@ -249,7 +249,16 @@ void RecommendSchedule()
     }
     fclose(fp);
     //test
+    go(x, y);
+    color(DefaultColor());
+    printf("近期的推荐日程：");
+    go(x, y + 2);
+    color(DefaultColor());
     printf("1. %s\n", Rec1.note);
+    go(x, y + 4);
+    color(DefaultColor());
     printf("2. %s\n", Rec2.note);
+    go(x, y + 6);
+    color(DefaultColor());
     printf("3. %s\n", Rec3.note);
 }

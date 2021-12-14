@@ -530,5 +530,6 @@ void printUI(int yy, int mm, int dd)
         //检测到ESC则退出程序
 
         PrintTime(0, y + 1, TimeZone(), 0); //循环输出当前时间
+        RecommendSchedule(0, y + 3);//输出近期的推荐日程
     }
 }

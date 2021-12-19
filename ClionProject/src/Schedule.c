@@ -225,9 +225,8 @@ void RecommendSchedule(int x, int y)
         while (fread(&S, sizeof(S), 1, fp) == 1) {
             weight = 0;
             if (S.yy == yy && S.mm == mm && S.dd == dd) {
-                weight = (5 - i) + (4 - S.impo); //权重计算，考虑日期和重要紧急度
-                //printf("w: %d\n", weight);
-                //printf("%s\n", S.note);
+                /*权重计算，考虑日期和重要紧急度*/
+                weight = (5 - i) + (4 - S.impo);
                 if (fst < weight) {
                     Rec2 = Rec1;
                     snd = fst;
@@ -248,10 +247,9 @@ void RecommendSchedule(int x, int y)
         }
     }
     fclose(fp);
-    //test
     go(x, y);
     color(DefaultColor());
-    printf("近期的推荐日程：");
+    printf("近期的推荐日程: ");
     go(x, y + 2);
     color(DefaultColor());
     printf("1. %s\n", Rec1.note);

@@ -113,6 +113,7 @@ int NumberOfDays(int monthNumber, int year)
         return (31);
 }
 
+//查询时区
 int TimeZone()
 {
     int settings[7];
@@ -120,6 +121,7 @@ int TimeZone()
     return settings[0];
 }
 
+//查询12/24小时制
 int ReturnHourFormat()
 {
     int settings[7];
@@ -127,6 +129,7 @@ int ReturnHourFormat()
     return settings[2];
 }
 
+//查询时间格式
 int ReturnFormat()
 {
     int settings[7];
@@ -134,9 +137,9 @@ int ReturnFormat()
     return settings[1];
 }
 
+//返回当前时间(月份为0-11)
 void ReturnThisTime(int thistime[])
 {
-    //返回当前时间(月份为0-11)
     time_t timep;
     struct tm *p;
     time(&timep);

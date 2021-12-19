@@ -85,7 +85,7 @@ void StopWatch(void)
     }
 }
 
-//給數奀
+//給數奀ㄛ楓и笘
 void CountDown(void)
 {
     int hour, min, sec, num;
@@ -120,7 +120,6 @@ void CountDown(void)
         Sleep(1500);
         return CountDown();
     }
-
 
     hour = ohour;
     min = omin;

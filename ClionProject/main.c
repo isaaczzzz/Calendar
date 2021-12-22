@@ -35,7 +35,7 @@ int main(void)
         defaultcolor[0] = '0';
         break;
     }
-/*********************
+    /*********************
  * 0 = 黑色 8 = 灰色
  * 1 = 蓝色 9 = 淡蓝色
  * 2 = 绿色 A = 淡绿色
@@ -99,353 +99,359 @@ void printUI(int yy, int mm, int dd)
                 PrintColumns(1, 28, 66);
                 if (kbhit())
                     key = getch();
-                start = 1;
-                //标记函数为已经启动过
-                if (key == LEFT2)
-                    //键盘左键按下
-                    if (i != 0)
-                        i--;
-                    else
-                        i = 11, year--;
-                if (key == RIGHT2)
-                    //键盘右键按下
-                    if (i != 11)
-                        i++;
-                    else
-                        i = 0, year++;
-
-                if (key == UP2)
-                    //键盘上键按下，选择选项
-                    switch (optionpick)
-                    {
-                    case 1:
-                        go(50, 9);
-                        color(DefaultColor());
-                        printf("番茄钟");
-                        go(50, 11);
-                        color(DefaultColor());
-                        printf("日期查询");
-                        go(50, 13);
-                        color(DefaultColor());
-                        printf("添加日程");
-                        go(50, 15);
-                        color(DefaultColor());
-                        printf("正计时");
-                        go(50, 17);
-                        color(DefaultColor());
-                        printf("设置闹钟");
-                        go(50, 19);
-                        color(Highlight());
-                        printf("↑设置↓");
-                        optionpick = 6;
-                        break;
-                    case 2:
-                        go(50, 9);
-                        color(Highlight());
-                        printf("↑番茄钟↓");
-                        go(50, 11);
-                        color(DefaultColor());
-                        printf("日期查询");
-                        go(50, 13);
-                        color(DefaultColor());
-                        printf("添加日程");
-                        go(50, 15);
-                        color(DefaultColor());
-                        printf("正计时");
-                        go(50, 17);
-                        color(DefaultColor());
-                        printf("设置闹钟");
-                        go(50, 19);
-                        color(DefaultColor());
-                        printf("设置");
-                        optionpick = 1;
-                        break;
-                    case 3:
-                        go(50, 9);
-                        color(DefaultColor());
-                        printf("番茄钟");
-                        go(50, 11);
-                        color(Highlight());
-                        printf("↑日期查询↓");
-                        go(50, 13);
-                        color(DefaultColor());
-                        printf("添加日程");
-                        go(50, 15);
-                        color(DefaultColor());
-                        printf("正计时");
-                        go(50, 17);
-                        color(DefaultColor());
-                        printf("设置闹钟");
-                        go(50, 19);
-                        color(DefaultColor());
-                        printf("设置");
-                        optionpick = 2;
-                        break;
-                    case 4:
-                        go(50, 9);
-                        color(DefaultColor());
-                        printf("番茄钟");
-                        go(50, 11);
-                        color(DefaultColor());
-                        printf("日期查询");
-                        go(50, 13);
-                        color(Highlight());
-                        printf("↑添加日程↓");
-                        go(50, 15);
-                        color(DefaultColor());
-                        printf("正计时");
-                        go(50, 17);
-                        color(DefaultColor());
-                        printf("设置闹钟");
-                        go(50, 19);
-                        color(DefaultColor());
-                        printf("设置");
-                        optionpick = 3;
-                        break;
-                    case 5:
-                        go(50, 9);
-                        color(DefaultColor());
-                        printf("番茄钟");
-                        go(50, 11);
-                        color(DefaultColor());
-                        printf("日期查询");
-                        go(50, 13);
-                        color(DefaultColor());
-                        printf("添加日程");
-                        go(50, 15);
-                        color(Highlight());
-                        printf("↑正计时↓");
-                        go(50, 17);
-                        color(DefaultColor());
-                        printf("设置闹钟");
-                        go(50, 19);
-                        color(DefaultColor());
-                        printf("设置");
-                        optionpick = 4;
-                        break;
-                    case 6:
-                        go(50, 9);
-                        color(DefaultColor());
-                        printf("番茄钟");
-                        go(50, 11);
-                        color(DefaultColor());
-                        printf("日期查询");
-                        go(50, 13);
-                        color(DefaultColor());
-                        printf("添加日程");
-                        go(50, 15);
-                        color(DefaultColor());
-                        printf("正计时");
-                        go(50, 17);
-                        color(Highlight());
-                        printf("↑设置闹钟↓");
-                        go(50, 19);
-                        color(DefaultColor());
-                        printf("设置");
-                        optionpick = 5;
-                        break;
-                    }
-                else if (key == DOWN2)
-                    //键盘下键按下，选择选项
-                    switch (optionpick)
-                    {
-                    case 5:
-                        go(50, 9);
-                        color(DefaultColor());
-                        printf("番茄钟");
-                        go(50, 11);
-                        color(DefaultColor());
-                        printf("日期查询");
-                        go(50, 13);
-                        color(DefaultColor());
-                        printf("添加日程");
-                        go(50, 15);
-                        color(DefaultColor());
-                        printf("正计时");
-                        go(50, 17);
-                        color(DefaultColor());
-                        printf("设置闹钟");
-                        go(50, 19);
-                        color(Highlight());
-                        printf("↑设置↓");
-                        optionpick = 6;
-                        break;
-                    case 6:
-                        go(50, 9);
-                        color(Highlight());
-                        printf("↑番茄钟↓");
-                        go(50, 11);
-                        color(DefaultColor());
-                        printf("日期查询");
-                        go(50, 13);
-                        color(DefaultColor());
-                        printf("添加日程");
-                        go(50, 15);
-                        color(DefaultColor());
-                        printf("正计时");
-                        go(50, 17);
-                        color(DefaultColor());
-                        printf("设置闹钟");
-                        go(50, 19);
-                        color(DefaultColor());
-                        printf("设置");
-                        optionpick = 1;
-                        break;
-                    case 1:
-                        go(50, 9);
-                        color(DefaultColor());
-                        printf("番茄钟");
-                        go(50, 11);
-                        color(Highlight());
-                        printf("↑日期查询↓");
-                        go(50, 13);
-                        color(DefaultColor());
-                        printf("添加日程");
-                        go(50, 15);
-                        color(DefaultColor());
-                        printf("正计时");
-                        go(50, 17);
-                        color(DefaultColor());
-                        printf("设置闹钟");
-                        go(50, 19);
-                        color(DefaultColor());
-                        printf("设置");
-                        optionpick = 2;
-                        break;
-                    case 2:
-                        go(50, 9);
-                        color(DefaultColor());
-                        printf("番茄钟");
-                        go(50, 11);
-                        color(DefaultColor());
-                        printf("日期查询");
-                        go(50, 13);
-                        color(Highlight());
-                        printf("↑添加日程↓");
-                        go(50, 15);
-                        color(DefaultColor());
-                        printf("正计时");
-                        go(50, 17);
-                        color(DefaultColor());
-                        printf("设置闹钟");
-                        go(50, 19);
-                        color(DefaultColor());
-                        printf("设置");
-                        optionpick = 3;
-                        break;
-                    case 3:
-                        go(50, 9);
-                        color(DefaultColor());
-                        printf("番茄钟");
-                        go(50, 11);
-                        color(DefaultColor());
-                        printf("日期查询");
-                        go(50, 13);
-                        color(DefaultColor());
-                        printf("添加日程");
-                        go(50, 15);
-                        color(Highlight());
-                        printf("↑正计时↓");
-                        go(50, 17);
-                        color(DefaultColor());
-                        printf("设置闹钟");
-                        go(50, 19);
-                        color(DefaultColor());
-                        printf("设置");
-                        optionpick = 4;
-                        break;
-                    case 4:
-                        go(50, 9);
-                        color(DefaultColor());
-                        printf("番茄钟");
-                        go(50, 11);
-                        color(DefaultColor());
-                        printf("日期查询");
-                        go(50, 13);
-                        color(DefaultColor());
-                        printf("添加日程");
-                        go(50, 15);
-                        color(DefaultColor());
-                        printf("正计时");
-                        go(50, 17);
-                        color(Highlight());
-                        printf("↑设置闹钟↓");
-                        go(50, 19);
-                        color(DefaultColor());
-                        printf("设置");
-                        optionpick = 5;
-                        break;
-                    }
-                else if (key == ENTER)
-                //回车键按下，读取选项并进入对应功能
+                start = 1; //标记函数为已经启动过
+                //判断按下的键并执行相应操作
                 {
-                    switch (optionpick)
-                    {
-                    case 1:
-                        CountDown();
-                        break;
-                    case 2:
-                        //实现跳转到指定日期功能
-                        while (1){
-                            system("cls");
-                            go(40, 13);
+                    if (key == LEFT2)
+                        //键盘左键按下
+                        if (i != 0)
+                            i--;
+                        else
+                            i = 11, year--;
+                    if (key == RIGHT2)
+                        //键盘右键按下
+                        if (i != 11)
+                            i++;
+                        else
+                            i = 0, year++;
+
+                    if (key == UP2)
+                        //键盘上键按下，选择选项
+                        switch (optionpick)
+                        {
+                        case 1:
+                            go(50, 9);
                             color(DefaultColor());
-                            printf("输入要跳转的日期(如2021 11 08):");
-                            int yy1, mm1, dd1;
-                            scanf("%d %d %d", &yy1, &mm1, &dd1);
-                            if(mm1 > 12 || mm1 < 1 || dd1 < 1 || dd1 > NumberOfDays(mm1 - 1 , yy1)){
-                                go(35, 9);
-                                color(DefaultColor());
-                                printf("日期格式不正确！");
-                                Sleep(1500);
-                            }
-                            else {
-                                printUI(yy1,mm1,dd1);
-                                break;
-                            }
+                            printf("番茄钟");
+                            go(50, 11);
+                            color(DefaultColor());
+                            printf("日期查询");
+                            go(50, 13);
+                            color(DefaultColor());
+                            printf("添加日程");
+                            go(50, 15);
+                            color(DefaultColor());
+                            printf("正计时");
+                            go(50, 17);
+                            color(DefaultColor());
+                            printf("设置闹钟");
+                            go(50, 19);
+                            color(Highlight());
+                            printf("↑设置↓");
+                            optionpick = 6;
+                            break;
+                        case 2:
+                            go(50, 9);
+                            color(Highlight());
+                            printf("↑番茄钟↓");
+                            go(50, 11);
+                            color(DefaultColor());
+                            printf("日期查询");
+                            go(50, 13);
+                            color(DefaultColor());
+                            printf("添加日程");
+                            go(50, 15);
+                            color(DefaultColor());
+                            printf("正计时");
+                            go(50, 17);
+                            color(DefaultColor());
+                            printf("设置闹钟");
+                            go(50, 19);
+                            color(DefaultColor());
+                            printf("设置");
+                            optionpick = 1;
+                            break;
+                        case 3:
+                            go(50, 9);
+                            color(DefaultColor());
+                            printf("番茄钟");
+                            go(50, 11);
+                            color(Highlight());
+                            printf("↑日期查询↓");
+                            go(50, 13);
+                            color(DefaultColor());
+                            printf("添加日程");
+                            go(50, 15);
+                            color(DefaultColor());
+                            printf("正计时");
+                            go(50, 17);
+                            color(DefaultColor());
+                            printf("设置闹钟");
+                            go(50, 19);
+                            color(DefaultColor());
+                            printf("设置");
+                            optionpick = 2;
+                            break;
+                        case 4:
+                            go(50, 9);
+                            color(DefaultColor());
+                            printf("番茄钟");
+                            go(50, 11);
+                            color(DefaultColor());
+                            printf("日期查询");
+                            go(50, 13);
+                            color(Highlight());
+                            printf("↑添加日程↓");
+                            go(50, 15);
+                            color(DefaultColor());
+                            printf("正计时");
+                            go(50, 17);
+                            color(DefaultColor());
+                            printf("设置闹钟");
+                            go(50, 19);
+                            color(DefaultColor());
+                            printf("设置");
+                            optionpick = 3;
+                            break;
+                        case 5:
+                            go(50, 9);
+                            color(DefaultColor());
+                            printf("番茄钟");
+                            go(50, 11);
+                            color(DefaultColor());
+                            printf("日期查询");
+                            go(50, 13);
+                            color(DefaultColor());
+                            printf("添加日程");
+                            go(50, 15);
+                            color(Highlight());
+                            printf("↑正计时↓");
+                            go(50, 17);
+                            color(DefaultColor());
+                            printf("设置闹钟");
+                            go(50, 19);
+                            color(DefaultColor());
+                            printf("设置");
+                            optionpick = 4;
+                            break;
+                        case 6:
+                            go(50, 9);
+                            color(DefaultColor());
+                            printf("番茄钟");
+                            go(50, 11);
+                            color(DefaultColor());
+                            printf("日期查询");
+                            go(50, 13);
+                            color(DefaultColor());
+                            printf("添加日程");
+                            go(50, 15);
+                            color(DefaultColor());
+                            printf("正计时");
+                            go(50, 17);
+                            color(Highlight());
+                            printf("↑设置闹钟↓");
+                            go(50, 19);
+                            color(DefaultColor());
+                            printf("设置");
+                            optionpick = 5;
+                            break;
                         }
-                        break;
-                    case 3:
-                        AddSchedule();
-                        break;
-                    case 4:
-                        StopWatch();
-                        break;
-                    case 5:
-                        SetAlarm();
-                        break;
-                    case 6:
-                        Settings();
-                    default:
-                        break;
+                    else if (key == DOWN2)
+                        //键盘下键按下，选择选项
+                        switch (optionpick)
+                        {
+                        case 5:
+                            go(50, 9);
+                            color(DefaultColor());
+                            printf("番茄钟");
+                            go(50, 11);
+                            color(DefaultColor());
+                            printf("日期查询");
+                            go(50, 13);
+                            color(DefaultColor());
+                            printf("添加日程");
+                            go(50, 15);
+                            color(DefaultColor());
+                            printf("正计时");
+                            go(50, 17);
+                            color(DefaultColor());
+                            printf("设置闹钟");
+                            go(50, 19);
+                            color(Highlight());
+                            printf("↑设置↓");
+                            optionpick = 6;
+                            break;
+                        case 6:
+                            go(50, 9);
+                            color(Highlight());
+                            printf("↑番茄钟↓");
+                            go(50, 11);
+                            color(DefaultColor());
+                            printf("日期查询");
+                            go(50, 13);
+                            color(DefaultColor());
+                            printf("添加日程");
+                            go(50, 15);
+                            color(DefaultColor());
+                            printf("正计时");
+                            go(50, 17);
+                            color(DefaultColor());
+                            printf("设置闹钟");
+                            go(50, 19);
+                            color(DefaultColor());
+                            printf("设置");
+                            optionpick = 1;
+                            break;
+                        case 1:
+                            go(50, 9);
+                            color(DefaultColor());
+                            printf("番茄钟");
+                            go(50, 11);
+                            color(Highlight());
+                            printf("↑日期查询↓");
+                            go(50, 13);
+                            color(DefaultColor());
+                            printf("添加日程");
+                            go(50, 15);
+                            color(DefaultColor());
+                            printf("正计时");
+                            go(50, 17);
+                            color(DefaultColor());
+                            printf("设置闹钟");
+                            go(50, 19);
+                            color(DefaultColor());
+                            printf("设置");
+                            optionpick = 2;
+                            break;
+                        case 2:
+                            go(50, 9);
+                            color(DefaultColor());
+                            printf("番茄钟");
+                            go(50, 11);
+                            color(DefaultColor());
+                            printf("日期查询");
+                            go(50, 13);
+                            color(Highlight());
+                            printf("↑添加日程↓");
+                            go(50, 15);
+                            color(DefaultColor());
+                            printf("正计时");
+                            go(50, 17);
+                            color(DefaultColor());
+                            printf("设置闹钟");
+                            go(50, 19);
+                            color(DefaultColor());
+                            printf("设置");
+                            optionpick = 3;
+                            break;
+                        case 3:
+                            go(50, 9);
+                            color(DefaultColor());
+                            printf("番茄钟");
+                            go(50, 11);
+                            color(DefaultColor());
+                            printf("日期查询");
+                            go(50, 13);
+                            color(DefaultColor());
+                            printf("添加日程");
+                            go(50, 15);
+                            color(Highlight());
+                            printf("↑正计时↓");
+                            go(50, 17);
+                            color(DefaultColor());
+                            printf("设置闹钟");
+                            go(50, 19);
+                            color(DefaultColor());
+                            printf("设置");
+                            optionpick = 4;
+                            break;
+                        case 4:
+                            go(50, 9);
+                            color(DefaultColor());
+                            printf("番茄钟");
+                            go(50, 11);
+                            color(DefaultColor());
+                            printf("日期查询");
+                            go(50, 13);
+                            color(DefaultColor());
+                            printf("添加日程");
+                            go(50, 15);
+                            color(DefaultColor());
+                            printf("正计时");
+                            go(50, 17);
+                            color(Highlight());
+                            printf("↑设置闹钟↓");
+                            go(50, 19);
+                            color(DefaultColor());
+                            printf("设置");
+                            optionpick = 5;
+                            break;
+                        }
+                    else if (key == ENTER)
+                    //回车键按下，读取选项并进入对应功能
+                    {
+                        switch (optionpick)
+                        {
+                        case 1:
+                            CountDown();
+                            break;
+                        case 2:
+                            //实现跳转到指定日期功能
+                            while (1)
+                            {
+                                system("cls");
+                                go(40, 13);
+                                color(DefaultColor());
+                                printf("输入要跳转的日期(如2021 11 08):");
+                                int yy1, mm1, dd1;
+                                scanf("%d %d %d", &yy1, &mm1, &dd1);
+                                if (mm1 > 12 || mm1 < 1 || dd1 < 1 || dd1 > NumberOfDays(mm1 - 1, yy1))
+                                {
+                                    go(35, 9);
+                                    color(DefaultColor());
+                                    printf("日期格式不正确！");
+                                    Sleep(1500);
+                                }
+                                else
+                                {
+                                    printUI(yy1, mm1, dd1);
+                                    break;
+                                }
+                            }
+                            break;
+                        case 3:
+                            AddSchedule();
+                            break;
+                        case 4:
+                            StopWatch();
+                            break;
+                        case 5:
+                            SetAlarm();
+                            break;
+                        case 6:
+                            Settings();
+                        default:
+                            break;
+                        }
                     }
-                }
-
-                else
-                {
-                    go(50, 9);
-                    color(Highlight());
-                    printf("↑番茄钟↓");
-                    go(50, 11);
-                    color(DefaultColor());
-                    printf("日期查询");
-                    go(50, 13);
-                    color(DefaultColor());
-                    printf("添加日程");
-                    go(50, 15);
-                    color(DefaultColor());
-                    printf("正计时");
-                    go(50, 17);
-                    color(DefaultColor());
-                    printf("设置闹钟");
-                    go(50, 19);
-                    color(DefaultColor());
-                    printf("设置");
-                    optionpick = 1;
+                    else
+                    {
+                        go(50, 9);
+                        color(Highlight());
+                        printf("↑番茄钟↓");
+                        go(50, 11);
+                        color(DefaultColor());
+                        printf("日期查询");
+                        go(50, 13);
+                        color(DefaultColor());
+                        printf("添加日程");
+                        go(50, 15);
+                        color(DefaultColor());
+                        printf("正计时");
+                        go(50, 17);
+                        color(DefaultColor());
+                        printf("设置闹钟");
+                        go(50, 19);
+                        color(DefaultColor());
+                        printf("设置");
+                        optionpick = 1;
+                    }
                 }
                 x = 0;
                 y = 2;
                 //system("ping -n 2 127.0.0.1>nul");
+
+                //输出标题
                 go(48, 0);
                 color(Highlight());
                 printf("时间管理大师");
@@ -454,6 +460,7 @@ void printUI(int yy, int mm, int dd)
                 printf("ENTER选择，ESC退出");
                 go(0, 0);
                 color(DefaultColor());
+
                 days = NumberOfDays(i, year);
 
                 switch (ReturnFormat())
@@ -467,22 +474,18 @@ void printUI(int yy, int mm, int dd)
                 case 3:
                     printf("           ←%s,%d年→            \n", getMonthName(i), year);
                     break;
-                }// 输出年份月份
-
-
+                } // 输出年份月份
 
                 printf("  日    一   二   三   四   五   六\n");
-                // 输出星期
-
+                // 输出星期栏
 
                 int k;
                 int current = dayNumber(1, i + 1, year);
                 for (k = 0; k < current; k++)
                 {
-                    printf("     ");// 输出占位空格
+                    printf("     "); // 输出占位空格
                     x += 5;
                 }
-
 
                 for (int j = 1; j <= days; j++)
                 {
@@ -530,6 +533,6 @@ void printUI(int yy, int mm, int dd)
         //检测到ESC则退出程序
 
         PrintTime(0, y + 1, TimeZone(), 0); //循环输出当前时间
-        RecommendSchedule(0, y + 3);//输出近期的推荐日程
+        RecommendSchedule(0, y + 3);        //输出近期的推荐日程
     }
 }

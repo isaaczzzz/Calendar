@@ -13,7 +13,8 @@ void StopWatch(void)
     go(45, 12);
     color(DefaultColor());
     printf("按下任意键以开始计时...");
-    while(!kbhit());
+    while (!kbhit())
+        ;
 
     while (!end)
     {
@@ -94,7 +95,6 @@ void CountDown(void)
     bool end = 0;
     int key;
 
-
     system("cls");
     //边框
     PrintRows(44, 69, 8, UP);
@@ -108,7 +108,8 @@ void CountDown(void)
     printf("请输入时长:__ __ __\b\b\b\b\b\b\b\b");
     scanf("%d%d%d", &ohour, &omin, &osec);
 
-    if(ohour < 0 || omin < 0 || omin > 59 || osec < 0 || osec > 59) {
+    if (ohour < 0 || omin < 0 || omin > 59 || osec < 0 || osec > 59)
+    {
         system("cls");
         //边框
         PrintRows(44, 69, 8, UP);
@@ -215,7 +216,8 @@ void SetAlarm(void)
     printf("输入时间(24小时制): __:__\b\b\b\b\b");
     scanf("%d%d", &hour, &min);
 
-    if (hour > 23 || min > 59) {
+    if (hour > 23 || min > 59)
+    {
         system("cls");
         //边框
         PrintRows(44, 70, 7, UP);

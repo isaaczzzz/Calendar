@@ -55,7 +55,7 @@ char *getMonthName(int monthNumber)
     return month;
 }
 
-//某年某月的天数
+//返回某年某月的天数
 int NumberOfDays(int monthNumber, int year)
 {
     // January

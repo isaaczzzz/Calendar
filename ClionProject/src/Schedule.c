@@ -98,7 +98,7 @@ void ShowSchedule(int yy, int mm, int dd)
     }
 
     PrintColumns(1, 28, 87);
-    go(73, 13);//89
+    go(73, 13); //89
     printf("━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━");
     go(80, 0);
     color(Today());
@@ -201,19 +201,22 @@ void RecommendSchedule(int x, int y)
 
     fp = fopen("schedule.dat", "rb");
     if (fp == NULL)
-        //Schedule.dat不存在则自动创建
+    //Schedule.dat不存在则自动创建
     {
         fclose(fp);
         fp = fopen("Schedule.dat", "wb+");
         fclose(fp);
     }
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 5; i++)
+    {
         dd = time[3] + i;
-        if (dd > NumberOfDays(mm - 1, yy)) { // 形参中mm为0~11
+        if (dd > NumberOfDays(mm - 1, yy))
+        { // 形参中mm为0~11
             printf("%d\n", NumberOfDays(mm, yy));
             dd = 1;
             mm++;
-            if (mm > 11) {
+            if (mm > 11)
+            {
                 mm = 1;
                 yy++;
             }
@@ -221,24 +224,29 @@ void RecommendSchedule(int x, int y)
 
         fseek(fp, 0, SEEK_SET); //文件指针移回开头，重新读取
 
-        while (fread(&S, sizeof(S), 1, fp) == 1) {
+        while (fread(&S, sizeof(S), 1, fp) == 1)
+        {
             weight = 0;
-            if (S.yy == yy && S.mm == mm && S.dd == dd) {
+            if (S.yy == yy && S.mm == mm && S.dd == dd)
+            {
                 /*权重计算，考虑日期和重要紧急度*/
                 weight = (5 - i) + (4 - S.impo);
-                if (fst < weight) {
+                if (fst < weight)
+                {
                     Rec2 = Rec1;
                     snd = fst;
                     Rec1 = S;
                     fst = weight;
                 }
-                else if (snd < weight) {
+                else if (snd < weight)
+                {
                     Rec3 = Rec2;
                     trd = snd;
                     Rec2 = S;
                     snd = weight;
                 }
-                else if (trd < weight) {
+                else if (trd < weight)
+                {
                     Rec3 = S;
                     trd = weight;
                 }

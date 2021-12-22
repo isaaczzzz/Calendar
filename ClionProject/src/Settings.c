@@ -319,7 +319,7 @@ void Format()
         printf("3->MM-DD-YYYY(如05-08-2003)");
         go(45, 16);
         color(DefaultColor());
-        printf("3->退出");
+        printf("4->退出");
         go(45, 8);
         color(DefaultColor());
         printf("输入想要设置的日期格式：");
@@ -345,8 +345,11 @@ void Format()
 void PrintTimeZone()
 {
     //设置时区
+
     int optionpicki = 0;
     int optionpickj = 0;
+    //存储焦点所在的选项位置
+
     int start = 0;
     int settings[7];
     LoadSettings(settings);
@@ -491,6 +494,8 @@ void PrintTimeZone()
     }
 
     system("cls");
+    //清屏
+
     while (1)
     {
         int key = 0;
@@ -512,6 +517,7 @@ void PrintTimeZone()
             if (kbhit())
                 key = getch();
             switch (key)
+            //实现左右上下的选项循环
             {
             case UP2:
                 optionpickj = (optionpickj == 0) ? 2 : (optionpickj - 1);
@@ -532,332 +538,336 @@ void PrintTimeZone()
             default:
                 break;
             }
+
             system("cls");
-            go(0, 6);
-            if (optionpicki == 0 && optionpickj == 0)
+            //输出时区表并将设置的时区输出为强调色
             {
-                color(Highlight());
-                printf("UTC-12");
+                go(0, 6);
+                if (optionpicki == 0 && optionpickj == 0)
+                {
+                    color(Highlight());
+                    printf("UTC-12");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("国际换日线");
+                }
+                //utc-12
+                go(14, 6);
+                if (optionpicki == 1 && optionpickj == 0)
+                {
+                    color(Highlight());
+                    printf("UTC-11");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("中途岛");
+                }
+                //utc-11
+                go(24, 6);
+                if (optionpicki == 2 && optionpickj == 0)
+                {
+                    color(Highlight());
+                    printf("UTC-10");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("夏威夷");
+                }
+                //utc-10
+                go(34, 6);
+                if (optionpicki == 3 && optionpickj == 0)
+                {
+                    color(Highlight());
+                    printf("UTC-9");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("阿拉斯加");
+                }
+                //utc-9
+                go(46, 6);
+                if (optionpicki == 4 && optionpickj == 0)
+                {
+                    color(Highlight());
+                    printf("UTC-8");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("太平洋时间");
+                }
+                //utc-8
+                go(60, 6);
+                if (optionpicki == 5 && optionpickj == 0)
+                {
+                    color(Highlight());
+                    printf("UTC-7");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("山地时间");
+                }
+                //utc-7
+                go(72, 6);
+                if (optionpicki == 6 && optionpickj == 0)
+                {
+                    color(Highlight());
+                    printf("UTC-6");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("中部时间");
+                }
+                //utc-6
+                go(84, 6);
+                if (optionpicki == 7 && optionpickj == 0)
+                {
+                    color(Highlight());
+                    printf("UTC-5");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("东部时间");
+                }
+                //utc-5
+                go(96, 6);
+                if (optionpicki == 8 && optionpickj == 0)
+                {
+                    color(Highlight());
+                    printf("UTC-4");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("大西洋时间");
+                }
+                //utc-4
+                go(0, 12);
+                if (optionpicki == 0 && optionpickj == 1)
+                {
+                    color(Highlight());
+                    printf("UTC-3");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("巴西利亚");
+                }
+                //utc-3
+                go(14, 12);
+                if (optionpicki == 1 && optionpickj == 1)
+                {
+                    color(Highlight());
+                    printf("UTC-2");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("格陵兰");
+                }
+                //utc-2
+                go(24, 12);
+                if (optionpicki == 2 && optionpickj == 1)
+                {
+                    color(Highlight());
+                    printf("UTC-1");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("佛得角");
+                } //utc-1
+                go(34, 12);
+                if (optionpicki == 3 && optionpickj == 1)
+                {
+                    color(Highlight());
+                    printf("UTC+-0");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("伦敦");
+                }
+                //utc+-0
+                go(46, 12);
+                if (optionpicki == 4 && optionpickj == 1)
+                {
+                    color(Highlight());
+                    printf("UTC+1");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("柏林,巴黎");
+                }
+                //utc+1
+                go(60, 12);
+                if (optionpicki == 5 && optionpickj == 1)
+                {
+                    color(Highlight());
+                    printf("UTC+2");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("雅典,基辅");
+                }
+                //utc+2
+                go(72, 12);
+                if (optionpicki == 6 && optionpickj == 1)
+                {
+                    color(Highlight());
+                    printf("UTC+3");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("莫斯科");
+                }
+                //utc+3
+                go(84, 12);
+                if (optionpicki == 7 && optionpickj == 1)
+                {
+                    color(Highlight());
+                    printf("UTC+4");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("毛里求斯");
+                }
+                //utc+4
+                go(96, 12);
+                if (optionpicki == 8 && optionpickj == 1)
+                {
+                    color(Highlight());
+                    printf("UTC+5");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("巴基斯坦");
+                }
+                //utc+5
+                go(0, 18);
+                if (optionpicki == 0 && optionpickj == 2)
+                {
+                    color(Highlight());
+                    printf("UTC+6");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("孟加拉");
+                }
+                //utc+6
+                go(14, 18);
+                if (optionpicki == 1 && optionpickj == 2)
+                {
+                    color(Highlight());
+                    printf("UTC+7");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("曼谷");
+                }
+                //utc+7
+                go(24, 18);
+                if (optionpicki == 2 && optionpickj == 2)
+                {
+                    color(Highlight());
+                    printf("UTC+8");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("北京");
+                }
+                //utc+8
+                go(34, 18);
+                if (optionpicki == 3 && optionpickj == 2)
+                {
+                    color(Highlight());
+                    printf("UTC+9");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("东京");
+                }
+                //utc+9
+                go(46, 18);
+                if (optionpicki == 4 && optionpickj == 2)
+                {
+                    color(Highlight());
+                    printf("UTC+10");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("关岛");
+                }
+                //utc+10
+                go(60, 18);
+                if (optionpicki == 5 && optionpickj == 2)
+                {
+                    color(Highlight());
+                    printf("UTC+11");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("瓦努阿图");
+                }
+                //utc+11
+                go(72, 18);
+                if (optionpicki == 6 && optionpickj == 2)
+                {
+                    color(Highlight());
+                    printf("UTC+12");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("斐济");
+                }
+                //utc+12
+                go(84, 18);
+                if (optionpicki == 7 && optionpickj == 2)
+                {
+                    color(Highlight());
+                    printf("UTC+13");
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("基里巴斯");
+                }
+                //utc+13
+                go(96, 18);
+                if (optionpicki == 8 && optionpickj == 2)
+                {
+                    color(Highlight());
+                    printf("UTC+14");
+                    color(DefaultColor());
+                }
+                else
+                {
+                    color(DefaultColor());
+                    printf("圣诞岛");
+                    color(DefaultColor());
+                }
+                //utc+14
             }
-            else
-            {
-                color(DefaultColor());
-                printf("国际换日线");
-            }
-            //utc-12
-            go(14, 6);
-            if (optionpicki == 1 && optionpickj == 0)
-            {
-                color(Highlight());
-                printf("UTC-11");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("中途岛");
-            }
-            //utc-11
-            go(24, 6);
-            if (optionpicki == 2 && optionpickj == 0)
-            {
-                color(Highlight());
-                printf("UTC-10");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("夏威夷");
-            }
-            //utc-10
-            go(34, 6);
-            if (optionpicki == 3 && optionpickj == 0)
-            {
-                color(Highlight());
-                printf("UTC-9");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("阿拉斯加");
-            }
-            //utc-9
-            go(46, 6);
-            if (optionpicki == 4 && optionpickj == 0)
-            {
-                color(Highlight());
-                printf("UTC-8");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("太平洋时间");
-            }
-            //utc-8
-            go(60, 6);
-            if (optionpicki == 5 && optionpickj == 0)
-            {
-                color(Highlight());
-                printf("UTC-7");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("山地时间");
-            }
-            //utc-7
-            go(72, 6);
-            if (optionpicki == 6 && optionpickj == 0)
-            {
-                color(Highlight());
-                printf("UTC-6");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("中部时间");
-            }
-            //utc-6
-            go(84, 6);
-            if (optionpicki == 7 && optionpickj == 0)
-            {
-                color(Highlight());
-                printf("UTC-5");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("东部时间");
-            }
-            //utc-5
-            go(96, 6);
-            if (optionpicki == 8 && optionpickj == 0)
-            {
-                color(Highlight());
-                printf("UTC-4");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("大西洋时间");
-            }
-            //utc-4
-            go(0, 12);
-            if (optionpicki == 0 && optionpickj == 1)
-            {
-                color(Highlight());
-                printf("UTC-3");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("巴西利亚");
-            }
-            //utc-3
-            go(14, 12);
-            if (optionpicki == 1 && optionpickj == 1)
-            {
-                color(Highlight());
-                printf("UTC-2");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("格陵兰");
-            }
-            //utc-2
-            go(24, 12);
-            if (optionpicki == 2 && optionpickj == 1)
-            {
-                color(Highlight());
-                printf("UTC-1");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("佛得角");
-            } //utc-1
-            go(34, 12);
-            if (optionpicki == 3 && optionpickj == 1)
-            {
-                color(Highlight());
-                printf("UTC+-0");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("伦敦");
-            }
-            //utc+-0
-            go(46, 12);
-            if (optionpicki == 4 && optionpickj == 1)
-            {
-                color(Highlight());
-                printf("UTC+1");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("柏林,巴黎");
-            }
-            //utc+1
-            go(60, 12);
-            if (optionpicki == 5 && optionpickj == 1)
-            {
-                color(Highlight());
-                printf("UTC+2");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("雅典,基辅");
-            }
-            //utc+2
-            go(72, 12);
-            if (optionpicki == 6 && optionpickj == 1)
-            {
-                color(Highlight());
-                printf("UTC+3");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("莫斯科");
-            }
-            //utc+3
-            go(84, 12);
-            if (optionpicki == 7 && optionpickj == 1)
-            {
-                color(Highlight());
-                printf("UTC+4");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("毛里求斯");
-            }
-            //utc+4
-            go(96, 12);
-            if (optionpicki == 8 && optionpickj == 1)
-            {
-                color(Highlight());
-                printf("UTC+5");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("巴基斯坦");
-            }
-            //utc+5
-            go(0, 18);
-            if (optionpicki == 0 && optionpickj == 2)
-            {
-                color(Highlight());
-                printf("UTC+6");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("孟加拉");
-            }
-            //utc+6
-            go(14, 18);
-            if (optionpicki == 1 && optionpickj == 2)
-            {
-                color(Highlight());
-                printf("UTC+7");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("曼谷");
-            }
-            //utc+7
-            go(24, 18);
-            if (optionpicki == 2 && optionpickj == 2)
-            {
-                color(Highlight());
-                printf("UTC+8");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("北京");
-            }
-            //utc+8
-            go(34, 18);
-            if (optionpicki == 3 && optionpickj == 2)
-            {
-                color(Highlight());
-                printf("UTC+9");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("东京");
-            }
-            //utc+9
-            go(46, 18);
-            if (optionpicki == 4 && optionpickj == 2)
-            {
-                color(Highlight());
-                printf("UTC+10");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("关岛");
-            }
-            //utc+10
-            go(60, 18);
-            if (optionpicki == 5 && optionpickj == 2)
-            {
-                color(Highlight());
-                printf("UTC+11");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("瓦努阿图");
-            }
-            //utc+11
-            go(72, 18);
-            if (optionpicki == 6 && optionpickj == 2)
-            {
-                color(Highlight());
-                printf("UTC+12");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("斐济");
-            }
-            //utc+12
-            go(84, 18);
-            if (optionpicki == 7 && optionpickj == 2)
-            {
-                color(Highlight());
-                printf("UTC+13");
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("基里巴斯");
-            }
-            //utc+13
-            go(96, 18);
-            if (optionpicki == 8 && optionpickj == 2)
-            {
-                color(Highlight());
-                printf("UTC+14");
-                color(DefaultColor());
-            }
-            else
-            {
-                color(DefaultColor());
-                printf("圣诞岛");
-                color(DefaultColor());
-            }
-            //utc+14
         }
     }
 }
@@ -875,9 +885,10 @@ void Skins()
         if (kbhit())
             key = getch();
         if (key == ESC)
-            main();
+            Settings();
         if (key == ENTER)
         {
+            //通过位置计算选择的设置并存入，并重新进入外观设置
             int settings[7];
             LoadSettings(settings);
             if (optionpickj != 1)
@@ -918,366 +929,375 @@ void Skins()
             color(DefaultColor());
             go(0, 0);
             printf("字符颜色");
-            go(14, 0);
-            if (optionpicki == 0 && optionpickj == 0)
+            //输出字符颜色一行
             {
-                color(BACKRED);
-                printf("红色");
-            }
-            else
-            {
-                color(RED);
-                printf("红色");
-            }
-            go(24, 0);
-            if (optionpicki == 1 && optionpickj == 0)
-            {
-                color(BACKGREEN);
-                printf("绿色");
-            }
-            else
-            {
-                color(GREEN);
-                printf("绿色");
-            }
-            go(34, 0);
-            if (optionpicki == 2 && optionpickj == 0)
-            {
-                color(BACKBLUE);
-                printf("蓝色");
-            }
-            else
-            {
-                color(BLUE);
-                printf("蓝色");
-            }
-            go(44, 0);
-            if (optionpicki == 3 && optionpickj == 0)
-            {
-                color(BACKYELLOW);
-                printf("黄色");
-            }
-            else
-            {
-                color(YELLOW);
-                printf("黄色");
-            }
-            go(54, 0);
-            if (optionpicki == 4 && optionpickj == 0)
-            {
-                color(BACKPURPLE);
-                printf("紫色");
-            }
-            else
-            {
-                color(PURPLE);
-                printf("紫色");
-            }
-            go(64, 0);
-            if (optionpicki == 5 && optionpickj == 0)
-            {
-                color(BACKGREY);
-                printf("灰色");
-            }
-            else
-            {
-                color(GREY);
-                printf("灰色");
-            }
-            go(74, 0);
-            if (optionpicki == 6 && optionpickj == 0)
-            {
-                color(BACKDEEPBLUE);
-                printf("深蓝色");
-            }
-            else
-            {
-                color(DEEPBLUE);
-                printf("深蓝色");
-            }
-            go(86, 0);
-            if (optionpicki == 7 && optionpickj == 0)
-            {
-                color(BACKBLACK);
-                printf("黑色");
-            }
-            else
-            {
-                color(BLACK);
-                printf("黑色");
+                go(14, 0);
+                if (optionpicki == 0 && optionpickj == 0)
+                {
+                    color(BACKRED);
+                    printf("红色");
+                }
+                else
+                {
+                    color(RED);
+                    printf("红色");
+                }
+                go(24, 0);
+                if (optionpicki == 1 && optionpickj == 0)
+                {
+                    color(BACKGREEN);
+                    printf("绿色");
+                }
+                else
+                {
+                    color(GREEN);
+                    printf("绿色");
+                }
+                go(34, 0);
+                if (optionpicki == 2 && optionpickj == 0)
+                {
+                    color(BACKBLUE);
+                    printf("蓝色");
+                }
+                else
+                {
+                    color(BLUE);
+                    printf("蓝色");
+                }
+                go(44, 0);
+                if (optionpicki == 3 && optionpickj == 0)
+                {
+                    color(BACKYELLOW);
+                    printf("黄色");
+                }
+                else
+                {
+                    color(YELLOW);
+                    printf("黄色");
+                }
+                go(54, 0);
+                if (optionpicki == 4 && optionpickj == 0)
+                {
+                    color(BACKPURPLE);
+                    printf("紫色");
+                }
+                else
+                {
+                    color(PURPLE);
+                    printf("紫色");
+                }
+                go(64, 0);
+                if (optionpicki == 5 && optionpickj == 0)
+                {
+                    color(BACKGREY);
+                    printf("灰色");
+                }
+                else
+                {
+                    color(GREY);
+                    printf("灰色");
+                }
+                go(74, 0);
+                if (optionpicki == 6 && optionpickj == 0)
+                {
+                    color(BACKDEEPBLUE);
+                    printf("深蓝色");
+                }
+                else
+                {
+                    color(DEEPBLUE);
+                    printf("深蓝色");
+                }
+                go(86, 0);
+                if (optionpicki == 7 && optionpickj == 0)
+                {
+                    color(BACKBLACK);
+                    printf("黑色");
+                }
+                else
+                {
+                    color(BLACK);
+                    printf("黑色");
+                }
             }
             go(0, 6);
             color(Highlight());
             printf("强调颜色");
-            go(14, 6);
-            if (optionpicki == 0 && optionpickj == 1)
+            //输出强调颜色一行
             {
-                color(BACKRED);
-                printf("红色");
-            }
-            else
-            {
-                color(RED);
-                printf("红色");
-            }
-            go(24, 6);
-            if (optionpicki == 1 && optionpickj == 1)
-            {
-                color(BACKGREEN);
-                printf("绿色");
-            }
-            else
-            {
-                color(GREEN);
-                printf("绿色");
-            }
-            go(34, 6);
-            if (optionpicki == 2 && optionpickj == 1)
-            {
-                color(BACKBLUE);
-                printf("蓝色");
-            }
-            else
-            {
-                color(BLUE);
-                printf("蓝色");
-            }
-            go(44, 6);
-            if (optionpicki == 3 && optionpickj == 1)
-            {
-                color(BACKYELLOW);
-                printf("黄色");
-            }
-            else
-            {
-                color(YELLOW);
-                printf("黄色");
-            }
-            go(54, 6);
-            if (optionpicki == 4 && optionpickj == 1)
-            {
-                color(BACKPURPLE);
-                printf("紫色");
-            }
-            else
-            {
-                color(PURPLE);
-                printf("紫色");
-            }
-            go(64, 6);
-            if (optionpicki == 5 && optionpickj == 1)
-            {
-                color(BACKGREY);
-                printf("灰色");
-            }
-            else
-            {
-                color(GREY);
-                printf("灰色");
-            }
-            go(74, 6);
-            if (optionpicki == 6 && optionpickj == 1)
-            {
-                color(BACKDEEPBLUE);
-                printf("深蓝色");
-            }
-            else
-            {
-                color(DEEPBLUE);
-                printf("深蓝色");
-            }
-            go(86, 6);
-            if (optionpicki == 7 && optionpickj == 1)
-            {
-                color(BACKBLACK);
-                printf("黑色");
-            }
-            else
-            {
-                color(BLACK);
-                printf("黑色");
-            }
-            go(0, 12);
-            color(Today());
-            printf("当日颜色");
-            go(14, 12);
-            if (optionpicki == 0 && optionpickj == 2)
-            {
-                color(BACKRED);
-                printf("红色");
-            }
-            else
-            {
-                color(RED);
-                printf("红色");
-            }
-            go(24, 12);
-            if (optionpicki == 1 && optionpickj == 2)
-            {
-                color(BACKGREEN);
-                printf("绿色");
-            }
-            else
-            {
-                color(GREEN);
-                printf("绿色");
-            }
-            go(34, 12);
-            if (optionpicki == 2 && optionpickj == 2)
-            {
-                color(BACKBLUE);
-                printf("蓝色");
-            }
-            else
-            {
-                color(BLUE);
-                printf("蓝色");
-            }
-            go(44, 12);
-            if (optionpicki == 3 && optionpickj == 2)
-            {
-                color(BACKYELLOW);
-                printf("黄色");
-            }
-            else
-            {
-                color(YELLOW);
-                printf("黄色");
-            }
-            go(54, 12);
-            if (optionpicki == 4 && optionpickj == 2)
-            {
-                color(BACKPURPLE);
-                printf("紫色");
-            }
-            else
-            {
-                color(PURPLE);
-                printf("紫色");
-            }
-            go(64, 12);
-            if (optionpicki == 5 && optionpickj == 2)
-            {
-                color(BACKGREY);
-                printf("灰色");
-            }
-            else
-            {
-                color(GREY);
-                printf("灰色");
-            }
-            go(74, 12);
-            if (optionpicki == 6 && optionpickj == 2)
-            {
-                color(BACKDEEPBLUE);
-                printf("深蓝色");
-            }
-            else
-            {
-                color(DEEPBLUE);
-                printf("深蓝色");
-            }
-            go(86, 12);
-            if (optionpicki == 7 && optionpickj == 2)
-            {
-                color(BACKBLACK);
-                printf("黑色");
-            }
-            else
-            {
-                color(BLACK);
-                printf("黑色");
+                go(14, 6);
+                if (optionpicki == 0 && optionpickj == 1)
+                {
+                    color(BACKRED);
+                    printf("红色");
+                }
+                else
+                {
+                    color(RED);
+                    printf("红色");
+                }
+                go(24, 6);
+                if (optionpicki == 1 && optionpickj == 1)
+                {
+                    color(BACKGREEN);
+                    printf("绿色");
+                }
+                else
+                {
+                    color(GREEN);
+                    printf("绿色");
+                }
+                go(34, 6);
+                if (optionpicki == 2 && optionpickj == 1)
+                {
+                    color(BACKBLUE);
+                    printf("蓝色");
+                }
+                else
+                {
+                    color(BLUE);
+                    printf("蓝色");
+                }
+                go(44, 6);
+                if (optionpicki == 3 && optionpickj == 1)
+                {
+                    color(BACKYELLOW);
+                    printf("黄色");
+                }
+                else
+                {
+                    color(YELLOW);
+                    printf("黄色");
+                }
+                go(54, 6);
+                if (optionpicki == 4 && optionpickj == 1)
+                {
+                    color(BACKPURPLE);
+                    printf("紫色");
+                }
+                else
+                {
+                    color(PURPLE);
+                    printf("紫色");
+                }
+                go(64, 6);
+                if (optionpicki == 5 && optionpickj == 1)
+                {
+                    color(BACKGREY);
+                    printf("灰色");
+                }
+                else
+                {
+                    color(GREY);
+                    printf("灰色");
+                }
+                go(74, 6);
+                if (optionpicki == 6 && optionpickj == 1)
+                {
+                    color(BACKDEEPBLUE);
+                    printf("深蓝色");
+                }
+                else
+                {
+                    color(DEEPBLUE);
+                    printf("深蓝色");
+                }
+                go(86, 6);
+                if (optionpicki == 7 && optionpickj == 1)
+                {
+                    color(BACKBLACK);
+                    printf("黑色");
+                }
+                else
+                {
+                    color(BLACK);
+                    printf("黑色");
+                }
+                go(0, 12);
+                color(Today());
+                printf("当日颜色");
+                go(14, 12);
+                if (optionpicki == 0 && optionpickj == 2)
+                {
+                    color(BACKRED);
+                    printf("红色");
+                }
+                else
+                {
+                    color(RED);
+                    printf("红色");
+                }
+                go(24, 12);
+                if (optionpicki == 1 && optionpickj == 2)
+                {
+                    color(BACKGREEN);
+                    printf("绿色");
+                }
+                else
+                {
+                    color(GREEN);
+                    printf("绿色");
+                }
+                go(34, 12);
+                if (optionpicki == 2 && optionpickj == 2)
+                {
+                    color(BACKBLUE);
+                    printf("蓝色");
+                }
+                else
+                {
+                    color(BLUE);
+                    printf("蓝色");
+                }
+                go(44, 12);
+                if (optionpicki == 3 && optionpickj == 2)
+                {
+                    color(BACKYELLOW);
+                    printf("黄色");
+                }
+                else
+                {
+                    color(YELLOW);
+                    printf("黄色");
+                }
+                go(54, 12);
+                if (optionpicki == 4 && optionpickj == 2)
+                {
+                    color(BACKPURPLE);
+                    printf("紫色");
+                }
+                else
+                {
+                    color(PURPLE);
+                    printf("紫色");
+                }
+                go(64, 12);
+                if (optionpicki == 5 && optionpickj == 2)
+                {
+                    color(BACKGREY);
+                    printf("灰色");
+                }
+                else
+                {
+                    color(GREY);
+                    printf("灰色");
+                }
+                go(74, 12);
+                if (optionpicki == 6 && optionpickj == 2)
+                {
+                    color(BACKDEEPBLUE);
+                    printf("深蓝色");
+                }
+                else
+                {
+                    color(DEEPBLUE);
+                    printf("深蓝色");
+                }
+                go(86, 12);
+                if (optionpicki == 7 && optionpickj == 2)
+                {
+                    color(BACKBLACK);
+                    printf("黑色");
+                }
+                else
+                {
+                    color(BLACK);
+                    printf("黑色");
+                }
             }
             go(0, 18);
             color(Result());
             printf("被查颜色");
-            go(14, 18);
-            if (optionpicki == 0 && optionpickj == 3)
+            //输出被查颜色一行
             {
-                color(BACKRED);
-                printf("红色");
-            }
-            else
-            {
-                color(RED);
-                printf("红色");
-            }
-            go(24, 18);
-            if (optionpicki == 1 && optionpickj == 3)
-            {
-                color(BACKGREEN);
-                printf("绿色");
-            }
-            else
-            {
-                color(GREEN);
-                printf("绿色");
-            }
-            go(34, 18);
-            if (optionpicki == 2 && optionpickj == 3)
-            {
-                color(BACKBLUE);
-                printf("蓝色");
-            }
-            else
-            {
-                color(BLUE);
-                printf("蓝色");
-            }
-            go(44, 18);
-            if (optionpicki == 3 && optionpickj == 3)
-            {
-                color(BACKYELLOW);
-                printf("黄色");
-            }
-            else
-            {
-                color(YELLOW);
-                printf("黄色");
-            }
-            go(54, 18);
-            if (optionpicki == 4 && optionpickj == 3)
-            {
-                color(BACKPURPLE);
-                printf("紫色");
-            }
-            else
-            {
-                color(PURPLE);
-                printf("紫色");
-            }
-            go(64, 18);
-            if (optionpicki == 5 && optionpickj == 3)
-            {
-                color(BACKGREY);
-                printf("灰色");
-            }
-            else
-            {
-                color(GREY);
-                printf("灰色");
-            }
-            go(74, 18);
-            if (optionpicki == 6 && optionpickj == 3)
-            {
-                color(BACKDEEPBLUE);
-                printf("深蓝色");
-            }
-            else
-            {
-                color(DEEPBLUE);
-                printf("深蓝色");
-            }
-            go(86, 18);
-            if (optionpicki == 7 && optionpickj == 3)
-            {
-                color(BACKBLACK);
-                printf("黑色");
-            }
-            else
-            {
-                color(BLACK);
-                printf("黑色");
+                go(14, 18);
+                if (optionpicki == 0 && optionpickj == 3)
+                {
+                    color(BACKRED);
+                    printf("红色");
+                }
+                else
+                {
+                    color(RED);
+                    printf("红色");
+                }
+                go(24, 18);
+                if (optionpicki == 1 && optionpickj == 3)
+                {
+                    color(BACKGREEN);
+                    printf("绿色");
+                }
+                else
+                {
+                    color(GREEN);
+                    printf("绿色");
+                }
+                go(34, 18);
+                if (optionpicki == 2 && optionpickj == 3)
+                {
+                    color(BACKBLUE);
+                    printf("蓝色");
+                }
+                else
+                {
+                    color(BLUE);
+                    printf("蓝色");
+                }
+                go(44, 18);
+                if (optionpicki == 3 && optionpickj == 3)
+                {
+                    color(BACKYELLOW);
+                    printf("黄色");
+                }
+                else
+                {
+                    color(YELLOW);
+                    printf("黄色");
+                }
+                go(54, 18);
+                if (optionpicki == 4 && optionpickj == 3)
+                {
+                    color(BACKPURPLE);
+                    printf("紫色");
+                }
+                else
+                {
+                    color(PURPLE);
+                    printf("紫色");
+                }
+                go(64, 18);
+                if (optionpicki == 5 && optionpickj == 3)
+                {
+                    color(BACKGREY);
+                    printf("灰色");
+                }
+                else
+                {
+                    color(GREY);
+                    printf("灰色");
+                }
+                go(74, 18);
+                if (optionpicki == 6 && optionpickj == 3)
+                {
+                    color(BACKDEEPBLUE);
+                    printf("深蓝色");
+                }
+                else
+                {
+                    color(DEEPBLUE);
+                    printf("深蓝色");
+                }
+                go(86, 18);
+                if (optionpicki == 7 && optionpickj == 3)
+                {
+                    color(BACKBLACK);
+                    printf("黑色");
+                }
+                else
+                {
+                    color(BLACK);
+                    printf("黑色");
+                }
             }
         }
     }

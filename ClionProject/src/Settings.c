@@ -1,11 +1,9 @@
 #include "connection.h"
-void color(int);
 void HourFormat();
 void Format();
 void PrintTimeZone();
 void LoadSettings(int[]);
 void SetSettings(int[]);
-void go(int, int);
 void Skins();
 
 void Settings()

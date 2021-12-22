@@ -18,17 +18,33 @@ void AddSchedule(void)
     FILE *fp;
     fp = fopen("schedule.dat", "ab+");
 
-    system("cls");
-    //边框
-    PrintRows(42, 75, 8, UP);
-    PrintColumns(9, 13, 42); //左
-    PrintRows(42, 75, 14, DOWN);
-    PrintColumns(9, 13, 75); //右
-    go(45, 10);
-    printf("请输入要添加的日期(年 月 日)");
-    go(53, 12);
-    printf("____ __ __\b\b\b\b\b\b\b\b\b\b");
-    scanf("%d%d%d", &S.yy, &S.mm, &S.dd);
+
+    while (1)
+    {
+        system("cls");
+        //边框
+        PrintRows(42, 75, 8, UP);
+        PrintColumns(9, 13, 42); //左
+        PrintRows(42, 75, 14, DOWN);
+        PrintColumns(9, 13, 75); //右
+        go(45, 10);
+        printf("请输入要添加的日期(年 月 日)");
+        go(53, 12);
+        printf("____ __ __\b\b\b\b\b\b\b\b\b\b");
+        scanf("%d%d%d", &S.yy, &S.mm, &S.dd);
+        if (S.mm > 12 || S.mm < 1 || S.dd < 1 || S.dd > NumberOfDays(S.mm - 1, S.yy))
+        {
+            system("cls");
+            go(53, 12);
+            color(DefaultColor());
+            printf("日期格式不正确！");
+            Sleep(1500);
+        }
+        else
+            break;
+    }
+
+
 
     system("cls");
     //边框

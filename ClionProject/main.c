@@ -103,20 +103,20 @@ void printUI(int yy, int mm, int dd)
                 //判断按下的键并执行相应操作
                 {
                     if (key == LEFT2)
-                        //键盘左键按下
+                        //键盘左键按下，输出上个月
                         if (i != 0)
                             i--;
                         else
                             i = 11, year--;
                     if (key == RIGHT2)
-                        //键盘右键按下
+                        //键盘右键按下，输出下个月
                         if (i != 11)
                             i++;
                         else
                             i = 0, year++;
 
                     if (key == UP2)
-                        //键盘上键按下，选择选项
+                        //键盘上键按下，选择选项（建议阅读时折叠）
                         switch (optionpick)
                         {
                         case 1:
@@ -247,7 +247,7 @@ void printUI(int yy, int mm, int dd)
                             break;
                         }
                     else if (key == DOWN2)
-                        //键盘下键按下，选择选项
+                        //键盘下键按下，选择选项（建议阅读时折叠）
                         switch (optionpick)
                         {
                         case 5:
@@ -404,7 +404,7 @@ void printUI(int yy, int mm, int dd)
                                 }
                                 else
                                 {
-                                    printUI(yy1, mm1, dd1);
+                                    printUI(yy1, mm1, dd1);//指定日期重新绘制UI
                                     break;
                                 }
                             }
@@ -425,6 +425,7 @@ void printUI(int yy, int mm, int dd)
                         }
                     }
                     else
+                    //建议阅读时折叠
                     {
                         go(50, 9);
                         color(Highlight());

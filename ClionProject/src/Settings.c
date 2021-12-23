@@ -14,7 +14,7 @@ void Settings()
     while (1)
     {
         int key = 0;
-        if (kbhit())
+        if (kbhit())//如果键盘被点击
             key = getch();
         if (key == ENTER)
         {
@@ -42,6 +42,7 @@ void Settings()
             if (kbhit())
                 key = getch();
             if (key == UP2)
+                //键盘上键被按下（建议阅读时折叠）
                 switch (optionpick)
                 {
                 case 1:
@@ -146,6 +147,7 @@ void Settings()
                     break;
                 }
             if (key == DOWN2)
+                //键盘下键被按下（建议阅读时折叠）
                 switch (optionpick)
                 {
                 case 4:
@@ -251,6 +253,7 @@ void Settings()
                 }
         }
         if (start == 0)
+        //第一次启动时无条件输出选项（建议阅读时折叠）
         {
             start = 1;
             system("cls");
@@ -354,7 +357,7 @@ void PrintTimeZone()
     int settings[7];
     LoadSettings(settings);
 
-    //读取设置并设置焦点为设置的时区
+    //读取设置并设置焦点为设置的时区（建议阅读时折叠）
     switch (settings[0])
     {
     case -12:
@@ -504,11 +507,11 @@ void PrintTimeZone()
         if (key == ESC)
             Settings();
         if (key == ENTER)
+            //通过位置计算对应时区并存入设置，切换回设置页面
         {
             settings[0] = optionpicki + optionpickj * 9 - 12;
             SetSettings(settings);
             Settings();
-            //通过位置计算对应时区并存入设置，切换回设置页面
         }
         if (key == ARROW || start == 0)
         {
@@ -517,7 +520,7 @@ void PrintTimeZone()
             if (kbhit())
                 key = getch();
             switch (key)
-            //实现左右上下的选项循环
+            //实现左右上下的选项循环（边界判断）
             {
             case UP2:
                 optionpickj = (optionpickj == 0) ? 2 : (optionpickj - 1);
@@ -540,7 +543,7 @@ void PrintTimeZone()
             }
 
             system("cls");
-            //输出时区表并将设置的时区输出为强调色
+            //输出时区表并将设置的时区输出为强调色（建议阅读时折叠）
             {
                 go(0, 6);
                 if (optionpicki == 0 && optionpickj == 0)
@@ -887,8 +890,8 @@ void Skins()
         if (key == ESC)
             Settings();
         if (key == ENTER)
+            //通过位置计算出所选并存入设置，并重新进入外观设置界面
         {
-            //通过位置计算选择的设置并存入，并重新进入外观设置
             int settings[7];
             LoadSettings(settings);
             if (optionpickj != 1)
@@ -904,6 +907,7 @@ void Skins()
             if (kbhit())
                 key = getch();
             switch (key)
+            //边界判断
             {
             case UP2:
                 optionpickj = (optionpickj == 0) ? 3 : (optionpickj - 1);
@@ -929,7 +933,7 @@ void Skins()
             color(DefaultColor());
             go(0, 0);
             printf("字符颜色");
-            //输出字符颜色一行
+            //输出字符颜色一行（建议阅读时折叠）
             {
                 go(14, 0);
                 if (optionpicki == 0 && optionpickj == 0)
@@ -1023,7 +1027,7 @@ void Skins()
             go(0, 6);
             color(Highlight());
             printf("强调颜色");
-            //输出强调颜色一行
+            //输出强调颜色一行（建议阅读时折叠）
             {
                 go(14, 6);
                 if (optionpicki == 0 && optionpickj == 1)
@@ -1208,7 +1212,7 @@ void Skins()
             go(0, 18);
             color(Result());
             printf("被查颜色");
-            //输出被查颜色一行
+            //输出被查颜色一行（建议阅读时折叠）
             {
                 go(14, 18);
                 if (optionpicki == 0 && optionpickj == 3)

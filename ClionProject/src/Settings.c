@@ -496,8 +496,7 @@ void PrintTimeZone()
         break;
     }
 
-    system("cls");
-    //«Â∆¡
+    system("cls");//«Â∆¡
 
     while (1)
     {
@@ -906,8 +905,7 @@ void Skins()
             start = 1;
             if (kbhit())
                 key = getch();
-            switch (key)
-            //±ﬂΩÁ≈–∂œ
+            switch (key)//±ﬂΩÁ≈–∂œ
             {
             case UP2:
                 optionpickj = (optionpickj == 0) ? 3 : (optionpickj - 1);
